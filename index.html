@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #fafbfc;
-            --bg-secondary: #f0f4f8;
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #e8edf3;
             --bg-card: #ffffff;
             --text-primary: #1a1a2e;
-            --text-secondary: #4a5568;
-            --text-muted: #718096;
+            --text-secondary: #374151;
+            --text-muted: #5a6578;
             --blue: #1e5a99;
             --blue-dark: #164573;
             --blue-light: rgba(30, 90, 153, 0.08);
@@ -954,8 +954,19 @@
         }
 
         @media (max-width: 768px) {
+            /* Navigation */
             nav ul {
                 display: none;
+            }
+
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            /* Hero section */
+            .hero {
+                padding: 5rem 1.25rem 2rem;
+                min-height: auto;
             }
 
             .hero-brand {
@@ -977,55 +988,233 @@
 
             .hero .hero-motto {
                 font-size: 1.5rem;
-            }
-
-            footer .footer-motto {
-                font-size: 1.75rem;
+                margin-bottom: 1.25rem;
             }
 
             .hero .tagline {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
-            .product-bundle-box .bundle-items {
-                flex-direction: column;
-            }
-
-            .bundle-plus {
-                transform: rotate(90deg);
-            }
-
-            section {
-                padding: 3.5rem 1.5rem;
-            }
-
-            section h2 {
-                font-size: 1.65rem;
-            }
-
-            .stat-card .number {
-                font-size: 1.75rem;
-            }
-
-            .pricing-card.featured::before {
-                display: none;
-            }
-
+            /* Trust badges */
             .trust-badges {
-                gap: 0.5rem;
+                gap: 0.4rem;
+                margin: 1rem 0;
             }
 
             .trust-badge {
-                font-size: 0.7rem;
-                padding: 0.375rem 0.75rem;
+                font-size: 0.65rem;
+                padding: 0.3rem 0.6rem;
             }
 
+            /* Product bundle box - compact for mobile */
+            .product-bundle-box {
+                padding: 1rem;
+                margin: 1rem auto;
+                max-width: 100%;
+            }
+
+            .product-bundle-box .bundle-label {
+                font-size: 0.65rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .product-bundle-box .bundle-items {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;
+            }
+
+            .bundle-item {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.7rem;
+                gap: 0.25rem;
+            }
+
+            .bundle-item .icon {
+                font-size: 0.85rem;
+            }
+
+            .bundle-plus {
+                font-size: 0.75rem;
+                display: none;
+            }
+
+            .product-bundle-box .bundle-tagline {
+                font-size: 0.75rem;
+                margin-top: 0.5rem;
+            }
+
+            /* CTA buttons */
+            .hero .cta-group {
+                flex-direction: column;
+                gap: 0.75rem;
+                margin: 1.5rem 0 1rem;
+            }
+
+            .hero .cta-group .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero .contact-info {
+                font-size: 0.8rem;
+                margin-top: 1rem;
+            }
+
+            /* Sections */
+            section {
+                padding: 2.5rem 1.25rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            section h3 {
+                font-size: 1.1rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+
+            /* Card grids - SINGLE COLUMN on mobile */
+            .card-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1.25rem;
+            }
+
+            .card-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            /* Product showcase */
             .product-showcase {
                 flex-direction: column;
+                gap: 1.5rem;
             }
 
+            .product-showcase > div {
+                max-width: 100% !important;
+            }
+
+            .product-image {
+                max-width: 220px;
+            }
+
+            /* Stats grid - 2 columns on mobile */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .stat-card {
+                padding: 1rem 0.75rem;
+            }
+
+            .stat-card .number {
+                font-size: 1.5rem;
+            }
+
+            .stat-card .label {
+                font-size: 0.75rem;
+            }
+
+            /* Pricing grid - single column */
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .pricing-card {
+                padding: 1.5rem;
+            }
+
+            .pricing-card .price {
+                font-size: 2rem;
+            }
+
+            .pricing-card.featured::before {
+                top: -10px;
+                font-size: 0.6rem;
+                padding: 0.2rem 0.75rem;
+            }
+
+            /* Tables - ensure horizontal scroll */
+            .table-wrapper {
+                margin: 1rem -1.25rem;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 0.625rem 0.75rem;
+            }
+
+            /* Quotes */
+            blockquote {
+                padding: 1rem 1.25rem;
+                margin: 1rem 0;
+            }
+
+            blockquote p {
+                font-size: 0.9rem;
+            }
+
+            /* Two column layout */
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Highlight box */
+            .highlight-box {
+                padding: 1.25rem;
+                margin: 1.5rem auto !important;
+            }
+
+            /* Timeline */
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Co-founder box */
             .cofounder-box {
-                padding: 1.75rem;
+                padding: 1.5rem;
+            }
+
+            .cofounder-box h3 {
+                font-size: 1.25rem;
+            }
+
+            /* Footer */
+            footer {
+                padding: 2.5rem 1.25rem;
+            }
+
+            footer .footer-motto {
+                font-size: 1.5rem;
+            }
+
+            footer h2 {
+                font-size: 1.25rem;
+            }
+
+            /* Full width sections */
+            .full-width .container {
+                padding: 0 1.25rem;
             }
         }
     </style>
@@ -1077,25 +1266,13 @@
             <div class="product-bundle-box">
                 <div class="bundle-label">What You Get</div>
                 <div class="bundle-items">
-                    <div class="bundle-item">
-                        <span class="icon">&#128187;</span>
-                        <span>Hardware</span>
-                    </div>
+                    <div class="bundle-item">Hardware</div>
                     <span class="bundle-plus">+</span>
-                    <div class="bundle-item">
-                        <span class="icon">&#9881;</span>
-                        <span>Software</span>
-                    </div>
+                    <div class="bundle-item">Software</div>
                     <span class="bundle-plus">+</span>
-                    <div class="bundle-item">
-                        <span class="icon">&#128218;</span>
-                        <span>Knowledge Pack</span>
-                    </div>
+                    <div class="bundle-item">Knowledge Pack</div>
                     <span class="bundle-plus">+</span>
-                    <div class="bundle-item">
-                        <span class="icon">&#128193;</span>
-                        <span>Your Documents</span>
-                    </div>
+                    <div class="bundle-item">Your Documents</div>
                 </div>
                 <p class="bundle-tagline">A complete AI workstation for your profession. Add your own knowledge anytime.</p>
             </div>
@@ -1198,22 +1375,18 @@
                 <div style="max-width: 500px;">
                     <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
                         <div class="card">
-                            <div class="card-icon">&#128274;</div>
                             <h4>100% Private</h4>
                             <p>No cloud. No radios. No network stack. Data never leaves your desk.</p>
                         </div>
                         <div class="card">
-                            <div class="card-icon">&#128176;</div>
                             <h4>One-Time Purchase</h4>
                             <p>EUR 1,999-2,999 once. No subscription. No monthly fees.</p>
                         </div>
                         <div class="card">
-                            <div class="card-icon">&#9889;</div>
                             <h4>Turnkey Setup</h4>
                             <p>Plug in via USB-C. No IT staff. Works immediately.</p>
                         </div>
                         <div class="card">
-                            <div class="card-icon">&#128218;</div>
                             <h4>Knowledge Pack</h4>
                             <p>Domain corpus + profession-tuned AI. Laws, codes, templates — optimized for your field.</p>
                         </div>
@@ -1433,18 +1606,18 @@
 
         <div class="card-grid">
             <div class="card">
-                <div class="card-icon">&#129504;</div>
+                <div class="card-icon">1</div>
                 <h4>1. Local AI Crossed the Threshold</h4>
                 <p>Vision-Language Models (4-8B parameters) now run on edge hardware. They can read scanned documents - stamps, signatures, degraded text.</p>
                 <p style="margin-top: 0.75rem; font-style: italic; font-size: 0.85rem; color: var(--text-muted);">For RAG on specific documents, small models often outperform GPT-4 - less hallucination when restricted to local context.</p>
             </div>
             <div class="card">
-                <div class="card-icon">&#9878;</div>
+                <div class="card-icon">2</div>
                 <h4>2. Regulation Is Tightening</h4>
                 <p>GDPR enforcement: EUR 1.6B in fines in 2023. EU AI Act GPAI rules active August 2025. Professional bodies issuing guidance against cloud AI.</p>
             </div>
             <div class="card">
-                <div class="card-icon">&#127919;</div>
+                <div class="card-icon">3</div>
                 <h4>3. Cloud Giants Won't Serve This Market</h4>
                 <p>Microsoft, Google, OpenAI optimize for scale: English-first, enterprise-first. Minimum viable customer = $100K+/year.</p>
                 <p class="key-point" style="text-align: left; margin-top: 0.75rem; margin-bottom: 0;">The window is open.</p>
