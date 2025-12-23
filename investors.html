@@ -367,6 +367,40 @@
             font-size: 0.85rem;
         }
 
+        /* Source Tooltips */
+        .source-tip {
+            position: relative;
+            cursor: help;
+            font-size: 0.6em;
+            vertical-align: super;
+            color: var(--blue);
+            margin-left: 2px;
+        }
+        .source-tip::after {
+            content: attr(data-source);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 400;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+        }
+        .source-tip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Timeline */
         .timeline {
             position: relative;
@@ -687,11 +721,11 @@
                 <h3 style="margin-top: 0;">Why Italy Second?</h3>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="number">247K</div>
+                        <div class="number">247K<span class="source-tip" data-source="Cassa Forense 2023">*</span></div>
                         <div class="label">Italian Lawyers</div>
                     </div>
                     <div class="stat-card">
-                        <div class="number">63.8%</div>
+                        <div class="number">63.8%<span class="source-tip" data-source="Cassa Forense 2023">*</span></div>
                         <div class="label">Solo Practitioners</div>
                     </div>
                 </div>
@@ -1107,6 +1141,11 @@
             <img src="logo-white.png" alt="Inteligentia" class="footer-logo">
             <span class="footer-brand-name">inteligentia</span>
         </div>
+        <p class="footer-disclaimer" style="margin-top: 2rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+            Inteligentia is built to minimize data transfer risk and support auditability.
+            Customers remain responsible for their professional and regulatory obligations.
+            This product is a research and productivity tool - it does not replace professional judgment or legal advice.
+        </p>
     </footer>
 
     <script>
