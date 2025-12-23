@@ -779,6 +779,40 @@
             font-size: 0.85rem;
         }
 
+        /* Source Tooltips */
+        .source-tip {
+            position: relative;
+            cursor: help;
+            font-size: 0.6em;
+            vertical-align: super;
+            color: var(--blue);
+            margin-left: 2px;
+        }
+        .source-tip::after {
+            content: attr(data-source);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 400;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+        }
+        .source-tip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Feature List */
         .feature-list {
             list-style: none;
@@ -1537,7 +1571,7 @@
         <h3>The Market Opportunity</h3>
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="number">10.7M<sup>1</sup></div>
+                <div class="number">10.7M<span class="source-tip" data-source="European Commission regulated professions database">*</span></div>
                 <div class="label">EU Regulated Professionals</div>
             </div>
             <div class="stat-card">
@@ -1834,7 +1868,7 @@
             <div class="card">
                 <div class="card-icon">2</div>
                 <h4>Regulation Is Tightening</h4>
-                <p>GDPR enforcement: EUR 1.6B in fines in 2023<sup>2</sup>. EU AI Act introduces new compliance requirements for AI systems. Professional bodies issuing guidance against cloud AI.</p>
+                <p>GDPR enforcement: EUR 1.6B in fines in 2023<span class="source-tip" data-source="CMS GDPR Enforcement Tracker">*</span>. EU AI Act introduces new compliance requirements for AI systems. Professional bodies issuing guidance against cloud AI.</p>
             </div>
             <div class="card">
                 <div class="card-icon">3</div>
@@ -1943,11 +1977,11 @@
                 <h3 style="margin-top: 0;">Why Italy Second?</h3>
                 <div class="stats-grid" style="grid-template-columns: 1fr 1fr;">
                     <div class="stat-card">
-                        <div class="number">247K<sup>3</sup></div>
+                        <div class="number">247K<span class="source-tip" data-source="Cassa Forense 2023">*</span></div>
                         <div class="label">Italian Lawyers</div>
                     </div>
                     <div class="stat-card">
-                        <div class="number">63.8%<sup>3</sup></div>
+                        <div class="number">63.8%<span class="source-tip" data-source="Cassa Forense 2023">*</span></div>
                         <div class="label">Solo Practitioners</div>
                     </div>
                 </div>
@@ -2169,18 +2203,6 @@
                 Help build the infrastructure layer for private professional AI.</p>
                 <a href="mailto:info@inteligentia.eu?subject=Inteligentia%20-%20Co-Founder%20Interest" class="btn btn-lg">Let's Talk</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Sources -->
-    <section class="sources-section" style="padding: 2rem 0; border-top: 1px solid var(--border);">
-        <div class="container" style="max-width: 800px;">
-            <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Sources</h4>
-            <ol style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.8; padding-left: 1.25rem;">
-                <li>European Commission regulated professions database; includes legal, medical, accounting, and consulting professionals across EU member states.</li>
-                <li>CMS GDPR Enforcement Tracker, 2023 annual summary. <a href="https://www.enforcementtracker.com" style="color: var(--blue);">enforcementtracker.com</a></li>
-                <li>Cassa Forense (Italian Bar Association pension fund) 2023 statistical report on registered attorneys.</li>
-            </ol>
         </div>
     </section>
 
