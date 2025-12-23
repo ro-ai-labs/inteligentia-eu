@@ -35,6 +35,33 @@
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-xl: 24px;
+            --nav-bg: rgba(255, 255, 255, 0.92);
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a2332;
+            --bg-card: #1e2a3a;
+            --text-primary: #e8edf3;
+            --text-secondary: #a8b5c4;
+            --text-muted: #6b7a8a;
+            --blue: #4a9eff;
+            --blue-dark: #3d8be6;
+            --blue-light: rgba(74, 158, 255, 0.15);
+            --blue-lighter: rgba(74, 158, 255, 0.08);
+            --accent: #4a9eff;
+            --green: #34d399;
+            --green-light: rgba(52, 211, 153, 0.15);
+            --red: #f87171;
+            --orange: #fbbf24;
+            --orange-light: rgba(251, 191, 36, 0.15);
+            --border: rgba(74, 158, 255, 0.15);
+            --border-strong: rgba(74, 158, 255, 0.25);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+            --nav-bg: rgba(15, 20, 25, 0.95);
         }
 
         * {
@@ -62,12 +89,49 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.92);
+            background: var(--nav-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 0.875rem 2rem;
             border-bottom: 1px solid var(--border);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+
+        .theme-toggle .icon-light,
+        .theme-toggle .icon-dark {
+            display: none;
+        }
+
+        :root .theme-toggle .icon-light {
+            display: block;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-dark {
+            display: block;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-light {
+            display: none;
         }
 
         nav .container {
@@ -1235,6 +1299,10 @@
                 <li><a href="#team">Team</a></li>
             </ul>
             <div class="nav-cta">
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                    <span class="icon-light">&#9790;</span>
+                    <span class="icon-dark">&#9788;</span>
+                </button>
                 <a href="mailto:info@inteligentia.eu" class="btn btn-primary">Get in Touch</a>
             </div>
         </div>
@@ -1686,6 +1754,73 @@
                     <div class="number">70%+</div>
                     <div class="label">Projected Update Renewal</div>
                 </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 2.5rem;">Lifetime Value Analysis</h3>
+            <div class="table-wrapper" style="max-width: 800px; margin: 1rem auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Revenue Component</th>
+                            <th>Core (NX 16GB)</th>
+                            <th>Premium (AGX 64GB)</th>
+                            <th>Assumptions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hardware + Pack (Day 0)</strong></td>
+                            <td>EUR 1,999</td>
+                            <td>EUR 2,999</td>
+                            <td>One-time purchase</td>
+                        </tr>
+                        <tr>
+                            <td>Updates (Year 3-6)</td>
+                            <td>EUR 336</td>
+                            <td>EUR 336</td>
+                            <td>70% renew × EUR 120 × 4 years</td>
+                        </tr>
+                        <tr>
+                            <td>Specialty Packs</td>
+                            <td>EUR 90</td>
+                            <td>EUR 120</td>
+                            <td>30% attach rate × EUR 299 avg</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>5-Year LTV</strong></td>
+                            <td><strong>EUR 2,425</strong></td>
+                            <td><strong>EUR 3,455</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 2.5rem;">Revenue Mix Projection (Year 3)</h3>
+            <div class="stats-grid" style="max-width: 900px; margin: 1rem auto;">
+                <div class="stat-card">
+                    <div class="number">65%</div>
+                    <div class="label">Hardware + Pack Sales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">25%</div>
+                    <div class="label">Update Subscriptions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">10%</div>
+                    <div class="label">Specialty Packs</div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="max-width: 800px; margin: 2rem auto;">
+                <h4>Path to Recurring Revenue</h4>
+                <p>By Year 3, the installed base generates predictable service revenue. With 1,000+ devices deployed:</p>
+                <ul style="margin-top: 0.75rem; padding-left: 1.5rem; color: var(--text-secondary);">
+                    <li><strong>Update renewals:</strong> ~EUR 84K/year (70% of installed base × EUR 120)</li>
+                    <li><strong>New Pack sales:</strong> ~EUR 30K/year (30% attach rate on new verticals)</li>
+                    <li><strong>Total recurring:</strong> ~EUR 114K/year growing with installed base</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>The hardware sale is the wedge. The Pack ecosystem is the flywheel.</strong></p>
             </div>
         </div>
     </section>
@@ -2143,6 +2278,29 @@
     </footer>
 
     <script>
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            if (newTheme === 'dark') {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.removeAttribute('data-theme');
+            }
+
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Apply saved theme on load
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
