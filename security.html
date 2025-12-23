@@ -272,12 +272,6 @@
             margin-top: 0;
             margin-bottom: 1rem;
             color: var(--blue);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .security-card h3 .icon {
-            font-size: 1.5rem;
         }
         .security-card p {
             color: var(--text-secondary);
@@ -432,7 +426,7 @@
         <div class="hero-content">
             <span class="badge badge-green">Security &amp; Privacy</span>
             <h1>Air-Gapped by Design</h1>
-            <p>Inteligentia is built from the ground up for professionals who handle confidential information. No cloud. No telemetry. No compromises.</p>
+            <p>Inteligentia is built from the ground up for professionals who handle confidential information. No cloud. No telemetry. Privacy by architecture.</p>
         </div>
     </section>
 
@@ -444,13 +438,13 @@
         </div>
 
         <div class="security-card">
-            <h3><span class="icon">&#128274;</span> No Radio Hardware</h3>
+            <h3>No Radio Hardware</h3>
             <p>The Inteligentia appliance has <strong>no Wi-Fi, no Bluetooth, no cellular, no Ethernet</strong>. We use strict "No-Radio SKUs" from our supplier and verify each device has no M.2 WiFi module installed.</p>
             <p>This isn't software-disabled networking. The radio hardware <strong>physically does not exist</strong> in the device.</p>
         </div>
 
         <div class="security-card">
-            <h3><span class="icon">&#128267;</span> USB-C Only Connectivity</h3>
+            <h3>USB-C Data Connectivity</h3>
             <p>The only external interface is USB-C, used for:</p>
             <ul>
                 <li>Storage mounting (your documents in, results out)</li>
@@ -461,7 +455,7 @@
         </div>
 
         <div class="security-card">
-            <h3><span class="icon">&#128737;</span> Sealed Enclosure</h3>
+            <h3>Sealed Enclosure</h3>
             <p>Hardware is manufactured in Asia, but the "Brain" is flashed and the enclosure is physically sealed in <strong>Romania</strong> under our direct supervision. This provides chain-of-custody assurance.</p>
         </div>
     </section>
@@ -475,19 +469,19 @@
             </div>
 
             <div class="security-card">
-                <h3><span class="icon">&#128272;</span> LUKS Encryption at Rest</h3>
+                <h3>LUKS Encryption at Rest</h3>
                 <p>All user data is stored on a LUKS-encrypted partition. The encryption key is derived from your password and protected by the TPM (Trusted Platform Module).</p>
                 <p>This means your data is encrypted even if someone physically removes the storage drive.</p>
             </div>
 
             <div class="security-card">
-                <h3><span class="icon">&#128100;</span> Trust On First Use (TOFU)</h3>
+                <h3>Trust On First Use (TOFU)</h3>
                 <p>When you first plug in your Inteligentia device, you create a master password. This establishes you as the device owner - no account creation, no email verification, no cloud authentication.</p>
                 <p><strong>The first user becomes the owner.</strong> This is the same security model used in secure communication apps like Signal.</p>
             </div>
 
             <div class="security-card">
-                <h3><span class="icon">&#9888;</span> The Duress Protocol</h3>
+                <h3>The Duress Protocol</h3>
                 <p>For high-security situations, Inteligentia supports a duress password feature:</p>
                 <ul>
                     <li><strong>Master Password:</strong> Decrypts and boots normally</li>
@@ -502,17 +496,17 @@
     <section>
         <div class="section-header">
             <h2>Zero Telemetry</h2>
-            <p class="section-subtitle">We don't collect data because we literally can't.</p>
+            <p class="section-subtitle">No network hardware means no data collection capability.</p>
         </div>
 
         <div class="security-card">
-            <h3><span class="icon">&#128683;</span> No Outbound Connections</h3>
+            <h3>No Outbound Connections</h3>
             <p>The appliance never initiates outbound connections. It has no network stack, no DNS resolution, no ability to "phone home."</p>
             <p>Updates are fetched by the companion app on your computer (when you're online), cryptographically verified, and then pushed to the device over USB. <strong>The device itself never touches the internet.</strong></p>
         </div>
 
         <div class="security-card">
-            <h3><span class="icon">&#128269;</span> No Usage Analytics</h3>
+            <h3>No Usage Analytics</h3>
             <p>We don't track:</p>
             <ul>
                 <li>What documents you upload</li>
@@ -520,7 +514,7 @@
                 <li>How often you use the device</li>
                 <li>Any usage patterns whatsoever</li>
             </ul>
-            <p style="margin-top: 1rem;">This isn't a privacy policy promise - it's a physical impossibility given the hardware architecture.</p>
+            <p style="margin-top: 1rem;">This is enforced by hardware architecture, not just policy.</p>
         </div>
 
         <p class="key-point">If the device works in airplane mode, your data stayed on your desk.</p>
@@ -535,7 +529,7 @@
             </div>
 
             <div class="security-card">
-                <h3><span class="icon">&#128190;</span> Signed Updates via USB</h3>
+                <h3>Signed Updates via USB</h3>
                 <p>Software and Knowledge Pack updates follow a secure process:</p>
                 <ul>
                     <li>Updates are signed with our private key</li>
@@ -562,7 +556,7 @@
         </div>
 
         <div class="security-card">
-            <h3><span class="icon">&#127987;</span> Built for GDPR-Aligned Workflows</h3>
+            <h3>Built for GDPR-Aligned Workflows</h3>
             <p>By keeping all data processing local and eliminating data transfers:</p>
             <ul>
                 <li>No third-party data processors to manage</li>
@@ -574,7 +568,7 @@
         </div>
 
         <div class="security-card">
-            <h3><span class="icon">&#128203;</span> Audit-Ready Architecture</h3>
+            <h3>Audit-Ready Architecture</h3>
             <p>Our deterministic build process and hash verification allow security auditors to:</p>
             <ul>
                 <li>Verify the exact software running on any device</li>
