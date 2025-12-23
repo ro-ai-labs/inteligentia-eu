@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inteligentia: Intelligence you own, not rent</title>
+    <meta name="description" content="Offline AI appliance for regulated professionals. Hardware + software + knowledge pack. Works in airplane mode with cited answers. Own it forever.">
+    <meta name="theme-color" content="#0f1419">
+    <link rel="canonical" href="https://inteligentia.eu/">
+    <link rel="alternate" hreflang="en" href="https://inteligentia.eu/">
+    <link rel="alternate" hreflang="ro" href="https://inteligentia.eu/index-ro.html">
+    <link rel="alternate" hreflang="x-default" href="https://inteligentia.eu/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="inteligentia">
+    <meta property="og:title" content="inteligentia - Intelligence you own, not rent">
+    <meta property="og:description" content="Offline AI appliance for regulated professionals. Hardware + software + knowledge pack. Works in airplane mode with cited answers. Own it forever.">
+    <meta property="og:url" content="https://inteligentia.eu/">
+    <meta property="og:image" content="https://inteligentia.eu/concept.jpg">
+    <meta property="og:image:alt" content="Inteligentia offline AI appliance">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="inteligentia - Intelligence you own, not rent">
+    <meta name="twitter:description" content="Offline AI appliance for regulated professionals. Hardware + software + knowledge pack. Works in airplane mode with cited answers. Own it forever.">
+    <meta name="twitter:image" content="https://inteligentia.eu/concept.jpg">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +57,7 @@
             --radius-lg: 16px;
             --radius-xl: 24px;
             --nav-bg: rgba(15, 20, 25, 0.95);
+            --nav-offset: 88px;
         }
 
         /* Light Theme */
@@ -75,6 +94,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-offset);
         }
 
         body {
@@ -84,6 +104,29 @@
             line-height: 1.6;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
+        }
+
+        section {
+            scroll-margin-top: var(--nav-offset);
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -40px;
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none;
+            font-size: 0.85rem;
+            z-index: 1100;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
         }
 
         /* Navigation */
@@ -171,7 +214,7 @@
             letter-spacing: -0.5px;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
@@ -193,6 +236,65 @@
             display: flex;
             gap: 0.75rem;
             align-items: center;
+        }
+
+        .nav-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-card);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .nav-toggle:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+
+        .nav-toggle-icon,
+        .nav-toggle-icon::before,
+        .nav-toggle-icon::after {
+            content: '';
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            position: relative;
+            transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-toggle-icon::before {
+            position: absolute;
+            top: -6px;
+            left: 0;
+        }
+
+        .nav-toggle-icon::after {
+            position: absolute;
+            top: 6px;
+            left: 0;
+        }
+
+        nav.nav-open .nav-toggle-icon {
+            background: transparent;
+        }
+
+        nav.nav-open .nav-toggle-icon::before {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        nav.nav-open .nav-toggle-icon::after {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .nav-mobile-only {
+            display: none;
         }
 
         .lang-switch {
@@ -1187,6 +1289,22 @@
             align-items: start;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+
+            .hero-video {
+                display: none;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .two-col {
@@ -1195,14 +1313,56 @@
         }
 
         @media (max-width: 768px) {
+            :root {
+                --nav-offset: 72px;
+            }
 
             /* Navigation */
-            nav ul {
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            nav .container {
+                position: relative;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .nav-cta .btn {
                 display: none;
             }
 
-            nav {
-                padding: 0.75rem 1rem;
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0.5rem;
+                background: var(--nav-bg);
+                padding: 0.75rem 1rem 1rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+                display: none;
+            }
+
+            nav.nav-open .nav-links {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 0.25rem 0;
+            }
+
+            .nav-mobile-only {
+                display: block;
+            }
+
+            .nav-mobile-only .btn {
+                width: 100%;
+                justify-content: center;
             }
 
             /* Hero section */
@@ -1464,31 +1624,37 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <nav>
         <div class="container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="icon.png" alt="Inteligentia">
                 <span class="logo-text">inteligentia</span>
             </a>
-            <ul>
+            <ul id="primary-navigation" class="nav-links">
                 <li><a href="#problem">Problem</a></li>
                 <li><a href="#solution">Solution</a></li>
                 <li><a href="#product">Product</a></li>
                 <li><a href="security.html">Security</a></li>
                 <li><a href="investors.html">Investors</a></li>
                 <li><a href="#team">Team</a></li>
+                <li class="nav-mobile-only"><a href="#pilot-application" class="btn btn-primary">Apply for Pilot</a></li>
             </ul>
             <div class="nav-cta">
                 <a href="index-ro.html" class="lang-switch">RO</a>
-                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                <button class="theme-toggle" type="button" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">
                     <span class="icon-light">&#9790;</span>
                     <span class="icon-dark">&#9788;</span>
+                </button>
+                <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false" data-label-open="Open menu" data-label-close="Close menu">
+                    <span class="nav-toggle-icon" aria-hidden="true"></span>
                 </button>
                 <a href="#pilot-application" class="btn btn-primary">Apply for Pilot</a>
             </div>
         </div>
     </nav>
 
+    <main id="main">
     <!-- Hero -->
     <section class="hero">
         <video class="hero-video" autoplay loop muted playsinline>
@@ -1564,8 +1730,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Option</th>
-                        <th>The Problem</th>
+                        <th scope="col">Option</th>
+                        <th scope="col">The Problem</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1710,9 +1876,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Factor</th>
-                        <th>Desktop Software</th>
-                        <th>Inteligentia Appliance</th>
+                        <th scope="col">Factor</th>
+                        <th scope="col">Desktop Software</th>
+                        <th scope="col">Inteligentia Appliance</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1881,8 +2047,8 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Pack</th>
-                                    <th>Target</th>
+                                    <th scope="col">Pack</th>
+                                    <th scope="col">Target</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1947,232 +2113,6 @@
         </div>
     </section>
 
-    <!-- Business Model -->
-    <section id="business" class="full-width">
-        <div class="container">
-            <div class="section-header">
-                <span class="badge">Business Model</span>
-                <h2>Hardware + Packs + Updates</h2>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Revenue Stream</th>
-                            <th>Core (NX 16GB)</th>
-                            <th>Premium (AGX 64GB)</th>
-                            <th>Timing</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Device + Core Pack</strong></td>
-                            <td>€1,999</td>
-                            <td>€2,999</td>
-                            <td>One-time</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Specialty Packs</strong></td>
-                            <td>€199-399</td>
-                            <td>€199-399</td>
-                            <td>Add-ons</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Base Maintenance</strong></td>
-                            <td>€120/year</td>
-                            <td>€120/year</td>
-                            <td>After Year 2</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="highlight-box" style="max-width: 700px; margin: 2rem auto;">
-                <h4>The "No Kill Switch" Philosophy</h4>
-                <p>If you decline paid updates after Year 2, the device <strong>continues to function</strong> on its
-                    last installed version. No subscription check, no activation server, no remote lockout.</p>
-                <p style="margin-top: 0.75rem;"><strong>You own the device and the intelligence it contains.</strong>
-                    Updates are value-adds, not hostage mechanisms.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Market -->
-    <section id="market">
-        <div class="section-header">
-            <span class="badge">Market</span>
-            <h2>Beachhead: Romanian Legal</h2>
-        </div>
-
-        <div class="two-col">
-            <div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Segment</th>
-                                <th>Professionals</th>
-                                <th>Source</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Lawyers</td>
-                                <td>~27,000</td>
-                                <td>UNBR 2024</td>
-                            </tr>
-                            <tr>
-                                <td>Notaries</td>
-                                <td>~2,810</td>
-                                <td>UNNPR 2024</td>
-                            </tr>
-                            <tr>
-                                <td>Legal advisors</td>
-                                <td>~2,000</td>
-                                <td>Estimate</td>
-                            </tr>
-                            <tr class="highlight-row">
-                                <td><strong>Total</strong></td>
-                                <td><strong>~32,000</strong></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><strong>Why Romania
-                        first:</strong> High-friction environment - bureaucratic, paper-heavy. If we handle Romanian
-                    court PDFs with stamps and degraded scans, German legal documents are easy.</p>
-            </div>
-            <div>
-                <h3 style="margin-top: 0;">Why Italy Second?</h3>
-                <div class="stats-grid" style="grid-template-columns: 1fr 1fr;">
-                    <div class="stat-card">
-                        <div class="number">247K<span class="source-tip" data-source="Cassa Forense 2023">*</span></div>
-                        <div class="label">Italian Lawyers</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number">63.8%<span class="source-tip" data-source="Cassa Forense 2023">*</span>
-                        </div>
-                        <div class="label">Solo Practitioners</div>
-                    </div>
-                </div>
-                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><strong>Italy is the
-                        largest legal market in the EU by headcount.</strong> The majority are solos in family-based
-                    practices - exactly our ICP.</p>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Competition -->
-    <section class="full-width">
-        <div class="container">
-            <div class="section-header">
-                <span class="badge">Competition</span>
-                <h2>Three Options Today - Plus Us</h2>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Option</th>
-                            <th style="text-align: center;">Private?</th>
-                            <th style="text-align: center;">Affordable?</th>
-                            <th style="text-align: center;">Turnkey?</th>
-                            <th style="text-align: center;">For Solos?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Consumer Cloud AI</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                        </tr>
-                        <tr>
-                            <td>Specialized Legal SaaS</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                        </tr>
-                        <tr>
-                            <td>Private Cloud Compute</td>
-                            <td style="text-align: center;" class="cross">&#10007;*</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                        </tr>
-                        <tr>
-                            <td>Local AI Hardware</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                            <td style="text-align: center;" class="cross">&#10007;</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td><strong>Inteligentia</strong></td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                            <td style="text-align: center;" class="check">&#10003;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 style="text-align: center; margin-top: 2rem;">Local AI Hardware: Why We're Different</h3>
-            <div class="table-wrapper" style="max-width: 700px; margin: 1rem auto;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Typical Local AI</th>
-                            <th>Inteligentia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Model</strong></td>
-                            <td>Monthly subscription</td>
-                            <td style="color: var(--blue); font-weight: 600;">One-time purchase</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ownership</strong></td>
-                            <td>Ongoing payments</td>
-                            <td style="color: var(--blue); font-weight: 600;">You own it forever</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Target</strong></td>
-                            <td>Teams & enterprises</td>
-                            <td>Solo practitioners</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Setup</strong></td>
-                            <td>Configuration required</td>
-                            <td>Plug in, query, done</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Knowledge</strong></td>
-                            <td>Bring your own</td>
-                            <td style="color: var(--blue); font-weight: 600;">Pre-loaded Pack</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p style="margin-top: 1.5rem; text-align: center; font-size: 1rem;"><strong>Most local AI solutions target
-                    teams who want infrastructure.</strong><br>
-                <span style="color: var(--blue); font-weight: 600;">Inteligentia is for professionals who just want
-                    answers.</span>
-            </p>
-        </div>
-    </section>
-
     <!-- Team -->
     <section id="team">
         <div class="section-header">
@@ -2198,8 +2138,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Risk</th>
-                                <th>Hire</th>
+                                <th scope="col">Risk</th>
+                                <th scope="col">Hire</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -2303,6 +2243,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer / Contact -->
     <footer id="contact">
         <p class="footer-motto"><span>Intelligence you own,</span> not rent.</p>
@@ -2360,14 +2302,50 @@
             updateTallyTheme(savedTheme || 'dark');
         })();
 
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const nav = document.querySelector('nav');
+        const navToggle = document.querySelector('.nav-toggle');
+
+        function setNavState(open) {
+            if (!nav || !navToggle) {
+                return;
+            }
+            nav.classList.toggle('nav-open', open);
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            const labelOpen = navToggle.getAttribute('data-label-open');
+            const labelClose = navToggle.getAttribute('data-label-close');
+            navToggle.setAttribute('aria-label', open ? labelClose : labelOpen);
+        }
+
+        if (nav && navToggle) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = nav.classList.contains('nav-open');
+                setNavState(!isOpen);
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => setNavState(false));
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    setNavState(false);
+                }
+            });
+        }
+
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (!target) {
+                    return;
                 }
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                    block: 'start'
+                });
             });
         });
     </script>
