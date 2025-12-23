@@ -167,9 +167,9 @@
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: 8rem 2rem 5rem;
+            padding: 7rem 2rem 3rem;
             background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
             position: relative;
             overflow: hidden;
@@ -185,7 +185,7 @@
             height: auto;
             transform: translate(-50%, -50%);
             z-index: 0;
-            opacity: 0.15;
+            opacity: 0.35;
             object-fit: cover;
         }
 
@@ -286,57 +286,60 @@
 
         /* Product Bundle Box */
         .product-bundle-box {
-            background: var(--bg-card);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 2px solid var(--blue);
             border-radius: var(--radius-lg);
-            padding: 1.5rem 2rem;
-            margin: 2rem auto;
-            max-width: 700px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 750px;
             box-shadow: var(--shadow-md);
         }
 
         .product-bundle-box .bundle-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: var(--blue);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .product-bundle-box .bundle-items {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+            gap: 0.4rem;
+            flex-wrap: nowrap;
         }
 
         .bundle-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
+            gap: 0.35rem;
+            padding: 0.4rem 0.75rem;
             background: var(--blue-light);
             border-radius: var(--radius-sm);
             font-weight: 600;
             color: var(--text-primary);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
         }
 
         .bundle-item .icon {
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .bundle-plus {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 300;
             color: var(--text-muted);
         }
 
         .product-bundle-box .bundle-tagline {
-            margin-top: 1rem;
-            font-size: 0.9rem;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
         }
 
@@ -1064,6 +1067,13 @@
             <p class="tagline">The Offline AI Appliance for Regulated Professionals</p>
             <p class="hero-motto"><span>Intelligence you own,</span> not rent.</p>
 
+            <div class="trust-badges">
+                <span class="trust-badge">No cloud required</span>
+                <span class="trust-badge">GDPR compliant</span>
+                <span class="trust-badge">Zero telemetry</span>
+                <span class="trust-badge">Own it forever</span>
+            </div>
+
             <div class="product-bundle-box">
                 <div class="bundle-label">What You Get</div>
                 <div class="bundle-items">
@@ -1088,13 +1098,6 @@
                     </div>
                 </div>
                 <p class="bundle-tagline">A complete AI workstation for your profession. Add your own knowledge anytime.</p>
-            </div>
-
-            <div class="trust-badges">
-                <span class="trust-badge">No cloud required</span>
-                <span class="trust-badge">GDPR compliant</span>
-                <span class="trust-badge">Zero telemetry</span>
-                <span class="trust-badge">Own it forever</span>
             </div>
 
             <div class="cta-group">
