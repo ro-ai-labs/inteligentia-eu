@@ -631,49 +631,6 @@
             color: var(--blue);
         }
 
-        /* Media placeholders */
-        .media-placeholder {
-            padding: 3rem 2rem;
-            background: var(--bg-card);
-            border: 2px dashed var(--border-strong);
-            border-radius: var(--radius-lg);
-            text-align: center;
-        }
-
-        .video-placeholder {
-            aspect-ratio: 16 / 9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .screenshot-placeholder {
-            aspect-ratio: 4 / 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .placeholder-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
-        .placeholder-title {
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin: 0;
-        }
-
-        .placeholder-subtitle {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin: 0.5rem 0 0;
-        }
-
         /* Cards */
         .card {
             background: var(--bg-card);
@@ -1656,20 +1613,6 @@
                 </ol>
                 <p class="key-point" style="margin-bottom: 0;">If it works offline, your data stayed on your desk.</p>
             </div>
-
-            <!-- Demo Video Placeholder -->
-            <div class="media-placeholder video-placeholder" style="max-width: 700px; margin: 2rem auto;">
-                <div class="placeholder-icon">&#9658;</div>
-                <p class="placeholder-title">Product demo video coming soon</p>
-                <p class="placeholder-subtitle">The "Airplane Mode Test" - 60 seconds of proof</p>
-            </div>
-
-            <!-- Citation UX Placeholder -->
-            <div class="media-placeholder screenshot-placeholder" style="max-width: 800px; margin: 2rem auto;">
-                <div class="placeholder-icon">&#128247;</div>
-                <p class="placeholder-title">Citation verification interface</p>
-                <p class="placeholder-subtitle">Ask a question. Get an answer. Click to verify the source.</p>
-            </div>
         </div>
     </section>
 
@@ -2161,7 +2104,7 @@
                 <p class="section-subtitle">Pilot begins Q1 2026. 25 slots available for Romanian legal professionals.</p>
             </div>
             <div class="pilot-form-container">
-                <iframe data-tally-src="https://tally.so/embed/9qXxvY?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="904" frameborder="0" marginheight="0" marginwidth="0" title="Inteligentia Pilot"></iframe>
+                <iframe data-tally-src="https://tally.so/embed/9qXxvY?alignLeft=1&hideTitle=1&dynamicHeight=1&theme=dark" loading="lazy" width="100%" height="904" frameborder="0" marginheight="0" marginwidth="0" title="Inteligentia Pilot"></iframe>
                 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
                 <p class="form-fallback">Or email us directly at <a href="mailto:info@inteligentia.eu?subject=Pilot%20Application">info@inteligentia.eu</a></p>
             </div>
@@ -2187,6 +2130,15 @@
     </footer>
 
     <script>
+        // Update Tally form theme
+        function updateTallyTheme(theme) {
+            const iframe = document.querySelector('iframe[title="Inteligentia Pilot"]');
+            if (iframe) {
+                const baseUrl = 'https://tally.so/embed/9qXxvY?alignLeft=1&hideTitle=1&dynamicHeight=1';
+                iframe.src = baseUrl + (theme === 'light' ? '' : '&theme=dark');
+            }
+        }
+
         // Theme toggle (dark is default)
         function toggleTheme() {
             const html = document.documentElement;
@@ -2195,9 +2147,11 @@
             if (currentTheme === 'light') {
                 html.removeAttribute('data-theme');
                 localStorage.setItem('theme', 'dark');
+                updateTallyTheme('dark');
             } else {
                 html.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
+                updateTallyTheme('light');
             }
         }
 
@@ -2207,6 +2161,8 @@
             if (savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
             }
+            // Set initial Tally theme
+            updateTallyTheme(savedTheme || 'dark');
         })();
 
         // Smooth scroll for navigation
