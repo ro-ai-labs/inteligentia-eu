@@ -449,6 +449,43 @@
             color: var(--text-secondary);
         }
 
+        /* Audience paths */
+        .audience-paths {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .path-card {
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            text-align: center;
+            min-width: 160px;
+        }
+
+        .path-card:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+            transform: translateY(-2px);
+        }
+
+        .path-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .path-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
         /* Trust badges */
         .trust-badges {
             display: flex;
@@ -557,6 +594,84 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+        }
+
+        /* Pilot form */
+        .pilot-form-container {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            text-align: center;
+        }
+
+        .form-placeholder {
+            padding: 3rem;
+            background: var(--bg-card);
+            border: 2px dashed var(--border-strong);
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-placeholder p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .form-placeholder .form-note {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .form-fallback {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-fallback a {
+            color: var(--blue);
+        }
+
+        /* Media placeholders */
+        .media-placeholder {
+            padding: 3rem 2rem;
+            background: var(--bg-card);
+            border: 2px dashed var(--border-strong);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16 / 9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screenshot-placeholder {
+            aspect-ratio: 4 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .placeholder-title {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .placeholder-subtitle {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0.5rem 0 0;
         }
 
         /* Cards */
@@ -1336,8 +1451,8 @@
                 <li><a href="#problem">Problem</a></li>
                 <li><a href="#solution">Solution</a></li>
                 <li><a href="#product">Product</a></li>
-                <li><a href="#market">Market</a></li>
-                <li><a href="#business">Business</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="investors.html">Investors</a></li>
                 <li><a href="#team">Team</a></li>
             </ul>
             <div class="nav-cta">
@@ -1345,7 +1460,7 @@
                     <span class="icon-light">&#9790;</span>
                     <span class="icon-dark">&#9788;</span>
                 </button>
-                <a href="mailto:info@inteligentia.eu" class="btn btn-primary">Get in Touch</a>
+                <a href="#pilot-application" class="btn btn-primary">Apply for Pilot</a>
             </div>
         </div>
     </nav>
@@ -1366,10 +1481,22 @@
             <p class="tagline">The Offline AI Appliance for Regulated Professionals</p>
             <p class="hero-motto"><span>Intelligence you own,</span> not rent.</p>
 
+            <div class="audience-paths">
+                <a href="#solution" class="path-card">
+                    <div class="path-label">For Professionals</div>
+                    <div class="path-desc">See how it works</div>
+                </a>
+                <a href="investors.html" class="path-card">
+                    <div class="path-label">For Investors</div>
+                    <div class="path-desc">View the opportunity</div>
+                </a>
+            </div>
+
             <div class="trust-badges">
-                <span class="trust-badge">No cloud required</span>
-                <span class="trust-badge">GDPR compliant</span>
-                <span class="trust-badge">Zero telemetry</span>
+                <span class="trust-badge">Offline by design</span>
+                <span class="trust-badge">No cloud</span>
+                <span class="trust-badge">No telemetry</span>
+                <span class="trust-badge">Built for GDPR-aligned workflows</span>
                 <span class="trust-badge">Own it forever</span>
             </div>
 
@@ -1389,7 +1516,7 @@
 
             <div class="cta-group">
                 <a href="#solution" class="btn btn-primary btn-lg">See the Solution</a>
-                <a href="mailto:info@inteligentia.eu?subject=Inteligentia%20-%20Meeting%20Request" class="btn btn-secondary btn-lg">Book a Meeting</a>
+                <a href="#pilot-application" class="btn btn-secondary btn-lg">Apply for the Pilot</a>
             </div>
 
             <p class="contact-info">
@@ -1417,20 +1544,20 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>ChatGPT / Gemini / Claude</strong></td>
+                        <td><strong>Consumer Cloud AI</strong></td>
                         <td>Not suitable for confidential/GDPR documents. Enterprise licensing required.</td>
                     </tr>
                     <tr>
-                        <td><strong>Specialized SaaS (Harvey, CoCounsel)</strong></td>
-                        <td>Cloud-based. Enterprise contracts. EUR 50K+ minimums.</td>
+                        <td><strong>Specialized Legal SaaS</strong></td>
+                        <td>Cloud-based. Enterprise contracts. High minimum commitments.</td>
                     </tr>
                     <tr>
                         <td><strong>Custom Confidential Compute</strong></td>
-                        <td>EUR 1,500+/month. IT staff required. Still third-party processors.</td>
+                        <td>High monthly costs. IT staff required. Still third-party processors.</td>
                     </tr>
                     <tr>
-                        <td><strong>Local AI Hardware (Lemony, etc.)</strong></td>
-                        <td>EUR 6K-15K/year subscription, team-focused, requires choosing "models."</td>
+                        <td><strong>Local AI Hardware</strong></td>
+                        <td>Subscription-based, team-focused, requires choosing "models."</td>
                     </tr>
                 </tbody>
             </table>
@@ -1486,7 +1613,7 @@
                     <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
                         <div class="card">
                             <h4>100% Private</h4>
-                            <p>No cloud. No radios. No network stack. Data never leaves your desk.</p>
+                            <p>No Wi-Fi. No Bluetooth. No cellular. No Ethernet. Data never leaves your desk.</p>
                         </div>
                         <div class="card">
                             <h4>One-Time Purchase</h4>
@@ -1528,6 +1655,20 @@
                     <li style="padding: 0.5rem 0;">Get cited answers - click any citation to see the source</li>
                 </ol>
                 <p class="key-point" style="margin-bottom: 0;">If it works offline, your data stayed on your desk.</p>
+            </div>
+
+            <!-- Demo Video Placeholder -->
+            <div class="media-placeholder video-placeholder" style="max-width: 700px; margin: 2rem auto;">
+                <div class="placeholder-icon">&#9658;</div>
+                <p class="placeholder-title">Product demo video coming soon</p>
+                <p class="placeholder-subtitle">The "Airplane Mode Test" - 60 seconds of proof</p>
+            </div>
+
+            <!-- Citation UX Placeholder -->
+            <div class="media-placeholder screenshot-placeholder" style="max-width: 800px; margin: 2rem auto;">
+                <div class="placeholder-icon">&#128247;</div>
+                <p class="placeholder-title">Citation verification interface</p>
+                <p class="placeholder-subtitle">Ask a question. Get an answer. Click to verify the source.</p>
             </div>
         </div>
     </section>
@@ -1584,10 +1725,10 @@
                 </ul>
             </div>
             <div>
-                <h3 style="margin-top: 0;">Why Not Local AI Hardware (Lemony)?</h3>
+                <h3 style="margin-top: 0;">Why Not Local AI Hardware?</h3>
                 <ul class="feature-list">
                     <li>Built for teams with IT support (5-500 users)</li>
-                    <li>EUR 6K-15K/year subscription model</li>
+                    <li>Subscription-based pricing models</li>
                     <li>Requires choosing "models" and "workflows"</li>
                     <li>A solo lawyer doesn't want infrastructure - they want answers</li>
                 </ul>
@@ -1719,12 +1860,12 @@
                 <div class="card-icon">1</div>
                 <h4>Local AI Crossed the Threshold</h4>
                 <p>Vision-Language Models (4-8B parameters) now run on edge hardware. They can read scanned documents - stamps, signatures, degraded text.</p>
-                <p style="margin-top: 0.75rem; font-style: italic; font-size: 0.85rem; color: var(--text-muted);">For RAG on specific documents, small models often outperform GPT-4 - less hallucination when restricted to local context.</p>
+                <p style="margin-top: 0.75rem; font-style: italic; font-size: 0.85rem; color: var(--text-muted);">For domain-specific retrieval tasks, specialized smaller models can achieve strong results when constrained to local context.</p>
             </div>
             <div class="card">
                 <div class="card-icon">2</div>
                 <h4>Regulation Is Tightening</h4>
-                <p>GDPR enforcement: EUR 1.6B in fines in 2023. EU AI Act GPAI rules active August 2025. Professional bodies issuing guidance against cloud AI.</p>
+                <p>GDPR enforcement: EUR 1.6B in fines in 2023. EU AI Act introduces new compliance requirements for AI systems. Professional bodies issuing guidance against cloud AI.</p>
             </div>
             <div class="card">
                 <div class="card-icon">3</div>
@@ -1782,88 +1923,6 @@
                 <p style="margin-top: 0.75rem;"><strong>You own the device and the intelligence it contains.</strong> Updates are value-adds, not hostage mechanisms.</p>
             </div>
 
-            <h3 style="text-align: center;">Unit Economics (Projections)</h3>
-            <div class="stats-grid" style="max-width: 700px; margin: 1rem auto;">
-                <div class="stat-card">
-                    <div class="number">~55%</div>
-                    <div class="label">Core Gross Margin</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">~37%</div>
-                    <div class="label">Premium Gross Margin</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">70%+</div>
-                    <div class="label">Projected Update Renewal</div>
-                </div>
-            </div>
-
-            <h3 style="text-align: center; margin-top: 2.5rem;">Lifetime Value Analysis</h3>
-            <div class="table-wrapper" style="max-width: 800px; margin: 1rem auto;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Revenue Component</th>
-                            <th>Core (NX 16GB)</th>
-                            <th>Premium (AGX 64GB)</th>
-                            <th>Assumptions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Hardware + Pack (Day 0)</strong></td>
-                            <td>EUR 1,999</td>
-                            <td>EUR 2,999</td>
-                            <td>One-time purchase</td>
-                        </tr>
-                        <tr>
-                            <td>Updates (Year 3-6)</td>
-                            <td>EUR 336</td>
-                            <td>EUR 336</td>
-                            <td>70% renew × EUR 120 × 4 years</td>
-                        </tr>
-                        <tr>
-                            <td>Specialty Packs</td>
-                            <td>EUR 90</td>
-                            <td>EUR 120</td>
-                            <td>30% attach rate × EUR 299 avg</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td><strong>5-Year LTV</strong></td>
-                            <td><strong>EUR 2,425</strong></td>
-                            <td><strong>EUR 3,455</strong></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 style="text-align: center; margin-top: 2.5rem;">Revenue Mix Projection (Year 3)</h3>
-            <div class="stats-grid" style="max-width: 900px; margin: 1rem auto;">
-                <div class="stat-card">
-                    <div class="number">65%</div>
-                    <div class="label">Hardware + Pack Sales</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">25%</div>
-                    <div class="label">Update Subscriptions</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">10%</div>
-                    <div class="label">Specialty Packs</div>
-                </div>
-            </div>
-
-            <div class="highlight-box" style="max-width: 800px; margin: 2rem auto;">
-                <h4>Path to Recurring Revenue</h4>
-                <p>By Year 3, the installed base generates predictable service revenue. With 1,000+ devices deployed:</p>
-                <ul style="margin-top: 0.75rem; padding-left: 1.5rem; color: var(--text-secondary);">
-                    <li><strong>Update renewals:</strong> ~EUR 84K/year (70% of installed base × EUR 120)</li>
-                    <li><strong>New Pack sales:</strong> ~EUR 30K/year (30% attach rate on new verticals)</li>
-                    <li><strong>Total recurring:</strong> ~EUR 114K/year growing with installed base</li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>The hardware sale is the wedge. The Pack ecosystem is the flywheel.</strong></p>
-            </div>
         </div>
     </section>
 
@@ -1927,42 +1986,6 @@
             </div>
         </div>
 
-        <h3 style="text-align: center; margin-top: 2.5rem;">2026 Projections</h3>
-        <div class="table-wrapper" style="max-width: 600px; margin: 1rem auto;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Scenario</th>
-                        <th>Units</th>
-                        <th>Revenue</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Conservative (RO only)</td>
-                        <td>~250</td>
-                        <td>EUR 500K-600K</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td><strong>Base case (RO + Italy)</strong></td>
-                        <td><strong>~400</strong></td>
-                        <td><strong>EUR 800K-950K</strong></td>
-                    </tr>
-                    <tr>
-                        <td>Stretch (full Italy rollout)</td>
-                        <td>~580</td>
-                        <td>EUR 1.16M-1.4M</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="highlight-box" style="max-width: 700px; margin: 2rem auto; text-align: center;">
-            <h4 style="margin-bottom: 0.5rem;">The Romance Language Corridor</h4>
-            <p style="font-size: 1.1rem;">RO &#8594; IT &#8594; ES &#8594; FR before Germanic markets</p>
-            <p style="margin-top: 0.75rem;">Pack adaptation flows naturally through related legal systems.</p>
-            <p class="key-point" style="margin-bottom: 0;">Same hardware. Same software. Different Knowledge Pack.</p>
-        </div>
     </section>
 
     <!-- Competition -->
@@ -1986,28 +2009,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Consumer Cloud (ChatGPT, etc.)</td>
+                            <td>Consumer Cloud AI</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                             <td style="text-align: center;" class="check">&#10003;</td>
                             <td style="text-align: center;" class="check">&#10003;</td>
                             <td style="text-align: center;" class="check">&#10003;</td>
                         </tr>
                         <tr>
-                            <td>Specialized SaaS (Harvey, etc.)</td>
+                            <td>Specialized Legal SaaS</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                             <td style="text-align: center;" class="check">&#10003;</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                         </tr>
                         <tr>
-                            <td>Private Compute (Azure, AWS)</td>
+                            <td>Private Cloud Compute</td>
                             <td style="text-align: center;" class="cross">&#10007;*</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                         </tr>
                         <tr>
-                            <td>Lemony.ai</td>
+                            <td>Local AI Hardware</td>
                             <td style="text-align: center;" class="check">&#10003;</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
                             <td style="text-align: center;" class="cross">&#10007;</td>
@@ -2024,35 +2047,35 @@
                 </table>
             </div>
 
-            <h3 style="text-align: center; margin-top: 2rem;">Lemony.ai: The Closest Competitor</h3>
+            <h3 style="text-align: center; margin-top: 2rem;">Local AI Hardware: Why We're Different</h3>
             <div class="table-wrapper" style="max-width: 700px; margin: 1rem auto;">
                 <table>
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Lemony.ai</th>
+                            <th>Typical Local AI</th>
                             <th>Inteligentia</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Pricing</strong></td>
-                            <td>EUR 499-1,299/month</td>
-                            <td style="color: var(--blue); font-weight: 600;">EUR 1,999-2,999 one-time</td>
+                            <td><strong>Model</strong></td>
+                            <td>Monthly subscription</td>
+                            <td style="color: var(--blue); font-weight: 600;">One-time purchase</td>
                         </tr>
                         <tr>
                             <td><strong>Ownership</strong></td>
-                            <td>Subscription</td>
+                            <td>Ongoing payments</td>
                             <td style="color: var(--blue); font-weight: 600;">You own it forever</td>
                         </tr>
                         <tr>
                             <td><strong>Target</strong></td>
-                            <td>Teams (5-500 users)</td>
+                            <td>Teams & enterprises</td>
                             <td>Solo practitioners</td>
                         </tr>
                         <tr>
-                            <td><strong>Complexity</strong></td>
-                            <td>Models, workflows, APIs</td>
+                            <td><strong>Setup</strong></td>
+                            <td>Configuration required</td>
                             <td>Plug in, query, done</td>
                         </tr>
                         <tr>
@@ -2064,8 +2087,8 @@
                 </table>
             </div>
 
-            <p style="margin-top: 1.5rem; text-align: center; font-size: 1rem;"><strong>Lemony serves teams who want AI infrastructure.</strong><br>
-            <span style="color: var(--blue); font-weight: 600;">Inteligentia serves professionals who just want answers.</span></p>
+            <p style="margin-top: 1.5rem; text-align: center; font-size: 1rem;"><strong>Most local AI solutions target teams who want infrastructure.</strong><br>
+            <span style="color: var(--blue); font-weight: 600;">Inteligentia is for professionals who just want answers.</span></p>
         </div>
     </section>
 
@@ -2129,179 +2152,21 @@
         </div>
     </section>
 
-    <!-- The Ask -->
-    <section class="full-width">
+    <!-- Pilot Application -->
+    <section id="pilot-application" class="full-width">
         <div class="container">
             <div class="section-header">
-                <span class="badge">The Ask</span>
-                <h2>EUR 1.2M-1.5M to Prove the Model</h2>
-                <p class="section-subtitle">A conversation opener for investors who understand deep tech timelines.</p>
+                <span class="badge badge-green">Limited Pilot</span>
+                <h2>Apply for the Pilot Program</h2>
+                <p class="section-subtitle">Pilot begins Q1 2026. 25 slots available for Romanian legal professionals.</p>
             </div>
-
-            <div class="two-col">
-                <div>
-                    <h3 style="margin-top: 0;">Funding Tranches</h3>
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Tranche</th>
-                                    <th>Amount</th>
-                                    <th>Unlocks</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Angel</td>
-                                    <td>EUR 200K-400K</td>
-                                    <td>First hire, 50 pilots</td>
-                                </tr>
-                                <tr>
-                                    <td>Pre-Seed</td>
-                                    <td>EUR 800K-1M</td>
-                                    <td>Platform, 200 units</td>
-                                </tr>
-                                <tr class="highlight-row">
-                                    <td><strong>Full Round</strong></td>
-                                    <td><strong>EUR 1.2M-1.5M</strong></td>
-                                    <td><strong>+ Italy expansion</strong></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="pilot-form-container">
+                <div class="form-placeholder">
+                    <p>Pilot application form</p>
+                    <p class="form-note">Tally.so form embed - awaiting form ID</p>
                 </div>
-                <div>
-                    <h3 style="margin-top: 0;">What We'll Prove</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <strong>PoC demo - Feb 2026</strong>
-                            <p>"Airplane Mode Test" with real documents</p>
-                        </div>
-                        <div class="timeline-item">
-                            <strong>Pilot launch - Mar 2026</strong>
-                            <p>25 units to Romanian lawyers</p>
-                        </div>
-                        <div class="timeline-item">
-                            <strong>Pilot validation - Jun 2026</strong>
-                            <p>>50% retention, NPS > 30</p>
-                        </div>
-                        <div class="timeline-item">
-                            <strong>Seed-ready - Q4 2026</strong>
-                            <p style="color: var(--blue); font-weight: 600;">250+ units, EUR 500K+ revenue</p>
-                        </div>
-                    </div>
-                </div>
+                <p class="form-fallback">Or email us directly at <a href="mailto:info@inteligentia.eu?subject=Pilot%20Application">info@inteligentia.eu</a></p>
             </div>
-
-            <h3 style="text-align: center; margin-top: 2rem;">Capital Allocation</h3>
-            <div class="stats-grid" style="max-width: 700px; margin: 1rem auto;">
-                <div class="stat-card">
-                    <div class="number">50%</div>
-                    <div class="label">Platform Engineering</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">15%</div>
-                    <div class="label">Go-to-Market</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">15%</div>
-                    <div class="label">Hardware/Inventory</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">20%</div>
-                    <div class="label">Pack + Operations</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision -->
-    <section>
-        <div class="section-header">
-            <span class="badge">The Vision</span>
-            <h2>The Evolution of the "External Brain"</h2>
-        </div>
-
-        <div class="phase-card">
-            <span class="phase-label">2026-2027</span>
-            <div class="phase-title">Phase 1: The Vault</div>
-            <div class="phase-subtitle">"The iPod for Secrets"</div>
-            <p>Standalone desktop appliance. Ingests documents, answers questions safely. First "Safe Harbor" for digital knowledge.</p>
-        </div>
-
-        <div class="phase-card">
-            <span class="phase-label">2028-2029</span>
-            <div class="phase-title">Phase 2: The Associate</div>
-            <div class="phase-subtitle">"The iOS for Work"</div>
-            <p>Local server for your practice. Connects to laptop, phone, drafting software. Drafts documents. Mimics your writing style. Remembers the case from 3 years ago.</p>
-        </div>
-
-        <div class="phase-card">
-            <span class="phase-label">2030+</span>
-            <div class="phase-title">Phase 3: The Core</div>
-            <div class="phase-subtitle">"The SIM Card for Intelligence"</div>
-            <p>Embedded compute module. Standardized core that slots into laptop, car, or home server. You carry your "Digital Soul" physically.</p>
-        </div>
-
-        <blockquote style="margin-top: 2rem; border-left-color: var(--blue);">
-            <p>Today, your AI intelligence is rented from OpenAI. Stop paying, lose your brain. Get banned, lose your brain.</p>
-            <p style="color: var(--blue); font-style: normal; font-weight: 600; margin-top: 0.75rem;">Inteligentia is the iPhone model. You buy it. You own it. It holds your secrets. Internet goes down? Still works.</p>
-        </blockquote>
-
-        <p class="key-point" style="margin-top: 2rem;">The floor is a profitable niche hardware business.<br>The ceiling is infrastructure for private professional AI.</p>
-    </section>
-
-    <!-- Summary -->
-    <section class="full-width">
-        <div class="container">
-            <div class="section-header">
-                <span class="badge">Summary</span>
-                <h2>Why Have This Conversation</h2>
-            </div>
-
-            <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-                <div class="card">
-                    <h4>1. Problem is real</h4>
-                    <p>10M+ EU professionals blocked from AI by compliance</p>
-                </div>
-                <div class="card">
-                    <h4>2. Solution is tangible</h4>
-                    <p>Hardware in hand, stack validated</p>
-                </div>
-                <div class="card">
-                    <h4>3. Timing is now</h4>
-                    <p>Edge AI crossed threshold; regulation tightening</p>
-                </div>
-                <div class="card">
-                    <h4>4. Demo sells itself</h4>
-                    <p>"Airplane Mode Test" is 90 seconds of proof</p>
-                </div>
-                <div class="card">
-                    <h4>5. Team can build it</h4>
-                    <p>25 years of exactly this stack</p>
-                </div>
-                <div class="card">
-                    <h4>6. Platform scales</h4>
-                    <p>New verticals in 8-12 weeks post-launch</p>
-                </div>
-                <div class="card">
-                    <h4>7. Market underserved</h4>
-                    <p>Cloud giants won't serve solos</p>
-                </div>
-                <div class="card">
-                    <h4>8. UX is the moat</h4>
-                    <p>No models, no workflows - just answers</p>
-                </div>
-                <div class="card" style="border: 2px solid var(--blue);">
-                    <h4 style="color: var(--blue);">9. You own it forever</h4>
-                    <p>No subscription kill switch. Your intelligence, your asset.</p>
-                </div>
-            </div>
-
-            <p style="margin-top: 2.5rem; text-align: center; font-size: 1.1rem; color: var(--text-secondary);">
-                We're not asking you to fund a vision.<br>
-                <strong style="color: var(--text-primary);">We're asking you to watch us prove it - and decide if you want in.</strong>
-            </p>
         </div>
     </section>
 
@@ -2317,6 +2182,10 @@
             <img src="logo-white.png" alt="Inteligentia" class="footer-logo">
             <span class="footer-brand-name">inteligentia</span>
         </div>
+        <p class="footer-disclaimer" style="margin-top: 2rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+            Inteligentia is built to minimize data transfer risk and support auditability.
+            Customers remain responsible for their professional and regulatory obligations.
+        </p>
     </footer>
 
     <script>

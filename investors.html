@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inteligentia: Investor Information</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Dark Theme (Default) */
+        :root {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a2332;
+            --bg-card: #1e2a3a;
+            --text-primary: #e8edf3;
+            --text-secondary: #a8b5c4;
+            --text-muted: #7a8999;
+            --blue: #4a9eff;
+            --blue-dark: #3d8be6;
+            --blue-light: rgba(74, 158, 255, 0.15);
+            --blue-lighter: rgba(74, 158, 255, 0.08);
+            --accent: #4a9eff;
+            --green: #34d399;
+            --green-light: rgba(52, 211, 153, 0.15);
+            --red: #f87171;
+            --orange: #fbbf24;
+            --orange-light: rgba(251, 191, 36, 0.15);
+            --border: rgba(74, 158, 255, 0.15);
+            --border-strong: rgba(74, 158, 255, 0.25);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --nav-bg: rgba(15, 20, 25, 0.95);
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #e8edf3;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #374151;
+            --text-muted: #5a6578;
+            --blue: #1e5a99;
+            --blue-dark: #164573;
+            --blue-light: rgba(30, 90, 153, 0.08);
+            --blue-lighter: rgba(30, 90, 153, 0.04);
+            --accent: #1e5a99;
+            --green: #10b981;
+            --green-light: rgba(16, 185, 129, 0.1);
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --orange-light: rgba(245, 158, 11, 0.1);
+            --border: rgba(30, 90, 153, 0.1);
+            --border-strong: rgba(30, 90, 153, 0.2);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --nav-bg: rgba(255, 255, 255, 0.92);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.875rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            text-decoration: none;
+        }
+        nav .logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: filter 0.2s ease;
+        }
+        [data-theme="light"] nav .logo img { filter: none; }
+        nav .logo-text {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: -0.5px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--blue); }
+        .nav-cta {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+        .theme-toggle .icon-light, .theme-toggle .icon-dark { display: none; }
+        :root .theme-toggle .icon-dark { display: block; }
+        [data-theme="light"] .theme-toggle .icon-light { display: block; }
+        [data-theme="light"] .theme-toggle .icon-dark { display: none; }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-strong);
+        }
+        .btn-secondary:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: var(--blue-light);
+            color: var(--blue);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+        }
+        .badge-orange {
+            background: var(--orange-light);
+            color: var(--orange);
+        }
+        .badge-green {
+            background: var(--green-light);
+            color: var(--green);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.75px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            letter-spacing: -0.75px;
+            line-height: 1.2;
+        }
+        section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.25rem;
+            color: var(--text-primary);
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Full-width sections */
+        .full-width {
+            background: var(--bg-secondary);
+            padding: 5rem 0;
+            margin: 0;
+            max-width: none;
+        }
+        .full-width .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-strong);
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.925rem;
+        }
+        th, td {
+            padding: 0.875rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: var(--blue-lighter);
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover td { background: var(--blue-lighter); }
+        .highlight-row td {
+            background: var(--blue-light) !important;
+            font-weight: 600;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        .stat-card .number {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--blue);
+            line-height: 1;
+            letter-spacing: -1.5px;
+        }
+        .stat-card .label {
+            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 1.75rem;
+            margin: 1.5rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.25rem;
+            padding-left: 1.25rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-card);
+            border: 2px solid var(--blue);
+            border-radius: 50%;
+        }
+        .timeline-item strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .timeline-item p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Phase cards */
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            margin: 1.25rem 0;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--blue);
+        }
+        .phase-card .phase-label {
+            display: inline-block;
+            padding: 0.2rem 0.625rem;
+            background: var(--blue-light);
+            color: var(--blue);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 0.625rem;
+        }
+        .phase-card .phase-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .phase-card .phase-subtitle {
+            font-style: italic;
+            color: var(--blue);
+            margin-bottom: 0.625rem;
+            font-size: 0.9rem;
+        }
+        .phase-card p {
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: var(--blue-light);
+            border: 2px solid var(--blue);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 {
+            color: var(--blue);
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* Key point */
+        .key-point {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        /* Quote */
+        blockquote {
+            border-left: 3px solid var(--blue);
+            padding: 1.25rem 1.75rem;
+            margin: 1.5rem 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            box-shadow: var(--shadow-sm);
+        }
+        blockquote p {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        /* Co-founder CTA Box */
+        .cofounder-box {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: white;
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .cofounder-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+        .cofounder-box p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .cofounder-box .btn {
+            background: white;
+            color: var(--blue);
+        }
+        .cofounder-box .btn:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* Two column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        footer .footer-motto {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        footer .footer-motto span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        footer h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        footer .contact-info {
+            margin: 1.5rem 0;
+        }
+        footer .contact-info p {
+            margin: 0.375rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+        footer .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.2s;
+        }
+        footer .contact-info a:hover {
+            border-bottom-color: white;
+        }
+        footer .footer-brand {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        footer .footer-logo {
+            width: 32px;
+            height: 32px;
+            filter: brightness(0) invert(1);
+        }
+        footer .footer-brand-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .two-col { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            nav { padding: 0.75rem 1rem; }
+            .hero { padding: 6rem 1.25rem 3rem; }
+            .hero h1 { font-size: 1.75rem; }
+            section { padding: 2.5rem 1.25rem; }
+            section h2 { font-size: 1.5rem; }
+            .card-grid { grid-template-columns: 1fr !important; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="icon.png" alt="Inteligentia">
+                <span class="logo-text">inteligentia</span>
+            </a>
+            <ul>
+                <li><a href="index.html#problem">Problem</a></li>
+                <li><a href="index.html#solution">Solution</a></li>
+                <li><a href="index.html#product">Product</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="investors.html" style="color: var(--blue);">Investors</a></li>
+                <li><a href="index.html#team">Team</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                    <span class="icon-light">&#9790;</span>
+                    <span class="icon-dark">&#9788;</span>
+                </button>
+                <a href="mailto:info@inteligentia.eu?subject=Investor%20Inquiry" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge badge-orange">Investor Information</span>
+            <h1>EUR 1.2M-1.5M to Prove the Model</h1>
+            <p>A conversation opener for investors who understand deep tech timelines. Private AI for regulated professionals is an underserved market with 10M+ EU practitioners blocked from cloud solutions.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html" class="btn btn-secondary">See the Product</a>
+                <a href="mailto:info@inteligentia.eu?subject=Investor%20Meeting%20Request" class="btn btn-primary">Schedule a Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section id="market">
+        <div class="section-header">
+            <span class="badge">Market</span>
+            <h2>Beachhead: Romanian Legal</h2>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Segment</th>
+                                <th>Professionals</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lawyers</td>
+                                <td>~27,000</td>
+                                <td>UNBR 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Notaries</td>
+                                <td>~2,810</td>
+                                <td>UNNPR 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Legal advisors</td>
+                                <td>~2,000</td>
+                                <td>Estimate</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td><strong>Total</strong></td>
+                                <td><strong>~32,000</strong></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary);"><strong style="color: var(--text-primary);">Why Romania first:</strong> High-friction environment - bureaucratic, paper-heavy. If we handle Romanian court PDFs with stamps and degraded scans, German legal documents are easy.</p>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">Why Italy Second?</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">247K</div>
+                        <div class="label">Italian Lawyers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">63.8%</div>
+                        <div class="label">Solo Practitioners</div>
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary);"><strong style="color: var(--text-primary);">Italy is the largest legal market in the EU by headcount.</strong> The majority are solos in family-based practices - exactly our ICP.</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 2.5rem;">2026 Projections</h3>
+        <div class="table-wrapper" style="max-width: 700px; margin: 1rem auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Units</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conservative (RO only)</td>
+                        <td>~250</td>
+                        <td>EUR 500K-600K</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Base case (RO + Italy)</strong></td>
+                        <td><strong>~400</strong></td>
+                        <td><strong>EUR 800K-950K</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Stretch (full Italy rollout)</td>
+                        <td>~580</td>
+                        <td>EUR 1.16M-1.4M</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight-box" style="max-width: 700px; margin: 2rem auto;">
+            <h4>The Romance Language Corridor</h4>
+            <p>RO → IT → ES → FR before Germanic markets</p>
+            <p style="margin-top: 0.5rem;">Pack adaptation flows naturally through related legal systems. Same hardware. Same software. Different Knowledge Pack.</p>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section id="business" class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Business Model</span>
+                <h2>Hardware + Packs + Updates</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Revenue Stream</th>
+                            <th>Core (NX 16GB)</th>
+                            <th>Premium (AGX 64GB)</th>
+                            <th>Timing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Device + Core Pack</strong></td>
+                            <td>EUR 1,999</td>
+                            <td>EUR 2,999</td>
+                            <td>One-time</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Specialty Packs</strong></td>
+                            <td>EUR 199-399</td>
+                            <td>EUR 199-399</td>
+                            <td>Add-ons</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Base Maintenance</strong></td>
+                            <td>EUR 120/year</td>
+                            <td>EUR 120/year</td>
+                            <td>After Year 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="text-align: center;">Unit Economics (Projections)</h3>
+            <div class="stats-grid" style="max-width: 700px; margin: 1rem auto;">
+                <div class="stat-card">
+                    <div class="number">~55%</div>
+                    <div class="label">Core Gross Margin</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">~37%</div>
+                    <div class="label">Premium Gross Margin</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">70%+</div>
+                    <div class="label">Projected Update Renewal</div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 2.5rem;">Lifetime Value Analysis</h3>
+            <div class="table-wrapper" style="max-width: 800px; margin: 1rem auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Revenue Component</th>
+                            <th>Core (NX 16GB)</th>
+                            <th>Premium (AGX 64GB)</th>
+                            <th>Assumptions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hardware + Pack (Day 0)</strong></td>
+                            <td>EUR 1,999</td>
+                            <td>EUR 2,999</td>
+                            <td>One-time purchase</td>
+                        </tr>
+                        <tr>
+                            <td>Updates (Year 3-6)</td>
+                            <td>EUR 336</td>
+                            <td>EUR 336</td>
+                            <td>70% renew x EUR 120 x 4 years</td>
+                        </tr>
+                        <tr>
+                            <td>Specialty Packs</td>
+                            <td>EUR 90</td>
+                            <td>EUR 120</td>
+                            <td>30% attach rate x EUR 299 avg</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>5-Year LTV</strong></td>
+                            <td><strong>EUR 2,425</strong></td>
+                            <td><strong>EUR 3,455</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 2.5rem;">Revenue Mix Projection (Year 3)</h3>
+            <div class="stats-grid" style="max-width: 900px; margin: 1rem auto;">
+                <div class="stat-card">
+                    <div class="number">65%</div>
+                    <div class="label">Hardware + Pack Sales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">25%</div>
+                    <div class="label">Update Subscriptions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">10%</div>
+                    <div class="label">Specialty Packs</div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="max-width: 800px; margin: 2rem auto;">
+                <h4>Path to Recurring Revenue</h4>
+                <p>By Year 3, the installed base generates predictable service revenue. With 1,000+ devices deployed:</p>
+                <ul style="margin-top: 0.75rem; padding-left: 1.5rem; color: var(--text-secondary);">
+                    <li><strong>Update renewals:</strong> ~EUR 84K/year (70% of installed base x EUR 120)</li>
+                    <li><strong>New Pack sales:</strong> ~EUR 30K/year (30% attach rate on new verticals)</li>
+                    <li><strong>Total recurring:</strong> ~EUR 114K/year growing with installed base</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>The hardware sale is the wedge. The Pack ecosystem is the flywheel.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ask -->
+    <section>
+        <div class="section-header">
+            <span class="badge">The Ask</span>
+            <h2>Funding Tranches</h2>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tranche</th>
+                                <th>Amount</th>
+                                <th>Unlocks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Angel</td>
+                                <td>EUR 200K-400K</td>
+                                <td>First hire, 50 pilots</td>
+                            </tr>
+                            <tr>
+                                <td>Pre-Seed</td>
+                                <td>EUR 800K-1M</td>
+                                <td>Platform, 200 units</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td><strong>Full Round</strong></td>
+                                <td><strong>EUR 1.2M-1.5M</strong></td>
+                                <td><strong>+ Italy expansion</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">What We'll Prove</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>PoC demo - Feb 2026</strong>
+                        <p>"Airplane Mode Test" with real documents</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Pilot launch - Mar 2026</strong>
+                        <p>25 units to Romanian lawyers</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Pilot validation - Jun 2026</strong>
+                        <p>>50% retention, NPS > 30</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Seed-ready - Q4 2026</strong>
+                        <p style="color: var(--blue); font-weight: 600;">250+ units, EUR 500K+ revenue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 2rem;">Capital Allocation</h3>
+        <div class="stats-grid" style="max-width: 700px; margin: 1rem auto;">
+            <div class="stat-card">
+                <div class="number">50%</div>
+                <div class="label">Platform Engineering</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">15%</div>
+                <div class="label">Go-to-Market</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">15%</div>
+                <div class="label">Hardware/Inventory</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">20%</div>
+                <div class="label">Pack + Operations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">The Vision</span>
+                <h2>The Evolution of the "External Brain"</h2>
+            </div>
+
+            <div class="phase-card">
+                <span class="phase-label">2026-2027</span>
+                <div class="phase-title">Phase 1: The Vault</div>
+                <div class="phase-subtitle">"The iPod for Secrets"</div>
+                <p>Standalone desktop appliance. Ingests documents, answers questions safely. First "Safe Harbor" for digital knowledge.</p>
+            </div>
+
+            <div class="phase-card">
+                <span class="phase-label">2028-2029</span>
+                <div class="phase-title">Phase 2: The Associate</div>
+                <div class="phase-subtitle">"The iOS for Work"</div>
+                <p>Local server for your practice. Connects to laptop, phone, drafting software. Drafts documents. Mimics your writing style. Remembers the case from 3 years ago.</p>
+            </div>
+
+            <div class="phase-card">
+                <span class="phase-label">2030+</span>
+                <div class="phase-title">Phase 3: The Core</div>
+                <div class="phase-subtitle">"The SIM Card for Intelligence"</div>
+                <p>Embedded compute module. Standardized core that slots into laptop, car, or home server. You carry your "Digital Soul" physically.</p>
+            </div>
+
+            <blockquote style="margin-top: 2rem; border-left-color: var(--blue);">
+                <p>Today, your AI intelligence is rented from OpenAI. Stop paying, lose your brain. Get banned, lose your brain.</p>
+                <p style="color: var(--blue); font-style: normal; font-weight: 600; margin-top: 0.75rem;">Inteligentia is the iPhone model. You buy it. You own it. It holds your secrets. Internet goes down? Still works.</p>
+            </blockquote>
+
+            <p class="key-point" style="margin-top: 2rem;">The floor is a profitable niche hardware business.<br>The ceiling is infrastructure for private professional AI.</p>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Team</span>
+            <h2>Solo Founder. Relevant Experience.</h2>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <h3 style="margin-top: 0;">Mihai Cvasnievschi</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Founder & CEO</p>
+                <ul style="padding-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="padding: 0.25rem 0;">25 years software development</li>
+                    <li style="padding: 0.25rem 0;">10 years production ML/AI</li>
+                    <li style="padding: 0.25rem 0;">Built distributed inference on embedded hardware</li>
+                    <li style="padding: 0.25rem 0;">Led 60+ person engineering orgs</li>
+                    <li style="padding: 0.25rem 0;">Based in Bucharest (on the ground in beachhead)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">Risk-to-Hire Mapping</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Risk</th>
+                                <th>Hire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Edge inference</td>
+                                <td>Embedded Systems Engineer</td>
+                            </tr>
+                            <tr>
+                                <td>Pack production</td>
+                                <td>ML Engineer</td>
+                            </tr>
+                            <tr>
+                                <td>Verification UX</td>
+                                <td>Full Stack Engineer</td>
+                            </tr>
+                            <tr>
+                                <td>Channel dev</td>
+                                <td>BD Lead</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="cofounder-box">
+            <h3>Looking for a Technical Co-Founder</h3>
+            <p>Embedded systems or ML background. Competitive equity for the right person.<br>Help build the infrastructure layer for private professional AI.</p>
+            <a href="mailto:info@inteligentia.eu?subject=Co-Founder%20Interest" class="btn">Let's Talk</a>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Summary</span>
+                <h2>Why Have This Conversation</h2>
+            </div>
+
+            <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="card">
+                    <h4>1. Problem is real</h4>
+                    <p>10M+ EU professionals blocked from AI by compliance</p>
+                </div>
+                <div class="card">
+                    <h4>2. Solution is tangible</h4>
+                    <p>Hardware in hand, stack validated</p>
+                </div>
+                <div class="card">
+                    <h4>3. Timing is now</h4>
+                    <p>Edge AI crossed threshold; regulation tightening</p>
+                </div>
+                <div class="card">
+                    <h4>4. Demo sells itself</h4>
+                    <p>"Airplane Mode Test" is 90 seconds of proof</p>
+                </div>
+                <div class="card">
+                    <h4>5. Team can build it</h4>
+                    <p>25 years of exactly this stack</p>
+                </div>
+                <div class="card">
+                    <h4>6. Platform scales</h4>
+                    <p>New verticals in 8-12 weeks post-launch</p>
+                </div>
+                <div class="card">
+                    <h4>7. Market underserved</h4>
+                    <p>Cloud giants won't serve solos</p>
+                </div>
+                <div class="card">
+                    <h4>8. UX is the moat</h4>
+                    <p>No models, no workflows - just answers</p>
+                </div>
+                <div class="card" style="border: 2px solid var(--blue);">
+                    <h4 style="color: var(--blue);">9. You own it forever</h4>
+                    <p>No subscription kill switch. Your intelligence, your asset.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2.5rem; text-align: center; font-size: 1.1rem; color: var(--text-secondary);">
+                We're not asking you to fund a vision.<br>
+                <strong style="color: var(--text-primary);">We're asking you to watch us prove it - and decide if you want in.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p class="footer-motto"><span>Intelligence you own,</span> not rent.</p>
+        <h2>Let's talk.</h2>
+        <div class="contact-info">
+            <p><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
+            <p style="margin-top: 0.75rem;"><a href="https://www.inteligentia.eu">www.inteligentia.eu</a></p>
+        </div>
+        <div class="footer-brand">
+            <img src="logo-white.png" alt="Inteligentia" class="footer-logo">
+            <span class="footer-brand-name">inteligentia</span>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle (dark is default)
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Apply saved theme on load
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+</body>
+</html>

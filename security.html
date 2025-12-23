@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inteligentia: Security &amp; Privacy</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Dark Theme (Default) */
+        :root {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a2332;
+            --bg-card: #1e2a3a;
+            --text-primary: #e8edf3;
+            --text-secondary: #a8b5c4;
+            --text-muted: #7a8999;
+            --blue: #4a9eff;
+            --blue-dark: #3d8be6;
+            --blue-light: rgba(74, 158, 255, 0.15);
+            --blue-lighter: rgba(74, 158, 255, 0.08);
+            --accent: #4a9eff;
+            --green: #34d399;
+            --green-light: rgba(52, 211, 153, 0.15);
+            --red: #f87171;
+            --orange: #fbbf24;
+            --orange-light: rgba(251, 191, 36, 0.15);
+            --border: rgba(74, 158, 255, 0.15);
+            --border-strong: rgba(74, 158, 255, 0.25);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --nav-bg: rgba(15, 20, 25, 0.95);
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #e8edf3;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #374151;
+            --text-muted: #5a6578;
+            --blue: #1e5a99;
+            --blue-dark: #164573;
+            --blue-light: rgba(30, 90, 153, 0.08);
+            --blue-lighter: rgba(30, 90, 153, 0.04);
+            --accent: #1e5a99;
+            --green: #10b981;
+            --green-light: rgba(16, 185, 129, 0.1);
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --orange-light: rgba(245, 158, 11, 0.1);
+            --border: rgba(30, 90, 153, 0.1);
+            --border-strong: rgba(30, 90, 153, 0.2);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --nav-bg: rgba(255, 255, 255, 0.92);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.875rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            text-decoration: none;
+        }
+        nav .logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: filter 0.2s ease;
+        }
+        [data-theme="light"] nav .logo img { filter: none; }
+        nav .logo-text {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: -0.5px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--blue); }
+        .nav-cta {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+        .theme-toggle .icon-light, .theme-toggle .icon-dark { display: none; }
+        :root .theme-toggle .icon-dark { display: block; }
+        [data-theme="light"] .theme-toggle .icon-light { display: block; }
+        [data-theme="light"] .theme-toggle .icon-dark { display: none; }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: var(--blue-light);
+            color: var(--blue);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+        }
+        .badge-green {
+            background: var(--green-light);
+            color: var(--green);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.75px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+        section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Full-width sections */
+        .full-width {
+            background: var(--bg-secondary);
+            padding: 5rem 0;
+            margin: 0;
+            max-width: none;
+        }
+        .full-width .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Security cards */
+        .security-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .security-card h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .security-card h3 .icon {
+            font-size: 1.5rem;
+        }
+        .security-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .security-card p:last-child {
+            margin-bottom: 0;
+        }
+        .security-card ul {
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .security-card li {
+            padding: 0.25rem 0;
+        }
+
+        /* Key point */
+        .key-point {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--blue-light);
+            border-radius: var(--radius-lg);
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: var(--blue-light);
+            border: 2px solid var(--blue);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 {
+            color: var(--blue);
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .disclaimer strong {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        footer .footer-motto {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+        footer .footer-motto span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        footer .contact-info {
+            margin: 1.5rem 0;
+        }
+        footer .contact-info p {
+            margin: 0.375rem 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        footer .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        footer .contact-info a:hover {
+            border-bottom-color: white;
+        }
+        footer .footer-brand {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        footer .footer-logo {
+            width: 32px;
+            height: 32px;
+            filter: brightness(0) invert(1);
+        }
+        footer .footer-brand-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            nav { padding: 0.75rem 1rem; }
+            .hero { padding: 6rem 1.25rem 3rem; }
+            .hero h1 { font-size: 1.75rem; }
+            section { padding: 2.5rem 1.25rem; }
+            section h2 { font-size: 1.5rem; }
+            .security-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="icon.png" alt="Inteligentia">
+                <span class="logo-text">inteligentia</span>
+            </a>
+            <ul>
+                <li><a href="index.html#problem">Problem</a></li>
+                <li><a href="index.html#solution">Solution</a></li>
+                <li><a href="index.html#product">Product</a></li>
+                <li><a href="security.html" style="color: var(--blue);">Security</a></li>
+                <li><a href="investors.html">Investors</a></li>
+                <li><a href="index.html#team">Team</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                    <span class="icon-light">&#9790;</span>
+                    <span class="icon-dark">&#9788;</span>
+                </button>
+                <a href="index.html#pilot-application" class="btn btn-primary">Apply for Pilot</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge badge-green">Security &amp; Privacy</span>
+            <h1>Air-Gapped by Design</h1>
+            <p>Inteligentia is built from the ground up for professionals who handle confidential information. No cloud. No telemetry. No compromises.</p>
+        </div>
+    </section>
+
+    <!-- Core Security -->
+    <section>
+        <div class="section-header">
+            <h2>Hardware Security</h2>
+            <p class="section-subtitle">Privacy starts with the hardware. You can't leak data through a connection that doesn't exist.</p>
+        </div>
+
+        <div class="security-card">
+            <h3><span class="icon">&#128274;</span> No Radio Hardware</h3>
+            <p>The Inteligentia appliance has <strong>no Wi-Fi, no Bluetooth, no cellular, no Ethernet</strong>. We use strict "No-Radio SKUs" from our supplier and verify each device has no M.2 WiFi module installed.</p>
+            <p>This isn't software-disabled networking. The radio hardware <strong>physically does not exist</strong> in the device.</p>
+        </div>
+
+        <div class="security-card">
+            <h3><span class="icon">&#128267;</span> USB-C Only Connectivity</h3>
+            <p>The only external interface is USB-C, used for:</p>
+            <ul>
+                <li>Storage mounting (your documents in, results out)</li>
+                <li>Companion app communication</li>
+                <li>Secure updates</li>
+            </ul>
+            <p style="margin-top: 1rem;">Power is delivered via a separate DC barrel connector - the device cannot be powered over USB to prevent certain attack vectors.</p>
+        </div>
+
+        <div class="security-card">
+            <h3><span class="icon">&#128737;</span> Sealed Enclosure</h3>
+            <p>Hardware is manufactured in Asia, but the "Brain" is flashed and the enclosure is physically sealed in <strong>Romania</strong> under our direct supervision. This provides chain-of-custody assurance.</p>
+        </div>
+    </section>
+
+    <!-- Data Security -->
+    <section class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <h2>Data Protection</h2>
+                <p class="section-subtitle">Your documents never leave your desk. Here's how we ensure that.</p>
+            </div>
+
+            <div class="security-card">
+                <h3><span class="icon">&#128272;</span> LUKS Encryption at Rest</h3>
+                <p>All user data is stored on a LUKS-encrypted partition. The encryption key is derived from your password and protected by the TPM (Trusted Platform Module).</p>
+                <p>This means your data is encrypted even if someone physically removes the storage drive.</p>
+            </div>
+
+            <div class="security-card">
+                <h3><span class="icon">&#128100;</span> Trust On First Use (TOFU)</h3>
+                <p>When you first plug in your Inteligentia device, you create a master password. This establishes you as the device owner - no account creation, no email verification, no cloud authentication.</p>
+                <p><strong>The first user becomes the owner.</strong> This is the same security model used in secure communication apps like Signal.</p>
+            </div>
+
+            <div class="security-card">
+                <h3><span class="icon">&#9888;</span> The Duress Protocol</h3>
+                <p>For high-security situations, Inteligentia supports a duress password feature:</p>
+                <ul>
+                    <li><strong>Master Password:</strong> Decrypts and boots normally</li>
+                    <li><strong>Duress Password:</strong> Instantly overwrites the LUKS header with random noise</li>
+                </ul>
+                <p style="margin-top: 1rem;">If you're ever forced to unlock your device, entering the duress password makes all data permanently unrecoverable - it appears as a hardware failure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zero Telemetry -->
+    <section>
+        <div class="section-header">
+            <h2>Zero Telemetry</h2>
+            <p class="section-subtitle">We don't collect data because we literally can't.</p>
+        </div>
+
+        <div class="security-card">
+            <h3><span class="icon">&#128683;</span> No Outbound Connections</h3>
+            <p>The appliance never initiates outbound connections. It has no network stack, no DNS resolution, no ability to "phone home."</p>
+            <p>Updates are fetched by the companion app on your computer (when you're online), cryptographically verified, and then pushed to the device over USB. <strong>The device itself never touches the internet.</strong></p>
+        </div>
+
+        <div class="security-card">
+            <h3><span class="icon">&#128269;</span> No Usage Analytics</h3>
+            <p>We don't track:</p>
+            <ul>
+                <li>What documents you upload</li>
+                <li>What questions you ask</li>
+                <li>How often you use the device</li>
+                <li>Any usage patterns whatsoever</li>
+            </ul>
+            <p style="margin-top: 1rem;">This isn't a privacy policy promise - it's a physical impossibility given the hardware architecture.</p>
+        </div>
+
+        <p class="key-point">If the device works in airplane mode, your data stayed on your desk.</p>
+    </section>
+
+    <!-- Updates -->
+    <section class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <h2>Secure Updates</h2>
+                <p class="section-subtitle">Keeping your device current without compromising security.</p>
+            </div>
+
+            <div class="security-card">
+                <h3><span class="icon">&#128190;</span> Signed Updates via USB</h3>
+                <p>Software and Knowledge Pack updates follow a secure process:</p>
+                <ul>
+                    <li>Updates are signed with our private key</li>
+                    <li>Your companion app downloads and verifies the signature</li>
+                    <li>Updates are transferred to the device over USB</li>
+                    <li>The device verifies the signature again before applying</li>
+                </ul>
+                <p style="margin-top: 1rem;">A compromised network cannot push malicious updates because the device never connects to a network.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>No Kill Switch</h4>
+                <p>If you decline updates, the device <strong>continues to function</strong> on its last installed version. There's no activation server, no license check, no remote lockout.</p>
+                <p style="margin-top: 0.5rem;"><strong>You own the device and the intelligence it contains.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance -->
+    <section>
+        <div class="section-header">
+            <h2>Compliance Posture</h2>
+            <p class="section-subtitle">Designed to simplify your regulatory obligations.</p>
+        </div>
+
+        <div class="security-card">
+            <h3><span class="icon">&#127987;</span> Built for GDPR-Aligned Workflows</h3>
+            <p>By keeping all data processing local and eliminating data transfers:</p>
+            <ul>
+                <li>No third-party data processors to manage</li>
+                <li>No data transfer impact assessments needed</li>
+                <li>No cloud provider DPAs to negotiate</li>
+                <li>Data stays in your physical possession</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Note:</strong> Inteligentia is a tool designed to support compliance. Your specific regulatory obligations depend on your use case and jurisdiction.</p>
+        </div>
+
+        <div class="security-card">
+            <h3><span class="icon">&#128203;</span> Audit-Ready Architecture</h3>
+            <p>Our deterministic build process and hash verification allow security auditors to:</p>
+            <ul>
+                <li>Verify the exact software running on any device</li>
+                <li>Confirm no unauthorized modifications</li>
+                <li>Review the update chain of custody</li>
+            </ul>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Compliance Disclaimer:</strong> Inteligentia is built to minimize data transfer risk and support auditability. Customers remain responsible for their professional and regulatory obligations. This device is an AI-assisted research tool and does not provide legal, medical, or professional advice.
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="full-width">
+        <div class="container" style="text-align: center;">
+            <h2>Questions About Security?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">We're happy to discuss our security architecture in detail with prospective customers and their security teams.</p>
+            <a href="mailto:info@inteligentia.eu?subject=Security%20Inquiry" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2rem;">Contact Our Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-motto"><span>Intelligence you own,</span> not rent.</p>
+        <div class="contact-info">
+            <p><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
+            <p><a href="https://www.inteligentia.eu">www.inteligentia.eu</a></p>
+        </div>
+        <div class="footer-brand">
+            <img src="logo-white.png" alt="Inteligentia" class="footer-logo">
+            <span class="footer-brand-name">inteligentia</span>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+</body>
+</html>
