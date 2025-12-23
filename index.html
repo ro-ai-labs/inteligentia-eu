@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligentia - Investor Deck | Offline AI for Regulated Professionals</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafbfc;
+            --bg-secondary: #f0f4f8;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --blue: #1e5a99;
+            --blue-dark: #164573;
+            --blue-light: rgba(30, 90, 153, 0.08);
+            --blue-lighter: rgba(30, 90, 153, 0.04);
+            --accent: #1e5a99;
+            --green: #10b981;
+            --green-light: rgba(16, 185, 129, 0.1);
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --orange-light: rgba(245, 158, 11, 0.1);
+            --border: rgba(30, 90, 153, 0.1);
+            --border-strong: rgba(30, 90, 153, 0.2);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.875rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            text-decoration: none;
+        }
+
+        nav .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        nav .logo-text {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-strong);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 5rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, var(--blue-light) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-logo {
+            width: 56px;
+            height: 56px;
+        }
+
+        .hero-brand-text {
+            text-align: left;
+        }
+
+        .hero .product-byline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.125rem;
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: var(--blue-light);
+            color: var(--blue);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-orange {
+            background: var(--orange-light);
+            color: var(--orange);
+        }
+
+        .badge-green {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .hero h1.product-name {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            letter-spacing: -0.5px;
+            line-height: 1;
+            color: var(--blue);
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .hero .hero-motto {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.25rem;
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.75px;
+            line-height: 1.2;
+        }
+
+        .hero .hero-motto span {
+            color: var(--blue);
+        }
+
+        /* Product Bundle Box */
+        .product-bundle-box {
+            background: var(--bg-card);
+            border: 2px solid var(--blue);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 2rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-bundle-box .bundle-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-bundle-box .bundle-items {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .bundle-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--blue-light);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .bundle-item .icon {
+            font-size: 1.1rem;
+        }
+
+        .bundle-plus {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .product-bundle-box .bundle-tagline {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Trust badges */
+        .trust-badges {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .trust-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        .hero .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .hero .contact-info {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        .hero .contact-info a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            letter-spacing: -0.75px;
+            line-height: 1.2;
+        }
+
+        section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.25rem;
+            color: var(--text-primary);
+        }
+
+        section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Full-width sections */
+        .full-width {
+            background: var(--bg-secondary);
+            padding: 5rem 0;
+            margin: 0;
+            max-width: none;
+        }
+
+        .full-width .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-strong);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--blue-light);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.925rem;
+        }
+
+        th, td {
+            padding: 0.875rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--blue-lighter);
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover td {
+            background: var(--blue-lighter);
+        }
+
+        .highlight-row td {
+            background: var(--blue-light) !important;
+            font-weight: 600;
+        }
+
+        .check { color: var(--green); font-weight: bold; font-size: 1.1rem; }
+        .cross { color: var(--red); font-size: 1.1rem; }
+
+        /* Quote */
+        blockquote {
+            border-left: 3px solid var(--blue);
+            padding: 1.25rem 1.75rem;
+            margin: 1.5rem 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        blockquote p {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 0.75rem;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 0.85rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-card .number {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--blue);
+            line-height: 1;
+            letter-spacing: -1.5px;
+        }
+
+        .stat-card .label {
+            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--blue);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: "RECOMMENDED";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blue);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card .tier {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-card .tier-sub {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -1.5px;
+        }
+
+        .pricing-card .price-note {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .pricing-card .features {
+            text-align: left;
+            margin: 1.25rem 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 1.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.25rem;
+            padding-left: 1.25rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-card);
+            border: 2px solid var(--blue);
+            border-radius: 50%;
+        }
+
+        .timeline-item.completed::before {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        .timeline-item strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Phase cards */
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            margin: 1.25rem 0;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--blue);
+        }
+
+        .phase-card .phase-label {
+            display: inline-block;
+            padding: 0.2rem 0.625rem;
+            background: var(--blue-light);
+            color: var(--blue);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 0.625rem;
+        }
+
+        .phase-card .phase-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .phase-card .phase-subtitle {
+            font-style: italic;
+            color: var(--blue);
+            margin-bottom: 0.625rem;
+            font-size: 0.9rem;
+        }
+
+        .phase-card p {
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: var(--blue-light);
+            border: 2px solid var(--blue);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--blue);
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* Key point */
+        .key-point {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        /* Product showcase */
+        .product-showcase {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .product-image {
+            max-width: 280px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Co-founder CTA Box */
+        .cofounder-box {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: white;
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .cofounder-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .cofounder-box p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .cofounder-box .btn {
+            background: white;
+            color: var(--blue);
+        }
+
+        .cofounder-box .btn:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        footer .footer-motto {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        footer .footer-motto span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        footer .contact-info {
+            margin: 1.5rem 0;
+        }
+
+        footer .contact-info p {
+            margin: 0.375rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        footer .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.2s;
+        }
+
+        footer .contact-info a:hover {
+            border-bottom-color: white;
+        }
+
+        footer .footer-brand {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        footer .footer-logo {
+            width: 32px;
+            height: 32px;
+            filter: brightness(0) invert(1);
+        }
+
+        footer .footer-brand-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Two column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-brand {
+                gap: 0.75rem;
+            }
+
+            .hero-logo {
+                width: 44px;
+                height: 44px;
+            }
+
+            .hero h1.product-name {
+                font-size: 1.75rem;
+            }
+
+            .hero .product-byline {
+                font-size: 0.75rem;
+            }
+
+            .hero .hero-motto {
+                font-size: 1.5rem;
+            }
+
+            footer .footer-motto {
+                font-size: 1.75rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .product-bundle-box .bundle-items {
+                flex-direction: column;
+            }
+
+            .bundle-plus {
+                transform: rotate(90deg);
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.65rem;
+            }
+
+            .stat-card .number {
+                font-size: 1.75rem;
+            }
+
+            .pricing-card.featured::before {
+                display: none;
+            }
+
+            .trust-badges {
+                gap: 0.5rem;
+            }
+
+            .trust-badge {
+                font-size: 0.7rem;
+                padding: 0.375rem 0.75rem;
+            }
+
+            .product-showcase {
+                flex-direction: column;
+            }
+
+            .cofounder-box {
+                padding: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="icon.png" alt="Inteligentia">
+                <span class="logo-text">inteligentia</span>
+            </a>
+            <ul>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#market">Market</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-brand">
+                <img src="icon.png" alt="Inteligentia" class="hero-logo">
+                <div class="hero-brand-text">
+                    <h1 class="product-name">inteligentia</h1>
+                    <p class="product-byline">by RO AI Labs</p>
+                </div>
+            </div>
+            <p class="tagline">The Offline AI Appliance for Regulated Professionals</p>
+            <p class="hero-motto"><span>Intelligence you own,</span> not rent.</p>
+
+            <div class="product-bundle-box">
+                <div class="bundle-label">What You Get</div>
+                <div class="bundle-items">
+                    <div class="bundle-item">
+                        <span class="icon">&#128187;</span>
+                        <span>Hardware</span>
+                    </div>
+                    <span class="bundle-plus">+</span>
+                    <div class="bundle-item">
+                        <span class="icon">&#9881;</span>
+                        <span>Software</span>
+                    </div>
+                    <span class="bundle-plus">+</span>
+                    <div class="bundle-item">
+                        <span class="icon">&#128218;</span>
+                        <span>Knowledge Pack</span>
+                    </div>
+                </div>
+                <p class="bundle-tagline">A complete AI workstation for your profession, ready from day one.</p>
+            </div>
+
+            <div class="trust-badges">
+                <span class="trust-badge">No cloud required</span>
+                <span class="trust-badge">GDPR compliant</span>
+                <span class="trust-badge">Zero telemetry</span>
+                <span class="trust-badge">Own it forever</span>
+            </div>
+
+            <div class="cta-group">
+                <a href="#solution" class="btn btn-primary btn-lg">See the Solution</a>
+                <a href="#contact" class="btn btn-secondary btn-lg">Book a Meeting</a>
+            </div>
+
+            <p class="contact-info">
+                <a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a> &nbsp;|&nbsp;
+                <a href="https://www.inteligentia.eu">www.inteligentia.eu</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section id="problem">
+        <div class="section-header">
+            <span class="badge">The Problem</span>
+            <h2>Every AI Option Fails Solo Practitioners</h2>
+            <p class="section-subtitle">10 million EU regulated professionals are locked out of AI - not because they don't want it, but because every option fails them.</p>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>The Problem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ChatGPT / Gemini / Claude</strong></td>
+                        <td>Not suitable for confidential/GDPR documents. Enterprise licensing required.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Specialized SaaS (Harvey, CoCounsel)</strong></td>
+                        <td>Cloud-based. Enterprise contracts. EUR 50K+ minimums.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Custom Confidential Compute</strong></td>
+                        <td>EUR 1,500+/month. IT staff required. Still third-party processors.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Local AI Hardware (Lemony, etc.)</strong></td>
+                        <td>EUR 6K-15K/year subscription, team-focused, requires choosing "models."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>What Practitioners Tell Us</h3>
+
+        <div class="two-col">
+            <blockquote>
+                <p>"I would pay EUR 5,000 for my own AI that could search through my entire knowledge base and help me quickly find previously defined clauses and articles I could reuse in new documents."</p>
+                <cite>Senior Data Privacy & AI Regulatory Consultant, Bucharest</cite>
+            </blockquote>
+
+            <blockquote>
+                <p>"Every property transaction, I have to check if the building is on the protected historical monuments list. If I could just ask 'Is this building protected?' and get a cited answer, I'd save hours every week."</p>
+                <cite>Notary, Bucharest</cite>
+            </blockquote>
+        </div>
+
+        <h3>The Market Opportunity</h3>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">10.7M</div>
+                <div class="label">EU Regulated Professionals</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">~900K</div>
+                <div class="label">Legal Professionals</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">~2.5M</div>
+                <div class="label">Medical/Mental Health</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">~7.3M</div>
+                <div class="label">HR/Finance/Consulting</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">The Solution</span>
+                <h2>Hardware + Software + Knowledge Pack</h2>
+                <p class="section-subtitle">A complete bundle. Plug it in. Works in airplane mode. Every answer cites its source. You own it forever.</p>
+            </div>
+
+            <div class="product-showcase">
+                <img src="concept.jpg" alt="Inteligentia Device" class="product-image">
+                <div style="max-width: 500px;">
+                    <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="card">
+                            <div class="card-icon">&#128274;</div>
+                            <h4>100% Private</h4>
+                            <p>No cloud. No radios. No network stack. Data never leaves your desk.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">&#128176;</div>
+                            <h4>One-Time Purchase</h4>
+                            <p>EUR 1,999-2,999 once. No subscription. No monthly fees.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">&#9889;</div>
+                            <h4>Turnkey Setup</h4>
+                            <p>Plug in via USB-C. No IT staff. Works immediately.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">&#128218;</div>
+                            <h4>Knowledge Pack</h4>
+                            <p>Pre-loaded domain expertise. Laws, codes, templates - ready to query.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="max-width: 800px; margin: 2.5rem auto;">
+                <h4>What is a Knowledge Pack?</h4>
+                <p>Knowledge Packs are comprehensive data products we harvest, curate, index, and update quarterly. Your documents are automatically cross-referenced against the knowledge base, linking your work to relevant laws, regulations, and standards.</p>
+                <p style="margin-top: 1rem;"><strong>Same hardware. Same software. Different Knowledge Pack.</strong> That's how we scale from Legal to Medical to HR across Romania, Italy, Spain, and beyond.</p>
+            </div>
+
+            <h3 style="text-align: center;">Killer Workflow: Contract Variance Analysis</h3>
+            <div class="card" style="max-width: 700px; margin: 1rem auto;">
+                <p><strong>Today:</strong> A lawyer receives a 5-contract due diligence package. Manually read each (4+ hours), track differences in spreadsheets. Many solos decline these engagements.</p>
+                <p style="margin-top: 1rem;"><strong>With Inteligentia:</strong> Drag-drop the 5 PDFs. Query: "Show all indemnity clause variants with differences highlighted." Result in 2-3 minutes with citations.</p>
+                <p class="key-point" style="text-align: left; margin-top: 1rem; margin-bottom: 0;">This isn't about saving 4 hours. It's about taking the EUR 5,000+ engagement you'd otherwise turn down.</p>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 2.5rem;">The Demo That Closes Deals</h3>
+            <div class="card" style="max-width: 500px; margin: 1rem auto;">
+                <h4 style="margin-top: 0; color: var(--blue);">The "Airplane Mode Test"</h4>
+                <ol style="padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+                    <li style="padding: 0.5rem 0;">Put your laptop in airplane mode</li>
+                    <li style="padding: 0.5rem 0;">Plug in Inteligentia via USB-C</li>
+                    <li style="padding: 0.5rem 0;">Query confidential documents</li>
+                    <li style="padding: 0.5rem 0;">Get cited answers - click any citation to see the source</li>
+                </ol>
+                <p class="key-point" style="margin-bottom: 0;">If it works offline, your data stayed on your desk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Appliance -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Why an Appliance</span>
+            <h2>"Why can't this just be an app?"</h2>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Desktop Software</th>
+                        <th>Inteligentia Appliance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Security</strong></td>
+                        <td>Varies by machine, OS, config</td>
+                        <td>Controlled hardware, secure boot, no radios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audit</strong></td>
+                        <td>"Trust us, we encrypted it"</td>
+                        <td>Deterministic build, hash verification</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Support</strong></td>
+                        <td>Infinite hardware combinations</td>
+                        <td>Single target platform</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Procurement</strong></td>
+                        <td>Software = IT reviews</td>
+                        <td>Equipment purchase = simpler path</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="two-col" style="margin-top: 2rem;">
+            <div>
+                <h3 style="margin-top: 0;">Why Not Big Tech "Local Mode"?</h3>
+                <ul class="feature-list">
+                    <li>They optimize for English-speaking enterprise at $100K+/year</li>
+                    <li>They won't build Romanian legal packs or German therapy packs</li>
+                    <li>Their "local mode" will still phone home for telemetry</li>
+                    <li>Professionals need <em>provable</em> isolation, not <em>promised</em> isolation</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">Why Not Local AI Hardware (Lemony)?</h3>
+                <ul class="feature-list">
+                    <li>Built for teams with IT support (5-500 users)</li>
+                    <li>EUR 6K-15K/year subscription model</li>
+                    <li>Requires choosing "models" and "workflows"</li>
+                    <li>A solo lawyer doesn't want infrastructure - they want answers</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="key-point" style="margin-top: 2rem;">The appliance is the proof.</p>
+    </section>
+
+    <!-- Product -->
+    <section id="product" class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">The Product</span>
+                <h2>Private Knowledge Navigator</h2>
+                <p class="section-subtitle">Hardware validated. Software in development. Pilot Q1 2026.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="tier">Core</div>
+                    <div class="tier-sub">Jetson NX 16GB</div>
+                    <div class="price">EUR 1,999</div>
+                    <div class="price-note">One-time purchase</div>
+                    <div class="features">
+                        <ul class="feature-list">
+                            <li>157 TOPS compute</li>
+                            <li>16GB unified memory</li>
+                            <li>2TB NVMe, LUKS + TPM</li>
+                            <li>USB-C only, no radios</li>
+                            <li>Secure boot, panic-erase</li>
+                            <li><strong>Core Knowledge Pack included</strong></li>
+                            <li><strong>2 years updates included</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="tier">Premium</div>
+                    <div class="tier-sub">Jetson AGX 64GB</div>
+                    <div class="price">EUR 2,999</div>
+                    <div class="price-note">One-time purchase</div>
+                    <div class="features">
+                        <ul class="feature-list">
+                            <li>275 TOPS compute</li>
+                            <li>64GB unified memory</li>
+                            <li>2TB NVMe, LUKS + TPM</li>
+                            <li>USB-C only, no radios</li>
+                            <li>Larger context windows</li>
+                            <li><strong>Core Knowledge Pack included</strong></li>
+                            <li><strong>2 years updates included</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Development Status</h3>
+            <div class="two-col">
+                <div class="timeline">
+                    <div class="timeline-item completed">
+                        <strong>VLM inference on Jetson (4-8B quantized)</strong>
+                        <p>Validated</p>
+                    </div>
+                    <div class="timeline-item completed">
+                        <strong>Retrieval + reranking pipeline</strong>
+                        <p>Working prototype</p>
+                    </div>
+                    <div class="timeline-item completed">
+                        <strong>Thermal management (sustained load)</strong>
+                        <p>Validated</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Citation UI</strong>
+                        <p>In development</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Knowledge Pack framework</strong>
+                        <p>Architecture defined</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Pilot launch - Q1 2026</strong>
+                        <p style="color: var(--blue); font-weight: 600;">Target milestone</p>
+                    </div>
+                </div>
+                <div>
+                    <h4>Knowledge Pack Roadmap</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pack</th>
+                                    <th>Target</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Jurist (RO)</strong></td>
+                                    <td>Lawyers & Notaries</td>
+                                </tr>
+                                <tr>
+                                    <td>Medical Pack</td>
+                                    <td>Therapists/Psychologists</td>
+                                </tr>
+                                <tr>
+                                    <td>Notary Pack</td>
+                                    <td>Historical monuments, cadastral</td>
+                                </tr>
+                                <tr>
+                                    <td>Italy Legal</td>
+                                    <td>Avvocati</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);"><strong>Lead time:</strong> 8-12 weeks per new Pack. Same infrastructure, different data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Now -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Why Now</span>
+            <h2>Three Things Changed in 18 Months</h2>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">&#129504;</div>
+                <h4>1. Local AI Crossed the Threshold</h4>
+                <p>Vision-Language Models (4-8B parameters) now run on edge hardware. They can read scanned documents - stamps, signatures, degraded text.</p>
+                <p style="margin-top: 0.75rem; font-style: italic; font-size: 0.85rem; color: var(--text-muted);">For RAG on specific documents, small models often outperform GPT-4 - less hallucination when restricted to local context.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">&#9878;</div>
+                <h4>2. Regulation Is Tightening</h4>
+                <p>GDPR enforcement: EUR 1.6B in fines in 2023. EU AI Act GPAI rules active August 2025. Professional bodies issuing guidance against cloud AI.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">&#127919;</div>
+                <h4>3. Cloud Giants Won't Serve This Market</h4>
+                <p>Microsoft, Google, OpenAI optimize for scale: English-first, enterprise-first. Minimum viable customer = $100K+/year.</p>
+                <p class="key-point" style="text-align: left; margin-top: 0.75rem; margin-bottom: 0;">The window is open.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section id="business" class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Business Model</span>
+                <h2>Hardware + Packs + Updates</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Revenue Stream</th>
+                            <th>Core (NX 16GB)</th>
+                            <th>Premium (AGX 64GB)</th>
+                            <th>Timing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Device + Core Pack</strong></td>
+                            <td>EUR 1,999</td>
+                            <td>EUR 2,999</td>
+                            <td>One-time</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Specialty Packs</strong></td>
+                            <td>EUR 199-399</td>
+                            <td>EUR 199-399</td>
+                            <td>Add-ons</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Base Maintenance</strong></td>
+                            <td>EUR 120/year</td>
+                            <td>EUR 120/year</td>
+                            <td>After Year 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box" style="max-width: 700px; margin: 2rem auto;">
+                <h4>The "No Kill Switch" Philosophy</h4>
+                <p>If you decline paid updates after Year 2, the device <strong>continues to function</strong> on its last installed version. No subscription check, no activation server, no remote lockout.</p>
+                <p style="margin-top: 0.75rem;"><strong>You own the device and the intelligence it contains.</strong> Updates are value-adds, not hostage mechanisms.</p>
+            </div>
+
+            <h3 style="text-align: center;">Unit Economics (Projections)</h3>
+            <div class="stats-grid" style="max-width: 700px; margin: 1rem auto;">
+                <div class="stat-card">
+                    <div class="number">~55%</div>
+                    <div class="label">Core Gross Margin</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">~37%</div>
+                    <div class="label">Premium Gross Margin</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">70%+</div>
+                    <div class="label">Projected Update Renewal</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market -->
+    <section id="market">
+        <div class="section-header">
+            <span class="badge">Market</span>
+            <h2>Beachhead: Romanian Legal</h2>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Segment</th>
+                                <th>Professionals</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lawyers</td>
+                                <td>~27,000</td>
+                                <td>UNBR 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Notaries</td>
+                                <td>~2,810</td>
+                                <td>UNNPR 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Legal advisors</td>
+                                <td>~2,000</td>
+                                <td>Estimate</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td><strong>Total</strong></td>
+                                <td><strong>~32,000</strong></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><strong>Why Romania first:</strong> High-friction environment - bureaucratic, paper-heavy. If we handle Romanian court PDFs with stamps and degraded scans, German legal documents are easy.</p>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">Why Italy Second?</h3>
+                <div class="stats-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="stat-card">
+                        <div class="number">247K</div>
+                        <div class="label">Italian Lawyers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">63.8%</div>
+                        <div class="label">Solo Practitioners</div>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;"><strong>Italy is the largest legal market in the EU by headcount.</strong> The majority are solos in family-based practices - exactly our ICP.</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 2.5rem;">2026 Projections</h3>
+        <div class="table-wrapper" style="max-width: 600px; margin: 1rem auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Units</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conservative (RO only)</td>
+                        <td>~250</td>
+                        <td>EUR 500K-600K</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Base case (RO + Italy)</strong></td>
+                        <td><strong>~400</strong></td>
+                        <td><strong>EUR 800K-950K</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Stretch (full Italy rollout)</td>
+                        <td>~580</td>
+                        <td>EUR 1.16M-1.4M</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight-box" style="max-width: 700px; margin: 2rem auto; text-align: center;">
+            <h4 style="margin-bottom: 0.5rem;">The Romance Language Corridor</h4>
+            <p style="font-size: 1.1rem;">RO &#8594; IT &#8594; ES &#8594; FR before Germanic markets</p>
+            <p style="margin-top: 0.75rem;">Pack adaptation flows naturally through related legal systems.</p>
+            <p class="key-point" style="margin-bottom: 0;">Same hardware. Same software. Different Knowledge Pack.</p>
+        </div>
+    </section>
+
+    <!-- Competition -->
+    <section class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Competition</span>
+                <h2>Three Options Today - Plus Us</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th style="text-align: center;">Private?</th>
+                            <th style="text-align: center;">Affordable?</th>
+                            <th style="text-align: center;">Turnkey?</th>
+                            <th style="text-align: center;">For Solos?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consumer Cloud (ChatGPT, etc.)</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Specialized SaaS (Harvey, etc.)</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                        </tr>
+                        <tr>
+                            <td>Private Compute (Azure, AWS)</td>
+                            <td style="text-align: center;" class="cross">&#10007;*</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                        </tr>
+                        <tr>
+                            <td>Lemony.ai</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                            <td style="text-align: center;" class="cross">&#10007;</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Inteligentia</strong></td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                            <td style="text-align: center;" class="check">&#10003;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 2rem;">Lemony.ai: The Closest Competitor</h3>
+            <div class="table-wrapper" style="max-width: 700px; margin: 1rem auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Lemony.ai</th>
+                            <th>Inteligentia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pricing</strong></td>
+                            <td>EUR 499-1,299/month</td>
+                            <td style="color: var(--blue); font-weight: 600;">EUR 1,999-2,999 one-time</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ownership</strong></td>
+                            <td>Subscription</td>
+                            <td style="color: var(--blue); font-weight: 600;">You own it forever</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Target</strong></td>
+                            <td>Teams (5-500 users)</td>
+                            <td>Solo practitioners</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complexity</strong></td>
+                            <td>Models, workflows, APIs</td>
+                            <td>Plug in, query, done</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Knowledge</strong></td>
+                            <td>Bring your own</td>
+                            <td style="color: var(--blue); font-weight: 600;">Pre-loaded Pack</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="margin-top: 1.5rem; text-align: center; font-size: 1rem;"><strong>Lemony serves teams who want AI infrastructure.</strong><br>
+            <span style="color: var(--blue); font-weight: 600;">Inteligentia serves professionals who just want answers.</span></p>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+        <div class="section-header">
+            <span class="badge">Team</span>
+            <h2>Solo Founder. Relevant Experience.</h2>
+        </div>
+
+        <div class="two-col">
+            <div class="card">
+                <h3 style="margin-top: 0;">Mihai Cvasnievschi</h3>
+                <p style="color: var(--blue); margin-bottom: 1rem; font-weight: 600;">Founder & CEO</p>
+                <ul class="feature-list">
+                    <li>25 years software development</li>
+                    <li>10 years production ML/AI</li>
+                    <li>Built distributed inference on embedded hardware</li>
+                    <li>Led 60+ person engineering orgs</li>
+                    <li>Based in Bucharest (on the ground in beachhead)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">Risk-to-Hire Mapping</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Risk</th>
+                                <th>Hire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Edge inference</td>
+                                <td>Embedded Systems Engineer</td>
+                            </tr>
+                            <tr>
+                                <td>Pack production</td>
+                                <td>ML Engineer</td>
+                            </tr>
+                            <tr>
+                                <td>Verification UX</td>
+                                <td>Full Stack Engineer</td>
+                            </tr>
+                            <tr>
+                                <td>Channel dev</td>
+                                <td>BD Lead</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="cofounder-box">
+            <h3>Looking for a Technical Co-Founder</h3>
+            <p>Embedded systems or ML background. Competitive equity for the right person.<br>
+            Help build the infrastructure layer for private professional AI.</p>
+            <a href="#contact" class="btn btn-lg">Let's Talk</a>
+        </div>
+    </section>
+
+    <!-- The Ask -->
+    <section class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">The Ask</span>
+                <h2>EUR 1.2M-1.5M to Prove the Model</h2>
+                <p class="section-subtitle">A conversation opener for investors who understand deep tech timelines.</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h3 style="margin-top: 0;">Funding Tranches</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tranche</th>
+                                    <th>Amount</th>
+                                    <th>Unlocks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Angel</td>
+                                    <td>EUR 200K-400K</td>
+                                    <td>First hire, 50 pilots</td>
+                                </tr>
+                                <tr>
+                                    <td>Pre-Seed</td>
+                                    <td>EUR 800K-1M</td>
+                                    <td>Platform, 200 units</td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td><strong>Full Round</strong></td>
+                                    <td><strong>EUR 1.2M-1.5M</strong></td>
+                                    <td><strong>+ Italy expansion</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-top: 0;">What We'll Prove</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>PoC demo - Feb 2026</strong>
+                            <p>"Airplane Mode Test" with real documents</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Pilot launch - Mar 2026</strong>
+                            <p>25 units to Romanian lawyers</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Pilot validation - Jun 2026</strong>
+                            <p>>50% retention, NPS > 30</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Seed-ready - Q4 2026</strong>
+                            <p style="color: var(--blue); font-weight: 600;">250+ units, EUR 500K+ revenue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 2rem;">Capital Allocation</h3>
+            <div class="stats-grid" style="max-width: 700px; margin: 1rem auto;">
+                <div class="stat-card">
+                    <div class="number">50%</div>
+                    <div class="label">Platform Engineering</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">15%</div>
+                    <div class="label">Go-to-Market</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">15%</div>
+                    <div class="label">Hardware/Inventory</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">20%</div>
+                    <div class="label">Pack + Operations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision -->
+    <section>
+        <div class="section-header">
+            <span class="badge">The Vision</span>
+            <h2>The Evolution of the "External Brain"</h2>
+        </div>
+
+        <div class="phase-card">
+            <span class="phase-label">2026-2027</span>
+            <div class="phase-title">Phase 1: The Vault</div>
+            <div class="phase-subtitle">"The iPod for Secrets"</div>
+            <p>Standalone desktop appliance. Ingests documents, answers questions safely. First "Safe Harbor" for digital knowledge.</p>
+        </div>
+
+        <div class="phase-card">
+            <span class="phase-label">2028-2029</span>
+            <div class="phase-title">Phase 2: The Associate</div>
+            <div class="phase-subtitle">"The iOS for Work"</div>
+            <p>Local server for your practice. Connects to laptop, phone, drafting software. Drafts documents. Mimics your writing style. Remembers the case from 3 years ago.</p>
+        </div>
+
+        <div class="phase-card">
+            <span class="phase-label">2030+</span>
+            <div class="phase-title">Phase 3: The Core</div>
+            <div class="phase-subtitle">"The SIM Card for Intelligence"</div>
+            <p>Embedded compute module. Standardized core that slots into laptop, car, or home server. You carry your "Digital Soul" physically.</p>
+        </div>
+
+        <blockquote style="margin-top: 2rem; border-left-color: var(--blue);">
+            <p>Today, your AI intelligence is rented from OpenAI. Stop paying, lose your brain. Get banned, lose your brain.</p>
+            <p style="color: var(--blue); font-style: normal; font-weight: 600; margin-top: 0.75rem;">Inteligentia is the iPhone model. You buy it. You own it. It holds your secrets. Internet goes down? Still works.</p>
+        </blockquote>
+
+        <p class="key-point" style="margin-top: 2rem;">The floor is a profitable niche hardware business.<br>The ceiling is infrastructure for private professional AI.</p>
+    </section>
+
+    <!-- Summary -->
+    <section class="full-width">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Summary</span>
+                <h2>Why Have This Conversation</h2>
+            </div>
+
+            <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="card">
+                    <h4>1. Problem is real</h4>
+                    <p>10M+ EU professionals blocked from AI by compliance</p>
+                </div>
+                <div class="card">
+                    <h4>2. Solution is tangible</h4>
+                    <p>Hardware in hand, stack validated</p>
+                </div>
+                <div class="card">
+                    <h4>3. Timing is now</h4>
+                    <p>Edge AI crossed threshold; regulation tightening</p>
+                </div>
+                <div class="card">
+                    <h4>4. Demo sells itself</h4>
+                    <p>"Airplane Mode Test" is 90 seconds of proof</p>
+                </div>
+                <div class="card">
+                    <h4>5. Team can build it</h4>
+                    <p>25 years of exactly this stack</p>
+                </div>
+                <div class="card">
+                    <h4>6. Platform scales</h4>
+                    <p>New verticals in 8-12 weeks post-launch</p>
+                </div>
+                <div class="card">
+                    <h4>7. Market underserved</h4>
+                    <p>Cloud giants won't serve solos</p>
+                </div>
+                <div class="card">
+                    <h4>8. UX is the moat</h4>
+                    <p>No models, no workflows - just answers</p>
+                </div>
+                <div class="card" style="border: 2px solid var(--blue);">
+                    <h4 style="color: var(--blue);">9. You own it forever</h4>
+                    <p>No subscription kill switch. Your intelligence, your asset.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2.5rem; text-align: center; font-size: 1.1rem; color: var(--text-secondary);">
+                We're not asking you to fund a vision.<br>
+                <strong style="color: var(--text-primary);">We're asking you to watch us prove it - and decide if you want in.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <p class="footer-motto"><span>Intelligence you own,</span> not rent.</p>
+        <h2>Let's talk.</h2>
+        <div class="contact-info">
+            <p><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
+            <p style="margin-top: 0.75rem;"><a href="https://www.inteligentia.eu">www.inteligentia.eu</a></p>
+        </div>
+        <div class="footer-brand">
+            <img src="logo-white.png" alt="Inteligentia" class="footer-logo">
+            <span class="footer-brand-name">inteligentia</span>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
