@@ -154,6 +154,12 @@
         nav .logo img {
             height: 32px;
             width: auto;
+            filter: brightness(0) invert(1);
+            transition: filter 0.2s ease;
+        }
+
+        [data-theme="light"] nav .logo img {
+            filter: none;
         }
 
         nav .logo-text {
@@ -301,6 +307,12 @@
         .hero-logo {
             width: 56px;
             height: 56px;
+            filter: brightness(0) invert(1);
+            transition: filter 0.2s ease;
+        }
+
+        [data-theme="light"] .hero-logo {
+            filter: none;
         }
 
         .hero-brand-text {
@@ -309,9 +321,13 @@
 
         .hero .product-byline {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 0.125rem;
             font-weight: 500;
+        }
+
+        [data-theme="light"] .hero .product-byline {
+            color: var(--text-muted);
         }
 
         .badge {
@@ -347,9 +363,13 @@
 
         .hero .tagline {
             font-size: 1.1rem;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 0.5rem;
             font-weight: 400;
+        }
+
+        [data-theme="light"] .hero .tagline {
+            color: var(--text-secondary);
         }
 
         .hero .hero-motto {
