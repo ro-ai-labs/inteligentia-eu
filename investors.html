@@ -778,7 +778,7 @@
 	                <li><a href="index.html#problem">Problem</a></li>
 	                <li><a href="index.html#solution">Solution</a></li>
 	                <li><a href="index.html#product">Product</a></li>
-	                <li><a href="security.html">Security</a></li>
+	                <li><a href="#security">Security</a></li>
 	                <li><a href="investors.html" style="color: var(--blue);">Investors</a></li>
 	                <li><a href="#team">Team</a></li>
 	                <li class="nav-mobile-only"><a href="mailto:info@inteligentia.eu?subject=Investor%20Inquiry" class="btn btn-primary">Contact Us</a></li>
@@ -1259,14 +1259,47 @@
 
             <p class="key-point" style="margin-top: 2rem;">The floor is a profitable niche hardware business.<br>The ceiling is infrastructure for private professional AI.</p>
         </div>
-    </section>
+	    </section>
 
-    <!-- Team -->
-    <section>
-        <div class="section-header">
-            <span class="badge">Team</span>
-            <h2>Solo Founder. Relevant Experience.</h2>
-        </div>
+	    <!-- Security -->
+	    <section id="security">
+	        <div class="section-header">
+	            <span class="badge">Security</span>
+	            <h2>Security &amp; Verification (Technical)</h2>
+	            <p class="section-subtitle">Technical notes for investors and security reviewers. The public Security page focuses on the non-technical proof checks.</p>
+	        </div>
+
+	        <div class="two-col">
+	            <div class="card">
+	                <h3 style="margin-top: 0;">Architecture</h3>
+	                <ul style="padding-left: 1.5rem; color: var(--text-secondary);">
+	                    <li>Air‑gapped SKU: no Wi‑Fi / Bluetooth / cellular / Ethernet</li>
+	                    <li>USB‑C data interface + separate power</li>
+	                    <li>Full‑disk encryption: LUKS with TPM‑bound key material</li>
+	                    <li>TOFU ownership: first user becomes owner (no accounts)</li>
+	                    <li>Duress / panic erase: overwrite LUKS header (data becomes unrecoverable)</li>
+	                </ul>
+	            </div>
+	            <div class="card">
+	                <h3 style="margin-top: 0;">Updates &amp; Audit</h3>
+	                <ul style="padding-left: 1.5rem; color: var(--text-secondary);">
+	                    <li>Signed update bundles fetched by companion app</li>
+	                    <li>Signature verified on host and on device</li>
+	                    <li>Updates transferred over USB; device never touches the internet</li>
+	                    <li>Deterministic builds + hash verification for provenance</li>
+	                    <li>No telemetry pipeline by design</li>
+	                </ul>
+	                <p style="margin-top: 1rem; color: var(--text-secondary);">Proof protocol: <a href="security.html#proof" style="color: var(--blue);">Airplane Mode Test</a> + Privacy Card checklist.</p>
+	            </div>
+	        </div>
+	    </section>
+
+	    <!-- Team -->
+	    <section id="team">
+	        <div class="section-header">
+	            <span class="badge">Team</span>
+	            <h2>Team &amp; Hiring Plan</h2>
+	        </div>
 
         <div class="two-col">
             <div>
@@ -1311,14 +1344,14 @@
                     </table>
                 </div>
             </div>
-        </div>
+	        </div>
 
-        <div class="cofounder-box">
-            <h3>Looking for a Technical Co-Founder</h3>
-            <p>Embedded systems or ML background. Competitive equity for the right person.<br>Help build the infrastructure layer for private professional AI.</p>
-            <a href="mailto:info@inteligentia.eu?subject=Co-Founder%20Interest" class="btn">Let's Talk</a>
-        </div>
-    </section>
+	        <div class="cofounder-box">
+	            <h3>Key Hires</h3>
+	            <p>We’re hiring across embedded systems, ML, full-stack, and business development to ship the pilot and scale Knowledge Packs.</p>
+	            <a href="mailto:info@inteligentia.eu?subject=Inteligentia%20-%20Hiring%20Interest" class="btn">Let's Talk</a>
+	        </div>
+	    </section>
 
     <!-- Summary -->
     <section class="full-width">
