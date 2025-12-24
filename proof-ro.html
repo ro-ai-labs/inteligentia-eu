@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inteligentia: Protocol de dovadă</title>
+    <meta name="description" content="Cum plănuiește inteligentia să demonstreze confidențialitatea offline și fluxurile cu citări în pilot: Testul „mod avion”, ritualul Cardului de Confidențialitate și pachete de dovadă pregătite pentru audit.">
+    <meta name="theme-color" content="#0f1419">
+    <link rel="canonical" href="https://inteligentia.eu/proof-ro.html">
+    <link rel="alternate" hreflang="en" href="https://inteligentia.eu/proof.html">
+    <link rel="alternate" hreflang="ro" href="https://inteligentia.eu/proof-ro.html">
+    <link rel="alternate" hreflang="x-default" href="https://inteligentia.eu/proof.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="inteligentia">
+    <meta property="og:title" content="inteligentia - Protocol de dovadă">
+    <meta property="og:description" content="Cum plănuiește inteligentia să demonstreze confidențialitatea offline și fluxurile cu citări în pilot: Testul „mod avion”, ritualul Cardului de Confidențialitate și pachete de dovadă pregătite pentru audit.">
+    <meta property="og:url" content="https://inteligentia.eu/proof-ro.html">
+    <meta property="og:image" content="https://inteligentia.eu/concept.jpg">
+    <meta property="og:image:alt" content="Dispozitiv inteligentia - AI offline">
+    <meta property="og:locale" content="ro_RO">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="inteligentia - Protocol de dovadă">
+    <meta name="twitter:description" content="Cum plănuiește inteligentia să demonstreze confidențialitatea offline și fluxurile cu citări în pilot: Testul „mod avion”, ritualul Cardului de Confidențialitate și pachete de dovadă pregătite pentru audit.">
+    <meta name="twitter:image" content="https://inteligentia.eu/concept.jpg">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Dark Theme (Default) */
+        :root {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a2332;
+            --bg-card: #1e2a3a;
+            --text-primary: #e8edf3;
+            --text-secondary: #a8b5c4;
+            --text-muted: #7a8999;
+            --blue: #4a9eff;
+            --blue-dark: #3d8be6;
+            --blue-light: rgba(74, 158, 255, 0.15);
+            --blue-lighter: rgba(74, 158, 255, 0.08);
+            --accent: #4a9eff;
+            --green: #34d399;
+            --green-light: rgba(52, 211, 153, 0.15);
+            --orange: #fbbf24;
+            --orange-light: rgba(251, 191, 36, 0.15);
+            --border: rgba(74, 158, 255, 0.15);
+            --border-strong: rgba(74, 158, 255, 0.25);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --nav-bg: rgba(15, 20, 25, 0.95);
+            --nav-offset: 88px;
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #e8edf3;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #374151;
+            --text-muted: #5a6578;
+            --blue: #1e5a99;
+            --blue-dark: #164573;
+            --blue-light: rgba(30, 90, 153, 0.08);
+            --blue-lighter: rgba(30, 90, 153, 0.04);
+            --accent: #1e5a99;
+            --green: #10b981;
+            --green-light: rgba(16, 185, 129, 0.1);
+            --orange: #f59e0b;
+            --orange-light: rgba(245, 158, 11, 0.1);
+            --border: rgba(30, 90, 153, 0.1);
+            --border-strong: rgba(30, 90, 153, 0.2);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --nav-bg: rgba(255, 255, 255, 0.92);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-offset);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        section {
+            scroll-margin-top: var(--nav-offset);
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -40px;
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none;
+            font-size: 0.85rem;
+            z-index: 1100;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+            outline: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            color: var(--blue);
+            border-color: var(--border-strong);
+            background: var(--blue-light);
+        }
+
+        .theme-toggle .icon-light, .theme-toggle .icon-dark { display: none; }
+        :root .theme-toggle .icon-dark { display: block; }
+        [data-theme="light"] .theme-toggle .icon-light { display: block; }
+        [data-theme="light"] .theme-toggle .icon-dark { display: none; }
+
+        .lang-switch {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .lang-switch:hover {
+            color: var(--blue);
+            border-color: var(--border-strong);
+            background: var(--blue-light);
+        }
+
+        /* Mobile nav */
+        .nav-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-toggle:hover {
+            color: var(--blue);
+            border-color: var(--border-strong);
+            background: var(--blue-light);
+        }
+
+        .nav-toggle-icon {
+            width: 18px;
+            height: 2px;
+            background: currentColor;
+            position: relative;
+            display: block;
+            border-radius: 1px;
+        }
+
+        .nav-toggle-icon::before,
+        .nav-toggle-icon::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 1px;
+            transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
+        }
+
+        .nav-toggle-icon::before { top: -6px; }
+        .nav-toggle-icon::after { top: 6px; }
+
+        nav.nav-open .nav-toggle-icon { background: transparent; }
+        nav.nav-open .nav-toggle-icon::before { top: 0; transform: rotate(45deg); }
+        nav.nav-open .nav-toggle-icon::after { top: 0; transform: rotate(-45deg); }
+
+        .nav-mobile-only { display: none; }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: var(--blue-light);
+            color: var(--blue);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-orange {
+            background: var(--orange-light);
+            color: var(--orange);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.75px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-row {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .proof-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .proof-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .proof-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .steps {
+            padding-left: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .steps li {
+            padding: 0.35rem 0;
+        }
+
+        .note {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: var(--blue-lighter);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .fine-print {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            max-width: 760px;
+            margin: 1.5rem auto 0;
+            line-height: 1.6;
+        }
+
+        /* Full width sections */
+        .full-width {
+            max-width: 100%;
+            background: var(--bg-secondary);
+        }
+
+        .full-width .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer .footer-motto {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        footer .footer-motto span { color: rgba(255, 255, 255, 0.7); }
+
+        footer .contact-info p { margin: 0.375rem 0; color: rgba(255, 255, 255, 0.85); font-size: 1rem; }
+        footer .contact-info a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.3); transition: border-color 0.2s; }
+        footer .contact-info a:hover { border-bottom-color: white; }
+
+        footer .footer-disclaimer {
+            margin-top: 1.75rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.55);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+        }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --nav-offset: 72px; }
+
+            nav { padding: 0.75rem 1rem; }
+            nav .container { position: relative; }
+
+            .nav-toggle { display: inline-flex; }
+            .nav-cta .btn { display: none; }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0.5rem;
+                background: var(--nav-bg);
+                padding: 0.75rem 1rem 1rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+                display: none;
+            }
+
+            nav.nav-open .nav-links { display: flex; }
+            .nav-mobile-only { display: block; }
+            .nav-mobile-only .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Sari la conținut</a>
+    <nav>
+        <div class="container">
+            <a href="index-ro.html" class="logo">
+                <img src="icon.png" alt="Inteligentia">
+                <span class="logo-text">inteligentia</span>
+            </a>
+            <ul id="primary-navigation" class="nav-links">
+                <li><a href="index-ro.html#problema">Problema</a></li>
+                <li><a href="index-ro.html#solutia">Soluția</a></li>
+                <li><a href="index-ro.html#produs">Produs</a></li>
+                <li><a href="proof-ro.html" style="color: var(--blue);">Dovadă</a></li>
+                <li><a href="security-ro.html">Securitate</a></li>
+                <li><a href="investors-ro.html">Investitori</a></li>
+                <li><a href="index-ro.html#echipa">Echipa</a></li>
+                <li class="nav-mobile-only"><a href="index-ro.html#aplicatie-pilot" class="btn btn-primary">Aplică pentru Pilot</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="proof.html" class="lang-switch">EN</a>
+                <button class="theme-toggle" type="button" onclick="toggleTheme()" title="Schimbă tema" aria-label="Schimba tema">
+                    <span class="icon-light">&#9790;</span>
+                    <span class="icon-dark">&#9788;</span>
+                </button>
+                <button class="nav-toggle" type="button" aria-label="Deschide meniul" aria-controls="primary-navigation" aria-expanded="false" data-label-open="Deschide meniul" data-label-close="Inchide meniul">
+                    <span class="nav-toggle-icon" aria-hidden="true"></span>
+                </button>
+                <a href="index-ro.html#aplicatie-pilot" class="btn btn-primary">Aplică pentru Pilot</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">Protocol de dovadă <span class="badge badge-orange" style="margin-left: 0.5rem;">În dezvoltare</span></span>
+                <h1>Încredere verificabilă</h1>
+                <p>Inteligentia este în dezvoltare. Această pagină descrie cum plănuim să demonstrăm confidențialitatea și proveniența în pilot—fără „trust us”.</p>
+                <div class="cta-row">
+                    <a href="index-ro.html#aplicatie-pilot" class="btn btn-primary">Aplică pentru Pilot</a>
+                    <a href="security-ro.html" class="btn btn-secondary">Securitate &amp; Confidențialitate</a>
+                </div>
+                <p class="fine-print">Totul aici este despre dovezi pe care le poți rula chiar tu. Specificațiile și fluxurile se pot ajusta înainte de livrare.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Ce vom demonstra</h2>
+                <p class="section-subtitle">Un protocol repetabil construit pentru sceptici: cumpărători, organizații profesionale, conformitate și audit.</p>
+            </div>
+            <div class="grid">
+                <div class="proof-card">
+                    <h3>Confidențialitate offline</h3>
+                    <p>Demo-ul din pilot este proiectat să ruleze cu laptopul în mod avion și fără hardware de rețea pe dispozitiv.</p>
+                </div>
+                <div class="proof-card">
+                    <h3>Zero telemetrie</h3>
+                    <p>Fără analytics de utilizare. Fără colectare „anonimizată”. Arhitectură pentru minimizarea riscului de transfer.</p>
+                </div>
+                <div class="proof-card">
+                    <h3>Fără sub‑procesatori</h3>
+                    <p>Țintim o postură fără procesatori externi: datele clientului rămân local. Fără DPA/SCC pentru inferență cloud.</p>
+                </div>
+                <div class="proof-card">
+                    <h3>Citări înainte de toate</h3>
+                    <p>Fiecare răspuns este proiectat să fie legat de paragrafe locale cu citări click‑to‑verify.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Testul „mod avion”</h2>
+                <p class="section-subtitle">Cel mai scurt demo care contează. Dacă funcționează offline, datele au rămas pe biroul tău.</p>
+            </div>
+            <div class="proof-card">
+                <ol class="steps">
+                    <li>Pune laptopul în mod avion (și/sau scoate cablul Ethernet).</li>
+                    <li>Conectează Inteligentia via USB‑C (adaptor de alimentare inclus).</li>
+                    <li>Încarcă un set de documente confidențiale.</li>
+                    <li>Adresează o întrebare și verifică sursele prin citări click‑to‑verify.</li>
+                </ol>
+                <div class="note">
+                    Scop: să demonstrăm lipsa dependenței de endpoint‑uri de inferență găzduite pe internet. Aceasta nu afirmă că laptopul gazdă este lipsit de malware.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Ritualul Cardului de Confidențialitate</h2>
+                <p class="section-subtitle">O listă de verificare pentru repetabilitate—ceva ce poți rula, înregistra și distribui intern.</p>
+            </div>
+            <div class="proof-card">
+                <ol class="steps">
+                    <li><strong>Izolează host-ul:</strong> oprește Wi‑Fi și scoate cablul Ethernet.</li>
+                    <li><strong>Verifică izolarea:</strong> confirmă lipsa rutei implicite / accesului la internet.</li>
+                    <li><strong>Conectează dispozitivul:</strong> USB‑C pentru date + alimentare separată.</li>
+                    <li><strong>Rulează fluxul:</strong> ingerează un dosar, caută, sumarizează, redactează.</li>
+                    <li><strong>Rezultat:</strong> flux complet end‑to‑end fără internet.</li>
+                </ol>
+                <div class="note">
+                    În pilot, acest ritual devine un „Card de Dovadă a Confidențialității” tipărit inclus în cutie.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Postură fără procesatori (fără DPA/SCC)</h2>
+                <p class="section-subtitle">Proiectat pentru ca profesioniștii reglementați să nu aibă nevoie de „paperwork” enterprise doar ca să folosească AI pe lucru confidențial.</p>
+            </div>
+            <div class="proof-card">
+                <ol class="steps">
+                    <li><strong>Fără inferență în cloud:</strong> procesarea este planificată să ruleze pe dispozitiv.</li>
+                    <li><strong>Fără sub‑procesatori:</strong> nu plănuim să procesăm datele clientului pe infrastructura RO AI Labs.</li>
+                    <li><strong>Actualizări fără transfer de date:</strong> actualizările sunt descărcate de aplicația companion (când ești online), verificate, apoi transferate prin USB.</li>
+                </ol>
+                <div class="note">
+                    Pentru detalii de securitate, vezi <a href="security-ro.html" style="color: var(--blue);">Securitate &amp; Confidențialitate</a>.
+                </div>
+            </div>
+        </section>
+
+        <section class="full-width">
+            <div class="container" style="text-align: center;">
+                <h2>Vrei acces timpuriu?</h2>
+                <p style="color: var(--text-secondary); margin: 1rem auto 2rem; max-width: 720px;">Aplică la pilot pentru acces la demo-urile de dovadă și pentru a contribui la produs.</p>
+                <a href="index-ro.html#aplicatie-pilot" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2rem;">Aplică pentru Pilot</a>
+                <p class="fine-print">Această pagină descrie planuri și intenții pentru protocolul de dovadă.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-motto"><span>Inteligența pe care o deții,</span> nu o închiriezi.</p>
+        <div class="contact-info">
+            <p><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
+            <p><a href="https://www.inteligentia.eu">www.inteligentia.eu</a></p>
+        </div>
+        <p class="footer-disclaimer">
+            Inteligentia este construit pentru a minimiza riscul transferului de date și a susține auditabilitatea.
+            Clienții rămân responsabili pentru obligațiile lor profesionale și de reglementare.
+            Produsul este în dezvoltare, iar această pagină descrie capabilități și fluxuri planificate.
+        </p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const nav = document.querySelector('nav');
+        const navToggle = document.querySelector('.nav-toggle');
+
+        function setNavState(open) {
+            if (!nav || !navToggle) {
+                return;
+            }
+            nav.classList.toggle('nav-open', open);
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            const labelOpen = navToggle.getAttribute('data-label-open');
+            const labelClose = navToggle.getAttribute('data-label-close');
+            navToggle.setAttribute('aria-label', open ? labelClose : labelOpen);
+        }
+
+        if (nav && navToggle) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = nav.classList.contains('nav-open');
+                setNavState(!isOpen);
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => setNavState(false));
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    setNavState(false);
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) {
+                    return;
+                }
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
