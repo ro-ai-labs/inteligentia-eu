@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inteligentia: Security &amp; Privacy</title>
-    <meta name="description" content="Security and privacy of the inteligentia appliance: air-gapped design, no telemetry, encrypted storage, and signed updates.">
+	    <meta name="description" content="Security and privacy of the inteligentia appliance: offline design, no telemetry, encrypted storage, and USB updates.">
     <meta name="theme-color" content="#0f1419">
     <link rel="canonical" href="https://inteligentia.eu/security.html">
     <link rel="alternate" hreflang="en" href="https://inteligentia.eu/security.html">
@@ -13,14 +13,14 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="inteligentia">
     <meta property="og:title" content="inteligentia - Security and Privacy">
-    <meta property="og:description" content="Security and privacy of the inteligentia appliance: air-gapped design, no telemetry, encrypted storage, and signed updates.">
+	    <meta property="og:description" content="Security and privacy of the inteligentia appliance: offline design, no telemetry, encrypted storage, and USB updates.">
     <meta property="og:url" content="https://inteligentia.eu/security.html">
     <meta property="og:image" content="https://inteligentia.eu/concept.jpg">
     <meta property="og:image:alt" content="Inteligentia offline AI appliance">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="inteligentia - Security and Privacy">
-    <meta name="twitter:description" content="Security and privacy of the inteligentia appliance: air-gapped design, no telemetry, encrypted storage, and signed updates.">
+	    <meta name="twitter:description" content="Security and privacy of the inteligentia appliance: offline design, no telemetry, encrypted storage, and USB updates.">
     <meta name="twitter:image" content="https://inteligentia.eu/concept.jpg">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,16 +533,14 @@
                 <img src="icon.png" alt="Inteligentia">
                 <span class="logo-text">inteligentia</span>
             </a>
-            <ul id="primary-navigation" class="nav-links">
-                <li><a href="index.html#problem">Problem</a></li>
-                <li><a href="index.html#solution">Solution</a></li>
-                <li><a href="index.html#product">Product</a></li>
-                <li><a href="proof.html">Proof</a></li>
-                <li><a href="security.html" style="color: var(--blue);">Security</a></li>
-                <li><a href="investors.html">Investors</a></li>
-                <li><a href="index.html#team">Team</a></li>
-                <li class="nav-mobile-only"><a href="index.html#pilot-application" class="btn btn-primary">Apply for Pilot</a></li>
-            </ul>
+	            <ul id="primary-navigation" class="nav-links">
+	                <li><a href="index.html#problem">Problem</a></li>
+	                <li><a href="index.html#solution">Solution</a></li>
+	                <li><a href="index.html#product">Product</a></li>
+	                <li><a href="security.html" style="color: var(--blue);">Security</a></li>
+	                <li><a href="investors.html">Investors</a></li>
+	                <li class="nav-mobile-only"><a href="index.html#pilot-application" class="btn btn-primary">Apply for Pilot</a></li>
+	            </ul>
             <div class="nav-cta">
                 <a href="security-ro.html" class="lang-switch">RO</a>
                 <button class="theme-toggle" type="button" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">
@@ -558,124 +556,138 @@
     </nav>
 
     <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge badge-green">Security &amp; Privacy</span>
-            <h1>Air-Gapped by Design</h1>
-            <p>Inteligentia is built from the ground up for professionals who handle confidential information.<br/>No cloud. No telemetry. Privacy by architecture.</p>
-        </div>
-    </section>
+	    <!-- Hero -->
+	    <section class="hero">
+	        <div class="hero-content">
+	            <span class="badge badge-green">Security &amp; Privacy</span>
+	            <h1>Privacy You Can Verify</h1>
+	            <p>Designed for confidential work: runs offline, avoids background uploads, and keeps you in control. Below are simple checks you can run yourself.</p>
+	        </div>
+	    </section>
 
-    <!-- Core Security -->
-    <section>
-        <div class="section-header">
-            <h2>Hardware Security</h2>
-            <p class="section-subtitle">Privacy starts with the hardware. You can't leak data through a connection that doesn't exist.</p>
-        </div>
+	    <!-- Proof -->
+	    <section id="proof">
+	        <div class="section-header">
+	            <h2>Proof You Can Run</h2>
+	            <p class="section-subtitle">Two quick checks designed for regulated professionals—no “trust us” required.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>No Radio Hardware</h3>
-            <p>The Inteligentia appliance has <strong>no Wi-Fi, no Bluetooth, no cellular, no Ethernet</strong>. We use strict "No-Radio SKUs" from our supplier and verify each device has no M.2 WiFi module installed.</p>
-            <p>This isn't software-disabled networking. The radio hardware <strong>physically does not exist</strong> in the device.</p>
-        </div>
+	        <div class="security-card">
+	            <h3>The Airplane Mode Test</h3>
+	            <p>During the pilot, this is the first demo we run. If it works offline, your data stayed on your desk.</p>
+	            <ol style="padding-left: 1.5rem; color: var(--text-secondary);">
+	                <li style="padding: 0.25rem 0;">Put your laptop in airplane mode (and/or unplug Ethernet).</li>
+	                <li style="padding: 0.25rem 0;">Connect Inteligentia via USB‑C and plug in the power adapter.</li>
+	                <li style="padding: 0.25rem 0;">Open the companion app and load a confidential document set.</li>
+	                <li style="padding: 0.25rem 0;">Ask a question and verify sources via clickable citations.</li>
+	            </ol>
+	            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Goal: demonstrate no dependency on internet-hosted inference endpoints by our system. This does not assert the host computer is malware-free.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>USB-C Data Connectivity</h3>
-            <p>The only external interface is USB-C, used for:</p>
-            <ul>
-                <li>Storage mounting (your documents in, results out)</li>
-                <li>Companion app communication</li>
-                <li>Secure updates</li>
-            </ul>
-            <p style="margin-top: 1rem;">Power is delivered via a separate DC barrel connector - the device cannot be powered over USB to prevent certain attack vectors.</p>
-        </div>
+	        <div class="security-card">
+	            <h3>The Privacy Card Checklist</h3>
+	            <p>A short checklist you can run, repeat, and share internally.</p>
+	            <ol style="padding-left: 1.5rem; color: var(--text-secondary);">
+	                <li style="padding: 0.25rem 0;"><strong>Isolate host:</strong> disable Wi‑Fi and unplug Ethernet.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Verify isolation:</strong> confirm no internet access.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Connect device:</strong> USB‑C for data + separate power.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Run workflow:</strong> ingest → search → summarize → draft.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Result:</strong> workflow runs end‑to‑end without internet.</li>
+	            </ol>
+	        </div>
+	    </section>
 
-        <div class="security-card">
-            <h3>Sealed Enclosure</h3>
-            <p>Hardware is manufactured in Asia, but the "Brain" is flashed and the enclosure is physically sealed in <strong>Romania</strong> under our direct supervision. This provides chain-of-custody assurance.</p>
-        </div>
+	    <!-- Core Security -->
+	    <section>
+	        <div class="section-header">
+	            <h2>Privacy by Architecture</h2>
+	            <p class="section-subtitle">The safest data leak is the one that can’t happen. We minimize risk by removing network paths.</p>
+	        </div>
+
+	        <div class="security-card">
+	            <h3>No Wi‑Fi, No Bluetooth, No Ethernet</h3>
+	            <p>The appliance is built to work offline. There’s no networking hardware inside it, so it can’t upload client files in the background.</p>
+	        </div>
+
+	        <div class="security-card">
+	            <h3>USB‑C for Data, Separate Power</h3>
+	            <p>The only way to exchange data is via USB‑C when you connect the device to your computer.</p>
+	            <ul>
+	                <li>Open and search your documents</li>
+	                <li>Show citations and drafts</li>
+	                <li>Install verified updates</li>
+	            </ul>
+	            <p style="margin-top: 1rem;">Power comes from a separate adapter, so you always know what cable does what.</p>
+	        </div>
+
+	        <div class="security-card">
+	            <h3>Chain of Custody</h3>
+	            <p>Devices are prepared and sealed under controlled handling in <strong>Romania</strong> before pilot distribution.</p>
+	        </div>
     </section>
 
     <!-- Data Security -->
     <section class="full-width">
         <div class="container">
-            <div class="section-header">
-                <h2>Data Protection</h2>
-                <p class="section-subtitle">Your documents never leave your desk. Here's how we ensure that.</p>
-            </div>
+	            <div class="section-header">
+	                <h2>Data Protection</h2>
+	                <p class="section-subtitle">Simple defaults: your work stays local, protected by encryption and your device password.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>LUKS Encryption at Rest</h3>
-                <p>All user data is stored on a LUKS-encrypted partition. The encryption key is derived from your password and protected by the TPM (Trusted Platform Module).</p>
-                <p>This means your data is encrypted even if someone physically removes the storage drive.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>Encrypted Storage</h3>
+	                <p>Data on the device is encrypted at rest. Without your password, it’s unreadable even if someone steals the hardware.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>Trust On First Use (TOFU)</h3>
-                <p>When you first plug in your Inteligentia device, you create a master password. This establishes you as the device owner - no account creation, no email verification, no cloud authentication.</p>
-                <p><strong>The first user becomes the owner.</strong> This is the same security model used in secure communication apps like Signal.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>No Accounts</h3>
+	                <p>There’s no cloud login, no email verification, and no subscription gate. You set a device password locally and you’re ready to work.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>The Duress Protocol</h3>
-                <p>For high-security situations, Inteligentia supports a duress password feature:</p>
-                <ul>
-                    <li><strong>Master Password:</strong> Decrypts and boots normally</li>
-                    <li><strong>Duress Password:</strong> Instantly overwrites the LUKS header with random noise</li>
-                </ul>
-                <p style="margin-top: 1rem;">If you're ever forced to unlock your device, entering the duress password makes all data permanently unrecoverable - it appears as a hardware failure.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>Security Team Details</h3>
+	                <p>If you need deeper implementation details (encryption, tamper handling, update verification, reproducible builds), see the technical notes on the <a href="investors.html#security" style="color: var(--blue);">Investors</a> page.</p>
+	            </div>
         </div>
     </section>
 
     <!-- Zero Telemetry -->
-    <section>
-        <div class="section-header">
-            <h2>Zero Telemetry</h2>
-            <p class="section-subtitle">No network hardware means no data collection capability.</p>
-        </div>
+	    <section>
+	        <div class="section-header">
+	            <h2>Zero Telemetry</h2>
+	            <p class="section-subtitle">We don’t collect usage data. The design minimizes data transfer risk.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>No Outbound Connections</h3>
-            <p>The appliance never initiates outbound connections. It has no network stack, no DNS resolution, no ability to "phone home."</p>
-            <p>Updates are fetched by the companion app on your computer (when you're online), cryptographically verified, and then pushed to the device over USB. <strong>The device itself never touches the internet.</strong></p>
-        </div>
+	        <div class="security-card">
+	            <h3>No Background Uploads</h3>
+	            <p>The device is designed to work offline and has no networking hardware. It can’t “phone home” or upload documents in the background.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>No Usage Analytics</h3>
-            <p>We don't track:</p>
-            <ul>
-                <li>What documents you upload</li>
-                <li>What questions you ask</li>
-                <li>How often you use the device</li>
-                <li>Any usage patterns whatsoever</li>
-            </ul>
-            <p style="margin-top: 1rem;">This is enforced by hardware architecture, not just policy.</p>
-        </div>
-
-        <p class="key-point">If the device works in airplane mode, your data stayed on your desk.</p>
-    </section>
+	        <div class="security-card">
+	            <h3>No Usage Analytics</h3>
+	            <p>We don’t track your documents, your questions, or your usage patterns.</p>
+	            <p style="margin-top: 0.75rem; color: var(--text-muted);">If you can run the workflow in airplane mode, you can be confident it’s not dependent on cloud services.</p>
+	        </div>
+	    </section>
 
     <!-- Updates -->
     <section class="full-width">
         <div class="container">
-            <div class="section-header">
-                <h2>Secure Updates</h2>
-                <p class="section-subtitle">Keeping your device current without compromising security.</p>
-            </div>
+	            <div class="section-header">
+	                <h2>Secure Updates</h2>
+	                <p class="section-subtitle">Updates happen via USB so the device doesn’t need internet access.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>Signed Updates via USB</h3>
-                <p>Software and Knowledge Pack updates follow a secure process:</p>
-                <ul>
-                    <li>Updates are signed with our private key</li>
-                    <li>Your companion app downloads and verifies the signature</li>
-                    <li>Updates are transferred to the device over USB</li>
-                    <li>The device verifies the signature again before applying</li>
-                </ul>
-                <p style="margin-top: 1rem;">A compromised network cannot push malicious updates because the device never connects to a network.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>Verified Updates via USB</h3>
+	                <p>When you choose to update:</p>
+	                <ul>
+	                    <li>Your companion app downloads the update package while you’re online</li>
+	                    <li>The update is verified before installation</li>
+	                    <li>The device installs the update over USB</li>
+	                </ul>
+	                <p style="margin-top: 1rem; color: var(--text-muted);">The device itself never needs an internet connection.</p>
+	            </div>
 
             <div class="highlight-box">
                 <h4>No Kill Switch</h4>
@@ -686,38 +698,32 @@
     </section>
 
     <!-- Compliance -->
-    <section>
-        <div class="section-header">
-            <h2>Compliance Posture</h2>
-            <p class="section-subtitle">Designed to simplify your regulatory obligations.</p>
-        </div>
+	    <section>
+	        <div class="section-header">
+	            <h2>Compliance Posture</h2>
+	            <p class="section-subtitle">Designed to keep confidential processing local and reduce unnecessary data transfer.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Built for GDPR-Aligned Workflows</h3>
-            <p>By keeping all data processing local and eliminating data transfers:</p>
-            <ul>
-                <li>No third-party data processors to manage</li>
-                <li>No data transfer impact assessments needed</li>
-                <li>No cloud provider DPAs to negotiate</li>
-                <li>Data stays in your physical possession</li>
-            </ul>
-            <p style="margin-top: 1rem;"><strong>Note:</strong> Inteligentia is a tool designed to support compliance. Your specific regulatory obligations depend on your use case and jurisdiction.</p>
-        </div>
+	        <div class="security-card">
+	            <h3>Designed for Confidential Work</h3>
+	            <ul>
+	                <li>Your documents stay local</li>
+	                <li>No cloud accounts required</li>
+	                <li>Less vendor paperwork just to use AI</li>
+	            </ul>
+	            <p style="margin-top: 1rem;"><strong>Note:</strong> Inteligentia supports compliance; your obligations still depend on your use case and jurisdiction.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Audit-Ready Architecture</h3>
-            <p>Our deterministic build process and hash verification allow security auditors to:</p>
-            <ul>
-                <li>Verify the exact software running on any device</li>
-                <li>Confirm no unauthorized modifications</li>
-                <li>Review the update chain of custody</li>
-            </ul>
-        </div>
+	        <div class="security-card">
+	            <h3>Need a deeper review?</h3>
+	            <p>If you’re evaluating this with an internal security team, we can walk through the offline proof protocol and share implementation details during the pilot.</p>
+	            <p style="margin-top: 1rem; color: var(--text-muted);">For technical notes (encryption details, update signing, reproducible builds), see <a href="investors.html#security" style="color: var(--blue);">Investors → Security</a>.</p>
+	        </div>
 
-        <div class="disclaimer">
-            <strong>Compliance Disclaimer:</strong> Inteligentia is built to minimize data transfer risk and support auditability. Customers remain responsible for their professional and regulatory obligations. This device is an AI-assisted research tool and does not provide legal, medical, or professional advice.
-        </div>
-    </section>
+	        <div class="disclaimer">
+	            <strong>Disclaimer:</strong> Inteligentia is built to minimize data transfer risk and support auditability. Customers remain responsible for their professional and regulatory obligations. This device is a research and productivity tool and does not provide legal, medical, or professional advice.
+	        </div>
+	    </section>
 
     <!-- CTA -->
     <section class="full-width">

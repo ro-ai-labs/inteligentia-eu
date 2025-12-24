@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inteligentia: Securitate &amp; Confidentialitate</title>
-    <meta name="description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design air-gapped, fara telemetrie, stocare criptata si actualizari semnate.">
+	    <meta name="description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design offline, fara telemetrie, stocare criptata si actualizari prin USB.">
     <meta name="theme-color" content="#0f1419">
     <link rel="canonical" href="https://inteligentia.eu/security-ro.html">
     <link rel="alternate" hreflang="en" href="https://inteligentia.eu/security.html">
@@ -13,14 +13,14 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="inteligentia">
     <meta property="og:title" content="inteligentia - Securitate si Confidentialitate">
-    <meta property="og:description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design air-gapped, fara telemetrie, stocare criptata si actualizari semnate.">
+	    <meta property="og:description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design offline, fara telemetrie, stocare criptata si actualizari prin USB.">
     <meta property="og:url" content="https://inteligentia.eu/security-ro.html">
     <meta property="og:image" content="https://inteligentia.eu/concept.jpg">
     <meta property="og:image:alt" content="Dispozitivul AI offline inteligentia">
     <meta property="og:locale" content="ro_RO">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="inteligentia - Securitate si Confidentialitate">
-    <meta name="twitter:description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design air-gapped, fara telemetrie, stocare criptata si actualizari semnate.">
+	    <meta name="twitter:description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design offline, fara telemetrie, stocare criptata si actualizari prin USB.">
     <meta name="twitter:image" content="https://inteligentia.eu/concept.jpg">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,16 +533,14 @@
                 <img src="icon.png" alt="Inteligentia">
                 <span class="logo-text">inteligentia</span>
             </a>
-            <ul id="primary-navigation" class="nav-links">
-                <li><a href="index-ro.html#problema">Problema</a></li>
-                <li><a href="index-ro.html#solutia">Solutia</a></li>
-                <li><a href="index-ro.html#produs">Produs</a></li>
-                <li><a href="proof-ro.html">Dovada</a></li>
-                <li><a href="security-ro.html" style="color: var(--blue);">Securitate</a></li>
-                <li><a href="investors-ro.html">Investitori</a></li>
-                <li><a href="index-ro.html#echipa">Echipa</a></li>
-                <li class="nav-mobile-only"><a href="index-ro.html#aplicatie-pilot" class="btn btn-primary">Aplica pentru Pilot</a></li>
-            </ul>
+	            <ul id="primary-navigation" class="nav-links">
+	                <li><a href="index-ro.html#problema">Problema</a></li>
+	                <li><a href="index-ro.html#solutia">Solutia</a></li>
+	                <li><a href="index-ro.html#produs">Produs</a></li>
+	                <li><a href="security-ro.html" style="color: var(--blue);">Securitate</a></li>
+	                <li><a href="investors-ro.html">Investitori</a></li>
+	                <li class="nav-mobile-only"><a href="index-ro.html#aplicatie-pilot" class="btn btn-primary">Aplica pentru Pilot</a></li>
+	            </ul>
             <div class="nav-cta">
                 <a href="security.html" class="lang-switch">EN</a>
                 <button class="theme-toggle" type="button" onclick="toggleTheme()" title="Schimba tema" aria-label="Schimba tema">
@@ -558,124 +556,138 @@
     </nav>
 
     <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge badge-green">Securitate &amp; Confidentialitate</span>
-            <h1>Izolat prin design</h1>
-            <p>Inteligentia este construit de la zero pentru profesionisti care lucreaza cu informatii confidentiale.<br/>Fara cloud. Fara telemetrie. Confidentialitate prin arhitectura.</p>
-        </div>
-    </section>
+	    <!-- Hero -->
+	    <section class="hero">
+	        <div class="hero-content">
+	            <span class="badge badge-green">Securitate &amp; Confidentialitate</span>
+	            <h1>Confidențialitate verificabilă</h1>
+	            <p>Gândit pentru lucru confidențial: rulează offline, fără upload-uri în fundal și îți păstrează controlul. Mai jos sunt verificări simple pe care le poți rula chiar tu.</p>
+	        </div>
+	    </section>
 
-    <!-- Core Security -->
-    <section>
-        <div class="section-header">
-            <h2>Securitate hardware</h2>
-            <p class="section-subtitle">Confidentialitatea incepe cu hardware-ul. Nu poti scurge date printr-o conexiune care nu exista.</p>
-        </div>
+	    <!-- Dovada -->
+	    <section id="dovada">
+	        <div class="section-header">
+	            <h2>Dovada pe care o poți rula</h2>
+	            <p class="section-subtitle">Două verificări rapide pentru profesioniști reglementați—fără „trust us”.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Fără hardware radio</h3>
-            <p>Aparatul Inteligentia nu are <strong>Wi-Fi, Bluetooth, celular sau Ethernet</strong>. Folosim SKU-uri stricte "No-Radio" de la furnizorul nostru si verificam ca fiecare dispozitiv nu are modul WiFi M.2 instalat.</p>
-            <p>Nu este networking dezactivat prin software. Hardware-ul radio <strong>fizic nu exista</strong> in dispozitiv.</p>
-        </div>
+	        <div class="security-card">
+	            <h3>Testul „mod avion”</h3>
+	            <p>În pilot, acesta este primul demo. Dacă funcționează offline, datele au rămas pe biroul tău.</p>
+	            <ol style="padding-left: 1.5rem; color: var(--text-secondary);">
+	                <li style="padding: 0.25rem 0;">Pune laptopul în mod avion (și/sau scoate cablul Ethernet).</li>
+	                <li style="padding: 0.25rem 0;">Conectează Inteligentia via USB‑C și conectează adaptorul de alimentare.</li>
+	                <li style="padding: 0.25rem 0;">Deschide aplicația companion și încarcă un set de documente confidențiale.</li>
+	                <li style="padding: 0.25rem 0;">Pune o întrebare și verifică sursele prin citări click‑to‑verify.</li>
+	            </ol>
+	            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Scop: să demonstrăm lipsa dependenței de endpoint‑uri de inferență găzduite pe internet. Aceasta nu afirmă că laptopul gazdă este lipsit de malware.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Conectivitate date USB-C</h3>
-            <p>Singura interfata externa este USB-C, folosita pentru:</p>
-            <ul>
-                <li>Montarea stocarii (documentele tale intra, rezultatele ies)</li>
-                <li>Comunicarea cu aplicatia companion</li>
-                <li>Actualizari securizate</li>
-            </ul>
-            <p style="margin-top: 1rem;">Alimentarea se face printr-un conector DC separat - dispozitivul nu poate fi alimentat prin USB pentru a preveni anumite vectori de atac.</p>
-        </div>
+	        <div class="security-card">
+	            <h3>Checklist „Card de Confidențialitate”</h3>
+	            <p>O listă scurtă pe care o poți rula, repeta și distribui intern.</p>
+	            <ol style="padding-left: 1.5rem; color: var(--text-secondary);">
+	                <li style="padding: 0.25rem 0;"><strong>Izolează host-ul:</strong> oprește Wi‑Fi și scoate cablul Ethernet.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Verifică izolarea:</strong> confirmă lipsa accesului la internet.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Conectează dispozitivul:</strong> USB‑C pentru date + alimentare separată.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Rulează fluxul:</strong> ingestie → căutare → sumar → draft.</li>
+	                <li style="padding: 0.25rem 0;"><strong>Rezultat:</strong> flux end‑to‑end fără internet.</li>
+	            </ol>
+	        </div>
+	    </section>
 
-        <div class="security-card">
-            <h3>Carcasă sigilată</h3>
-            <p>Hardware-ul este fabricat in Asia, dar "Creierul" este flash-uit si carcasa este sigilata fizic in <strong>Romania</strong> sub supravegherea noastra directa. Aceasta ofera asigurarea lantului de custodie.</p>
-        </div>
+	    <!-- Core Security -->
+	    <section>
+	        <div class="section-header">
+	            <h2>Confidențialitate prin arhitectură</h2>
+	            <p class="section-subtitle">Cel mai sigur leak este cel care nu poate apărea. Reducem riscul eliminând căile de rețea.</p>
+	        </div>
+
+	        <div class="security-card">
+	            <h3>Fără Wi‑Fi, fără Bluetooth, fără Ethernet</h3>
+	            <p>Dispozitivul este construit să funcționeze offline. Nu are hardware de rețea, deci nu poate încărca documente în fundal.</p>
+	        </div>
+
+	        <div class="security-card">
+	            <h3>USB‑C pentru date, alimentare separată</h3>
+	            <p>Singura cale de schimb de date este USB‑C, atunci când conectezi dispozitivul la computer.</p>
+	            <ul>
+	                <li>Deschiderea și căutarea documentelor</li>
+	                <li>Afișarea citărilor și a drafturilor</li>
+	                <li>Instalarea actualizărilor verificate</li>
+	            </ul>
+	            <p style="margin-top: 1rem;">Alimentarea vine printr-un adaptor separat, ca să fie clar ce cablu face ce.</p>
+	        </div>
+
+	        <div class="security-card">
+	            <h3>Lanț de custodie</h3>
+	            <p>Dispozitivele sunt pregătite și sigilate în <strong>România</strong> sub control, înainte de distribuția pentru pilot.</p>
+	        </div>
     </section>
 
     <!-- Data Security -->
     <section class="full-width">
         <div class="container">
-            <div class="section-header">
-                <h2>Protecția datelor</h2>
-                <p class="section-subtitle">Documentele tale nu parasesc niciodata biroul tau. Iata cum asiguram acest lucru.</p>
-            </div>
+	            <div class="section-header">
+	                <h2>Protecția datelor</h2>
+	                <p class="section-subtitle">Setări simple: lucrezi local, protejat prin criptare și parola dispozitivului.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>Criptare LUKS la repaus</h3>
-                <p>Toate datele utilizatorului sunt stocate pe o partitie criptata LUKS. Cheia de criptare este derivata din parola ta si protejata de TPM (Trusted Platform Module).</p>
-                <p>Aceasta inseamna ca datele tale sunt criptate chiar daca cineva scoate fizic unitatea de stocare.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>Stocare criptată</h3>
+	                <p>Datele de pe dispozitiv sunt criptate la repaus. Fără parola ta, sunt ilizibile chiar dacă cineva fură hardware-ul.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>Încredere la prima utilizare (TOFU)</h3>
-                <p>Cand conectezi prima data dispozitivul Inteligentia, creezi o parola master. Aceasta te stabileste ca proprietar al dispozitivului - fara creare de cont, fara verificare email, fara autentificare cloud.</p>
-                <p><strong>Primul utilizator devine proprietarul.</strong> Acesta este acelasi model de securitate folosit in aplicatii de comunicare securizata precum Signal.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>Fără conturi</h3>
+	                <p>Nu există login în cloud, verificare pe email sau „abonament” ca să poți lucra. Setezi parola local și ești gata.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>Protocolul de constrângere</h3>
-                <p>Pentru situatii de inalta securitate, Inteligentia suporta o functie de parola de constrangere:</p>
-                <ul>
-                    <li><strong>Parola master:</strong> Decriptează și pornește normal</li>
-                    <li><strong>Parola de constrângere:</strong> Suprascrie instantaneu header-ul LUKS cu zgomot aleator</li>
-                </ul>
-                <p style="margin-top: 1rem;">Daca esti vreodata fortat sa deblochezi dispozitivul, introducerea parolei de constrangere face toate datele permanent nerecuperabile - apare ca o defectiune hardware.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>Detalii pentru echipe de securitate</h3>
+	                <p>Dacă ai nevoie de detalii de implementare (criptare, handling la tamper, verificarea actualizărilor, build-uri reproductibile), vezi notele tehnice din pagina <a href="investors-ro.html#securitate" style="color: var(--blue);">Investitori</a>.</p>
+	            </div>
         </div>
     </section>
 
     <!-- Zero Telemetry -->
-    <section>
-        <div class="section-header">
-            <h2>Zero telemetrie</h2>
-            <p class="section-subtitle">Fara hardware de retea inseamna zero capacitate de colectare date.</p>
-        </div>
+	    <section>
+	        <div class="section-header">
+	            <h2>Zero telemetrie</h2>
+	            <p class="section-subtitle">Nu colectăm date de utilizare. Designul minimizează riscul de transfer.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Fără conexiuni de ieșire</h3>
-            <p>Aparatul nu initiaza niciodata conexiuni de iesire. Nu are stack de retea, nu are rezolutie DNS, nu are capacitatea de a "suna acasa."</p>
-            <p>Actualizarile sunt descarcate de aplicatia companion de pe computerul tau (cand esti online), verificate criptografic, si apoi trimise la dispozitiv prin USB. <strong>Dispozitivul in sine nu atinge niciodata internetul.</strong></p>
-        </div>
+	        <div class="security-card">
+	            <h3>Fără upload-uri în fundal</h3>
+	            <p>Dispozitivul este gândit să ruleze offline și nu are hardware de rețea. Nu poate „suna acasă” și nu poate încărca documente în fundal.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Fără analize de utilizare</h3>
-            <p>Nu urmarim:</p>
-            <ul>
-                <li>Ce documente incarci</li>
-                <li>Ce intrebari pui</li>
-                <li>Cat de des folosesti dispozitivul</li>
-                <li>Niciun tip de pattern de utilizare</li>
-            </ul>
-            <p style="margin-top: 1rem;">Acest lucru este impus de arhitectura hardware, nu doar de politica.</p>
-        </div>
-
-        <p class="key-point">Daca dispozitivul functioneaza in mod avion, datele tale au ramas pe biroul tau.</p>
-    </section>
+	        <div class="security-card">
+	            <h3>Fără analize de utilizare</h3>
+	            <p>Nu urmărim documentele tale, întrebările tale sau pattern-urile de utilizare.</p>
+	            <p style="margin-top: 0.75rem; color: var(--text-muted);">Dacă poți rula fluxul în mod avion, ai o dovadă practică că nu depinde de servicii cloud.</p>
+	        </div>
+	    </section>
 
     <!-- Updates -->
     <section class="full-width">
         <div class="container">
-            <div class="section-header">
-                <h2>Actualizări securizate</h2>
-                <p class="section-subtitle">Mentinerea dispozitivului la zi fara a compromite securitatea.</p>
-            </div>
+	            <div class="section-header">
+	                <h2>Actualizări securizate</h2>
+	                <p class="section-subtitle">Actualizările se fac prin USB, fără ca dispozitivul să aibă nevoie de internet.</p>
+	            </div>
 
-            <div class="security-card">
-                <h3>Actualizări semnate prin USB</h3>
-                <p>Actualizările de software și biblioteci profesionale urmează un proces securizat:</p>
-                <ul>
-                    <li>Actualizarile sunt semnate cu cheia noastra privata</li>
-                    <li>Aplicatia ta companion descarca si verifica semnatura</li>
-                    <li>Actualizarile sunt transferate la dispozitiv prin USB</li>
-                    <li>Dispozitivul verifica semnatura din nou inainte de aplicare</li>
-                </ul>
-                <p style="margin-top: 1rem;">O retea compromisa nu poate impinge actualizari malitioase pentru ca dispozitivul nu se conecteaza niciodata la o retea.</p>
-            </div>
+	            <div class="security-card">
+	                <h3>Actualizări verificate prin USB</h3>
+	                <p>Când alegi să actualizezi:</p>
+	                <ul>
+	                    <li>Aplicația companion descarcă pachetul de update când ești online</li>
+	                    <li>Update-ul este verificat înainte de instalare</li>
+	                    <li>Dispozitivul instalează update-ul prin USB</li>
+	                </ul>
+	                <p style="margin-top: 1rem; color: var(--text-muted);">Dispozitivul în sine nu are nevoie de conexiune la internet.</p>
+	            </div>
 
             <div class="highlight-box">
                 <h4>Fără kill switch</h4>
@@ -686,38 +698,32 @@
     </section>
 
     <!-- Compliance -->
-    <section>
-        <div class="section-header">
-            <h2>Postura de conformitate</h2>
-            <p class="section-subtitle">Proiectat pentru a simplifica obligatiile tale de reglementare.</p>
-        </div>
+	    <section>
+	        <div class="section-header">
+	            <h2>Postura de conformitate</h2>
+	            <p class="section-subtitle">Proiectat pentru a păstra procesarea confidențială local și a reduce transferul inutil de date.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Construit pentru fluxuri aliniate GDPR</h3>
-            <p>Prin mentinerea intregii procesari de date local si eliminarea transferurilor de date:</p>
-            <ul>
-                <li>Fara procesatori de date terti de gestionat</li>
-                <li>Fara evaluari de impact al transferului de date necesare</li>
-                <li>Fara DPA-uri cu furnizori cloud de negociat</li>
-                <li>Datele raman in posesia ta fizica</li>
-            </ul>
-            <p style="margin-top: 1rem;"><strong>Nota:</strong> Inteligentia este un instrument proiectat pentru a sustine conformitatea. Obligatiile tale specifice de reglementare depind de cazul tau de utilizare si jurisdictie.</p>
-        </div>
+	        <div class="security-card">
+	            <h3>Gândit pentru lucru confidențial</h3>
+	            <ul>
+	                <li>Documentele rămân local</li>
+	                <li>Nu ai nevoie de conturi în cloud</li>
+	                <li>Mai puțin „paperwork” cu furnizori doar ca să folosești AI</li>
+	            </ul>
+	            <p style="margin-top: 1rem;"><strong>Notă:</strong> Inteligentia susține conformitatea; obligațiile tale depind de cazul de utilizare și jurisdicție.</p>
+	        </div>
 
-        <div class="security-card">
-            <h3>Arhitectură pregătită pentru audit</h3>
-            <p>Procesul nostru de build determinist si verificarea hash permit auditorilor de securitate sa:</p>
-            <ul>
-                <li>Verifice exact software-ul care ruleaza pe orice dispozitiv</li>
-                <li>Confirme absenta modificarilor neautorizate</li>
-                <li>Revizuiasca lantul de custodie al actualizarilor</li>
-            </ul>
-        </div>
+	        <div class="security-card">
+	            <h3>Ai nevoie de o evaluare mai aprofundată?</h3>
+	            <p>Dacă evaluezi împreună cu o echipă internă de securitate, putem parcurge protocolul de dovadă offline și putem oferi detalii de implementare în timpul pilotului.</p>
+	            <p style="margin-top: 1rem; color: var(--text-muted);">Pentru note tehnice (detalii criptare, semnarea actualizărilor, build-uri reproductibile), vezi <a href="investors-ro.html#securitate" style="color: var(--blue);">Investitori → Securitate</a>.</p>
+	        </div>
 
-        <div class="disclaimer">
-            <strong>Disclaimer conformitate:</strong> Inteligentia este construit pentru a minimiza riscul transferului de date si a sustine auditabilitatea. Clientii raman responsabili pentru obligatiile lor profesionale si de reglementare. Acest dispozitiv este un instrument de cercetare asistat de AI si nu ofera consultanta juridica, medicala sau profesionala.
-        </div>
-    </section>
+	        <div class="disclaimer">
+	            <strong>Disclaimer:</strong> Inteligentia este construit pentru a minimiza riscul transferului de date și a susține auditabilitatea. Clienții rămân responsabili pentru obligațiile lor profesionale și de reglementare. Acest dispozitiv este un instrument de cercetare și productivitate și nu oferă consultanță juridică, medicală sau profesională.
+	        </div>
+	    </section>
 
     <!-- CTA -->
     <section class="full-width">
