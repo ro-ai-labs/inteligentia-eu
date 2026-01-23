@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Dark Theme (Default) */
+        /* Dark Theme (Default) - Neo-Brutalism */
         :root {
             --bg-primary: #0f1419;
             --bg-secondary: #1a2332;
@@ -45,20 +45,22 @@
             --red: #f87171;
             --orange: #fbbf24;
             --orange-light: rgba(251, 191, 36, 0.15);
-            --border: rgba(74, 158, 255, 0.15);
-            --border-strong: rgba(74, 158, 255, 0.25);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --nav-bg: rgba(15, 20, 25, 0.95);
+            --yellow: #FFE135;
+            --border: #4a9eff;
+            --border-strong: #4a9eff;
+            --border-width: 2px;
+            --shadow-sm: 3px 3px 0px #000;
+            --shadow-md: 4px 4px 0px #000;
+            --shadow-lg: 6px 6px 0px #000;
+            --radius-sm: 0;
+            --radius-md: 2px;
+            --radius-lg: 4px;
+            --radius-xl: 4px;
+            --nav-bg: #0f1419;
             --nav-offset: 88px;
         }
 
-        /* Light Theme */
+        /* Light Theme - Neo-Brutalism */
         [data-theme="light"] {
             --bg-primary: #f5f7fa;
             --bg-secondary: #e8edf3;
@@ -76,12 +78,13 @@
             --red: #ef4444;
             --orange: #f59e0b;
             --orange-light: rgba(245, 158, 11, 0.1);
-            --border: rgba(30, 90, 153, 0.1);
-            --border-strong: rgba(30, 90, 153, 0.2);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
-            --nav-bg: rgba(255, 255, 255, 0.92);
+            --yellow: #FFE135;
+            --border: #1e5a99;
+            --border-strong: #1e5a99;
+            --shadow-sm: 3px 3px 0px #1a1a2e;
+            --shadow-md: 4px 4px 0px #1a1a2e;
+            --shadow-lg: 6px 6px 0px #1a1a2e;
+            --nav-bg: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -109,8 +112,8 @@
             padding: 0.5rem 0.75rem;
             background: var(--bg-card);
             color: var(--text-primary);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
+            border-radius: 0;
+            border: 2px solid var(--border);
             box-shadow: var(--shadow-sm);
             text-decoration: none;
             font-size: 0.85rem;
@@ -121,16 +124,14 @@
             top: 1rem;
         }
 
-        /* Navigation */
+        /* Navigation - Neo-Brutalism */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             background: var(--nav-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 0.875rem 2rem;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 3px solid var(--border);
         }
         nav .container {
             max-width: 1200px;
@@ -178,18 +179,21 @@
         }
         .nav-toggle {
             width: 36px; height: 36px;
-            border-radius: 50%;
-            border: 1px solid var(--border-strong);
+            border-radius: 0;
+            border: 2px solid var(--border);
             background: var(--bg-card);
             cursor: pointer;
             display: none;
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
         }
         .nav-toggle:hover {
             border-color: var(--blue);
             background: var(--blue-light);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
         }
         .nav-toggle-icon,
         .nav-toggle-icon::before,
@@ -219,24 +223,27 @@
         .nav-mobile-only { display: none; }
         .lang-switch {
             padding: 0.375rem 0.75rem;
-            border: 1px solid var(--border-strong);
-            border-radius: var(--radius-sm);
+            border: 2px solid var(--border);
+            border-radius: 0;
             font-size: 0.75rem;
             font-weight: 600;
             color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
         }
         .lang-switch:hover {
             border-color: var(--blue);
             color: var(--blue);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
         }
 
-        /* Theme Toggle */
+        /* Theme Toggle - Neo-Brutalism */
         .theme-toggle {
             width: 36px; height: 36px;
-            border-radius: 50%;
-            border: 1px solid var(--border-strong);
+            border-radius: 0;
+            border: 2px solid var(--border);
             background: var(--bg-card);
             cursor: pointer;
             display: flex;
@@ -244,47 +251,62 @@
             justify-content: center;
             font-size: 1rem;
             transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
         }
         .theme-toggle:hover {
             border-color: var(--blue);
             background: var(--blue-light);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
         }
         .theme-toggle .icon-light, .theme-toggle .icon-dark { display: none; }
         :root .theme-toggle .icon-dark { display: block; }
         [data-theme="light"] .theme-toggle .icon-light { display: block; }
         [data-theme="light"] .theme-toggle .icon-dark { display: none; }
 
-        /* Buttons */
+        /* Buttons - Neo-Brutalism */
         .btn {
             padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
+            border-radius: 0;
+            font-weight: 700;
             font-size: 0.875rem;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             cursor: pointer;
-            border: none;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px #000;
         }
         .btn-primary {
-            background: var(--blue);
-            color: white;
+            background: var(--yellow);
+            color: #000;
         }
         .btn-primary:hover {
-            background: var(--blue-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
+            background: var(--yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+        }
+        .btn-primary:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
         }
         .btn-secondary {
             background: var(--bg-card);
             color: var(--text-primary);
-            border: 1px solid var(--border-strong);
+            border: 3px solid var(--border);
+            box-shadow: 4px 4px 0px var(--border);
         }
         .btn-secondary:hover {
             border-color: var(--blue);
             color: var(--blue);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--border);
+        }
+        .btn-secondary:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border);
         }
         .btn-lg {
             padding: 1rem 2rem;
@@ -306,19 +328,23 @@
             padding: 0.375rem 1rem;
             background: var(--blue-light);
             color: var(--blue);
-            border-radius: 100px;
+            border-radius: 0;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 1.25rem;
             letter-spacing: 0.3px;
+            border: 2px solid var(--blue);
+            text-transform: uppercase;
         }
         .badge-orange {
             background: var(--orange-light);
             color: var(--orange);
+            border-color: var(--orange);
         }
         .badge-green {
             background: var(--green-light);
             color: var(--green);
+            border-color: var(--green);
         }
         .hero h1 {
             font-size: 2.5rem;
@@ -377,18 +403,18 @@
             padding: 0 2rem;
         }
 
-        /* Cards */
+        /* Cards - Neo-Brutalism */
         .card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            border: 3px solid var(--border);
+            border-radius: 0;
             padding: 1.75rem;
-            transition: all 0.25s ease;
-            box-shadow: var(--shadow-sm);
+            transition: all 0.15s ease;
+            box-shadow: 4px 4px 0px #000;
         }
         .card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--border-strong);
+            box-shadow: 6px 6px 0px #000;
+            transform: translate(-2px, -2px);
         }
         .card-grid {
             display: grid;
@@ -405,14 +431,14 @@
             font-size: 0.925rem;
         }
 
-        /* Tables */
+        /* Tables - Neo-Brutalism */
         .table-wrapper {
             overflow-x: auto;
             margin: 1.25rem 0;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
+            border-radius: 0;
+            border: 3px solid var(--border);
             background: var(--bg-card);
-            box-shadow: var(--shadow-sm);
+            box-shadow: 4px 4px 0px #000;
         }
         table {
             width: 100%;
@@ -422,26 +448,27 @@
         th, td {
             padding: 0.875rem 1.25rem;
             text-align: left;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 2px solid var(--border);
         }
         th {
             background: var(--blue-lighter);
-            font-weight: 600;
+            font-weight: 700;
             color: var(--blue);
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            border-bottom: 3px solid var(--border);
         }
         tr:last-child td { border-bottom: none; }
         tbody tr:hover td { background: var(--blue-lighter); }
         .highlight-row td {
             background: var(--blue-light) !important;
-            font-weight: 600;
+            font-weight: 700;
         }
         .check { color: var(--green); font-weight: bold; font-size: 1.1rem; }
         .cross { color: var(--red); font-size: 1.1rem; }
 
-        /* Stats Grid */
+        /* Stats Grid - Neo-Brutalism */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -452,9 +479,14 @@
             text-align: center;
             padding: 1.5rem 1.25rem;
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
+            border: 3px solid var(--border);
+            border-radius: 0;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.15s ease;
+        }
+        .stat-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
         }
         .stat-card .number {
             font-size: 2.25rem;
@@ -467,9 +499,10 @@
             margin-top: 0.5rem;
             color: var(--text-secondary);
             font-size: 0.85rem;
+            font-weight: 600;
         }
 
-        /* Source Tooltips */
+        /* Source Tooltips - Neo-Brutalism */
         .source-tip {
             position: relative;
             cursor: help;
@@ -487,15 +520,15 @@
             background: var(--bg-card);
             color: var(--text-secondary);
             padding: 0.5rem 0.75rem;
-            border-radius: var(--radius-sm);
+            border-radius: 0;
             font-size: 0.75rem;
             font-weight: 400;
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.2s, visibility 0.2s;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-md);
+            border: 2px solid var(--border);
+            box-shadow: 3px 3px 0px #000;
             z-index: 100;
         }
         .source-tip:hover::after {
@@ -503,7 +536,7 @@
             visibility: visible;
         }
 
-        /* Timeline */
+        /* Timeline - Neo-Brutalism */
         .timeline {
             position: relative;
             padding-left: 1.75rem;
@@ -515,7 +548,7 @@
             left: 5px;
             top: 8px;
             bottom: 8px;
-            width: 2px;
+            width: 3px;
             background: var(--border);
         }
         .timeline-item {
@@ -531,8 +564,8 @@
             width: 12px;
             height: 12px;
             background: var(--bg-card);
-            border: 2px solid var(--blue);
-            border-radius: 50%;
+            border: 3px solid var(--blue);
+            border-radius: 0;
         }
         .timeline-item strong {
             display: block;
@@ -545,25 +578,32 @@
             font-size: 0.875rem;
         }
 
-        /* Phase cards */
+        /* Phase cards - Neo-Brutalism */
         .phase-card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            border: 3px solid var(--border);
+            border-radius: 0;
             padding: 1.75rem;
             margin: 1.25rem 0;
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--blue);
+            box-shadow: 4px 4px 0px #000;
+            border-left: 6px solid var(--blue);
+            transition: all 0.15s ease;
+        }
+        .phase-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
         }
         .phase-card .phase-label {
             display: inline-block;
             padding: 0.2rem 0.625rem;
             background: var(--blue-light);
             color: var(--blue);
-            border-radius: 100px;
+            border-radius: 0;
             font-size: 0.7rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.625rem;
+            border: 2px solid var(--blue);
+            text-transform: uppercase;
         }
         .phase-card .phase-title {
             font-size: 1.125rem;
@@ -582,18 +622,20 @@
             font-size: 0.925rem;
         }
 
-        /* Highlight box */
+        /* Highlight box - Neo-Brutalism */
         .highlight-box {
             background: var(--blue-light);
-            border: 2px solid var(--blue);
-            border-radius: var(--radius-lg);
+            border: 3px solid var(--blue);
+            border-radius: 0;
             padding: 1.75rem;
             margin: 1.5rem 0;
+            box-shadow: 4px 4px 0px #000;
         }
         .highlight-box h4 {
             color: var(--blue);
             margin-top: 0;
             margin-bottom: 0.75rem;
+            font-weight: 700;
         }
         .highlight-box p {
             color: var(--text-primary);
@@ -609,14 +651,16 @@
             margin: 1.5rem 0;
         }
 
-        /* Quote */
+        /* Quote - Neo-Brutalism */
         blockquote {
-            border-left: 3px solid var(--blue);
+            border-left: 6px solid var(--blue);
             padding: 1.25rem 1.75rem;
             margin: 1.5rem 0;
             background: var(--bg-card);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            box-shadow: var(--shadow-sm);
+            border-radius: 0;
+            border: 3px solid var(--border);
+            border-left: 6px solid var(--blue);
+            box-shadow: 4px 4px 0px #000;
         }
         blockquote p {
             font-style: italic;
@@ -625,14 +669,16 @@
             line-height: 1.65;
         }
 
-        /* Co-founder CTA Box */
+        /* Co-founder CTA Box - Neo-Brutalism */
         .cofounder-box {
-            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            background: var(--blue);
             color: white;
-            border-radius: var(--radius-xl);
+            border-radius: 0;
             padding: 2.5rem;
             margin: 2rem 0;
             text-align: center;
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px #000;
         }
         .cofounder-box h3 {
             color: white;
@@ -641,16 +687,19 @@
             font-size: 1.5rem;
         }
         .cofounder-box p {
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1.5rem;
             font-size: 1rem;
         }
         .cofounder-box .btn {
-            background: white;
-            color: var(--blue);
+            background: var(--yellow);
+            color: #000;
+            border: 3px solid #000;
         }
         .cofounder-box .btn:hover {
-            background: var(--bg-secondary);
+            background: var(--yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
         }
 
         /* Two column layout */
@@ -661,16 +710,17 @@
             align-items: start;
         }
 
-        /* Footer */
+        /* Footer - Neo-Brutalism */
         footer {
             background: var(--blue);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
+            border-top: 4px solid #000;
         }
         footer .footer-motto {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 800;
             color: white;
             margin-bottom: 2rem;
             letter-spacing: -1px;
@@ -683,20 +733,20 @@
             color: white;
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            font-weight: 600;
+            font-weight: 700;
         }
         footer .contact-info {
             margin: 1.5rem 0;
         }
         footer .contact-info p {
             margin: 0.375rem 0;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 1rem;
         }
         footer .contact-info a {
             color: white;
             text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
             transition: border-color 0.2s;
         }
         footer .contact-info a:hover {
@@ -705,7 +755,7 @@
         footer .footer-brand {
             margin-top: 2.5rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -718,8 +768,8 @@
         }
         footer .footer-brand-name {
             font-size: 1.25rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -750,8 +800,8 @@
                 gap: 0.5rem;
                 background: var(--nav-bg);
                 padding: 0.75rem 1rem 1rem;
-                border-bottom: 1px solid var(--border);
-                box-shadow: var(--shadow-md);
+                border-bottom: 3px solid var(--border);
+                box-shadow: 4px 4px 0px #000;
                 display: none;
             }
             nav.nav-open .nav-links { display: flex; }
@@ -1437,8 +1487,8 @@
                     <h4>8. UX is the moat</h4>
                     <p>No models, no workflows - just answers</p>
                 </div>
-                <div class="card" style="border: 2px solid var(--blue);">
-                    <h4 style="color: var(--blue);">9. You own it forever</h4>
+                <div class="card" style="border: 3px solid var(--yellow); box-shadow: 4px 4px 0px var(--yellow);">
+                    <h4 style="color: var(--yellow);">9. You own it forever</h4>
                     <p>No subscription kill switch. Your intelligence, your asset.</p>
                 </div>
             </div>
