@@ -53,6 +53,7 @@
             --shadow-sm: 3px 3px 0px #000;
             --shadow-md: 4px 4px 0px #000;
             --shadow-lg: 6px 6px 0px #000;
+            --shadow-xl: 8px 8px 0px #000;
             --radius-sm: 0;
             --radius-md: 0;
             --radius-lg: 0;
@@ -61,29 +62,30 @@
             --nav-offset: 88px;
         }
 
-        /* Light Theme - Neo-Brutalism */
+        /* Light Theme - Neo-Brutalism - HIGH CONTRAST */
         [data-theme="light"] {
-            --bg-primary: #f5f7fa;
-            --bg-secondary: #e8edf3;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
             --bg-card: #ffffff;
-            --text-primary: #1a1a2e;
-            --text-secondary: #374151;
-            --text-muted: #5a6578;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #555555;
             --blue: #1e5a99;
             --blue-dark: #164573;
-            --blue-light: rgba(30, 90, 153, 0.08);
-            --blue-lighter: rgba(30, 90, 153, 0.04);
+            --blue-light: rgba(30, 90, 153, 0.1);
+            --blue-lighter: rgba(30, 90, 153, 0.05);
             --accent: #1e5a99;
             --green: #10b981;
             --green-light: rgba(16, 185, 129, 0.1);
             --red: #ef4444;
             --orange: #f59e0b;
             --orange-light: rgba(245, 158, 11, 0.1);
-            --border: #000;
-            --border-strong: #000;
+            --border: #000000;
+            --border-strong: #000000;
             --shadow-sm: 3px 3px 0px #000;
             --shadow-md: 4px 4px 0px #000;
             --shadow-lg: 6px 6px 0px #000;
+            --shadow-xl: 8px 8px 0px #000;
             --nav-bg: #ffffff;
         }
 
@@ -130,7 +132,7 @@
             top: 1rem;
         }
 
-        /* Navigation - Neo-Brutalism */
+        /* Navigation - Neo-Brutalism - BOLD */
         nav {
             position: fixed;
             top: 0;
@@ -139,7 +141,7 @@
             background: var(--nav-bg);
             z-index: 1000;
             padding: 0.875rem 2rem;
-            border-bottom: 3px solid #000;
+            border-bottom: 4px solid #000;
             box-shadow: 0 4px 0px #000;
         }
 
@@ -227,12 +229,16 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            padding: 0.25rem 0.5rem;
         }
 
         nav a:hover {
-            color: var(--blue);
+            color: var(--text-primary);
+            background: var(--yellow);
         }
 
         .nav-cta {
@@ -322,14 +328,14 @@
             box-shadow: 3px 3px 0px #000;
         }
 
-        /* Buttons - Neo-Brutalism */
+        /* Buttons - Neo-Brutalism - TACTILE */
         .btn {
             padding: 0.75rem 1.5rem;
             border-radius: 0;
-            font-weight: 600;
+            font-weight: 800;
             font-size: 0.875rem;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -349,21 +355,33 @@
 
         .btn-primary:hover {
             background: #FFE135;
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px #000;
+            transform: translate(-3px, -3px);
+            box-shadow: 7px 7px 0px #000;
+        }
+
+        .btn-primary:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
-            border: 2px solid #000;
-            box-shadow: none;
+            border: 3px solid #000;
+            box-shadow: 3px 3px 0px #000;
         }
 
         .btn-secondary:hover {
             border-color: #000;
-            color: var(--blue);
+            color: var(--text-primary);
             background: var(--blue-light);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
+        }
+
+        .btn-secondary:active {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px #000;
         }
 
         .btn-lg {
@@ -468,26 +486,27 @@
 
         .badge {
             display: inline-block;
-            padding: 0.375rem 1rem;
-            background: var(--blue-light);
-            color: var(--blue);
+            padding: 0.5rem 1rem;
+            background: #FFE135;
+            color: #000;
             border-radius: 0;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.875rem;
+            font-weight: 800;
             margin-bottom: 1.25rem;
-            letter-spacing: 0.3px;
-            border: 2px solid #000;
-            box-shadow: 2px 2px 0px #000;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 3px solid #000;
+            box-shadow: 3px 3px 0px #000;
         }
 
         .badge-orange {
-            background: var(--orange-light);
-            color: var(--orange);
+            background: var(--orange);
+            color: #000;
         }
 
         .badge-green {
-            background: var(--green-light);
-            color: var(--green);
+            background: var(--green);
+            color: #000;
         }
 
         .hero h1.product-name {
@@ -511,17 +530,17 @@
         }
 
         .hero .hero-motto {
-            font-size: 2.25rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 900;
             color: var(--text-primary);
-            margin-top: 0.25rem;
+            margin-top: 0.5rem;
             margin-bottom: 1.75rem;
-            letter-spacing: -0.75px;
-            line-height: 1.2;
+            letter-spacing: -2px;
+            line-height: 1.05;
         }
 
         .hero .hero-motto span {
-            color: var(--blue);
+            color: var(--yellow);
         }
 
         /* Product Bundle Box - Neo-Brutalism */
@@ -625,7 +644,7 @@
             margin-top: 0.25rem;
         }
 
-        /* Trust badges - Neo-Brutalism */
+        /* Trust badges - Neo-Brutalism - BOLD BLACK */
         .trust-badges {
             display: flex;
             gap: 0.75rem;
@@ -639,22 +658,19 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: var(--bg-card);
-            border: 2px solid #000;
+            background: #000;
+            border: 3px solid #000;
             border-radius: 0;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            box-shadow: 3px 3px 0px #000;
+            font-size: 0.75rem;
+            color: #fff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: none;
         }
 
         .trust-badge::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            background: var(--green);
-            border-radius: 0;
-            border: 1px solid #000;
+            display: none;
         }
 
         .hero .cta-group {
@@ -694,24 +710,25 @@
         }
 
         section h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 900;
             margin-bottom: 0.75rem;
             color: var(--text-primary);
-            letter-spacing: -0.75px;
-            line-height: 1.2;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-transform: uppercase;
         }
 
         section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.375rem;
+            font-weight: 800;
             margin: 2.5rem 0 1.25rem;
             color: var(--text-primary);
         }
 
         section h4 {
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             margin: 1.5rem 0 0.5rem;
             color: var(--text-primary);
         }
@@ -773,13 +790,14 @@
             color: var(--blue);
         }
 
-        /* Cards - Neo-Brutalism */
+        /* Cards - Neo-Brutalism - BOLD INTERACTION */
         .card {
-            background: var(--bg-card);
+            background: #fff;
+            color: #000;
             border: 3px solid #000;
             border-radius: 0;
             padding: 1.75rem;
-            transition: all 0.25s ease;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
             box-shadow: 4px 4px 0px #000;
         }
 
@@ -787,6 +805,17 @@
             box-shadow: 6px 6px 0px #000;
             border-color: #000;
             transform: translate(-2px, -2px);
+        }
+
+        /* Dark theme card background override */
+        :root .card {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .card {
+            background: #fff;
+            color: #000;
         }
 
         .card-grid {
@@ -820,7 +849,7 @@
             font-size: 0.925rem;
         }
 
-        /* Tables - Neo-Brutalism */
+        /* Tables - Neo-Brutalism - BLACK HEADERS */
         .table-wrapper {
             overflow-x: auto;
             margin: 1.25rem 0;
@@ -838,15 +867,15 @@
 
         th,
         td {
-            padding: 0.875rem 1.25rem;
+            padding: 1rem 1.25rem;
             text-align: left;
             border-bottom: 2px solid #000;
         }
 
         th {
-            background: var(--blue-lighter);
-            font-weight: 600;
-            color: var(--blue);
+            background: #000;
+            font-weight: 800;
+            color: #fff;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -857,12 +886,13 @@
         }
 
         tbody tr:hover td {
-            background: var(--blue-lighter);
+            background: var(--blue-light);
         }
 
         .highlight-row td {
-            background: var(--blue-light) !important;
-            font-weight: 600;
+            background: var(--yellow) !important;
+            font-weight: 700;
+            color: #000;
         }
 
         .check {
@@ -876,31 +906,34 @@
             font-size: 1.1rem;
         }
 
-        /* Quote - Neo-Brutalism */
+        /* Quote - Neo-Brutalism - DRAMATIC */
         blockquote {
             border: 3px solid #000;
-            border-left: 8px solid #2563EB;
-            padding: 1.25rem 1.75rem;
+            border-left: 8px solid #000;
+            padding: 2rem;
             margin: 1.5rem 0;
-            background: var(--bg-card);
+            background: #fff;
+            color: #000;
             border-radius: 0;
-            box-shadow: 4px 4px 0px #000;
+            box-shadow: 6px 6px 0px #000;
         }
 
         blockquote p {
             font-style: italic;
-            color: var(--text-secondary);
-            font-size: 1rem;
+            color: #333;
+            font-size: 1.05rem;
             line-height: 1.65;
         }
 
         blockquote cite {
             display: block;
-            margin-top: 0.75rem;
+            margin-top: 1rem;
             font-style: normal;
-            font-weight: 600;
-            color: var(--blue);
-            font-size: 0.85rem;
+            font-weight: 700;
+            color: #000;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Stats Grid - Neo-Brutalism */
@@ -996,7 +1029,7 @@
             font-weight: bold;
         }
 
-        /* Pricing Cards - Neo-Brutalism */
+        /* Pricing Cards - Neo-Brutalism - DEMANDS ATTENTION */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1010,37 +1043,45 @@
             border-radius: 0;
             padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             box-shadow: 4px 4px 0px #000;
         }
 
         .pricing-card.featured {
-            border-color: #000;
-            box-shadow: 6px 6px 0px #000;
+            background: #FFE135;
+            color: #000;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px #000;
             position: relative;
+            transform: scale(1.02);
         }
 
         .pricing-card.featured::before {
             content: "RECOMMENDED";
             position: absolute;
-            top: -12px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            background: #FFE135;
-            color: #000;
-            padding: 0.25rem 1rem;
+            background: #000;
+            color: #FFE135;
+            padding: 0.35rem 1.25rem;
             border-radius: 0;
-            border: 2px solid #000;
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
+            border: 3px solid #000;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 1px;
         }
 
         .pricing-card .tier {
-            font-size: 1.125rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 800;
             color: var(--blue);
             margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .pricing-card.featured .tier {
+            color: #000;
         }
 
         .pricing-card .tier-sub {
@@ -1049,11 +1090,19 @@
             margin-bottom: 1rem;
         }
 
+        .pricing-card.featured .tier-sub {
+            color: #333;
+        }
+
         .pricing-card .price {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 3.5rem;
+            font-weight: 900;
             color: var(--text-primary);
-            letter-spacing: -1.5px;
+            letter-spacing: -2px;
+        }
+
+        .pricing-card.featured .price {
+            color: #000;
         }
 
         .pricing-card .price-note {
@@ -1062,9 +1111,19 @@
             margin-bottom: 1.25rem;
         }
 
+        .pricing-card.featured .price-note {
+            color: #333;
+        }
+
         .pricing-card .features {
             text-align: left;
             margin: 1.25rem 0;
+        }
+
+        .pricing-card.featured .features {
+            background: rgba(0,0,0,0.05);
+            padding: 1rem;
+            border: 2px solid #000;
         }
 
         /* Timeline - Neo-Brutalism */
@@ -1191,7 +1250,7 @@
             margin: 1.5rem 0;
         }
 
-        /* Product showcase - Neo-Brutalism */
+        /* Product showcase - Neo-Brutalism - FRAMED */
         .product-showcase {
             display: flex;
             align-items: center;
@@ -1204,8 +1263,10 @@
         .product-image {
             max-width: 280px;
             border-radius: 0;
-            border: 3px solid #000;
-            box-shadow: 6px 6px 0px #000;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px #000;
+            background: #fff;
+            padding: 1rem;
         }
 
         /* Co-founder CTA Box - Neo-Brutalism */
@@ -1255,16 +1316,16 @@
         }
 
         footer .footer-motto {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.75rem;
+            font-weight: 900;
             color: white;
             margin-bottom: 2rem;
-            letter-spacing: -1px;
-            line-height: 1.2;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
         }
 
         footer .footer-motto span {
-            color: rgba(255, 255, 255, 0.7);
+            color: #FFE135;
         }
 
         footer h2 {
@@ -1425,8 +1486,9 @@
             }
 
             .hero .hero-motto {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 margin-bottom: 1.25rem;
+                letter-spacing: -1px;
             }
 
             .hero .tagline {
@@ -1440,8 +1502,9 @@
             }
 
             .trust-badge {
-                font-size: 0.65rem;
-                padding: 0.3rem 0.6rem;
+                font-size: 0.6rem;
+                padding: 0.35rem 0.6rem;
+                letter-spacing: 0.5px;
             }
 
             /* Product bundle box - compact for mobile */
