@@ -32,22 +32,19 @@
 
 /* the unit: the real box, in a chrome frame. It starts dark and wakes up. */
 .unit { margin: 0; display: grid; justify-items: center; position: relative; }
-.device {
-  --lx: 66%; --ly: 54.4%;
-  position: relative; width: min(470px, 100%); padding: 7px; border-radius: 24px;
-  background: linear-gradient(160deg, #f4f6f9, #7c8696 30%, #e9edf2 52%, #59626f 76%, #dfe4ea);
-  box-shadow: 0 50px 110px -40px rgba(46, 116, 222, .75), 0 0 0 1px rgba(0, 0, 0, .6);
-}
-.device img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 55%; border-radius: 17px; transition: filter 1.3s var(--ease); }
-.device::after { content: ""; position: absolute; inset: 7px; border-radius: 17px; pointer-events: none; box-shadow: inset 0 0 90px rgba(3, 6, 14, .55); background: linear-gradient(180deg, rgba(5, 8, 16, .35), transparent 22%, transparent 70%, rgba(5, 8, 16, .55)); }
-.wake { position: absolute; z-index: 1; left: var(--lx); top: var(--ly); width: 40%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; mix-blend-mode: screen; opacity: .22;
-  background: radial-gradient(circle, rgba(220, 236, 255, .9) 0%, rgba(110, 170, 255, .55) 22%, rgba(46, 116, 222, .2) 45%, transparent 68%); animation: breathe 5s ease-in-out infinite; }
-@keyframes breathe { 50% { opacity: .38; } }
-.pin { position: absolute; z-index: 2; left: 20px; top: 20px; display: grid; justify-items: start; gap: 6px; transition: opacity .8s var(--ease) .3s; }
+.render { position: relative; width: min(560px, 100%); aspect-ratio: 1; }
+.render::before { content: ""; position: absolute; inset: 8% 4% 4%; border-radius: 50%; background: radial-gradient(circle at 50% 55%, rgba(46, 116, 222, .38), transparent 62%); filter: blur(10px); z-index: -1; }
+.render .poster, .render canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.render .poster { transition: opacity .6s; }
+.render.ready .poster { opacity: 0; }
+.render canvas { touch-action: pan-y; cursor: grab; }
+.render.grab canvas { cursor: grabbing; }
+.turn-hint { position: absolute; right: 8px; top: 14px; font: 500 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: #5d6575; pointer-events: none; }
+.pin { position: absolute; z-index: 2; left: 4px; top: 8px; pointer-events: none; display: grid; justify-items: start; gap: 6px; transition: opacity .8s var(--ease) .3s; }
 .pin .tag { background: rgba(7, 9, 13, .72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--ink); }
 
 /* the console: status LEDs, read like a spec plate */
-.console { position: relative; z-index: 3; width: min(420px, calc(100% - 40px)); margin-top: -46px; }
+.console { position: relative; z-index: 3; width: min(420px, calc(100% - 40px)); margin-top: -18px; }
 .readout { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border-radius: 12px; overflow: hidden; background: rgba(255, 255, 255, .06); box-shadow: var(--edge); }
 .readout li { display: grid; gap: 2px; padding: 11px 14px 12px 30px; background: linear-gradient(180deg, rgba(17, 21, 29, .94), rgba(11, 14, 20, .94)); position: relative; transition: opacity .3s; }
 .readout li::before { content: ""; position: absolute; left: 13px; top: 17px; width: 7px; height: 7px; border-radius: 50%; background: var(--led); box-shadow: 0 0 10px var(--led); transition: background .2s, box-shadow .2s; }
@@ -57,14 +54,11 @@
 .console-note { margin-top: 10px; text-align: center; font: 500 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: #535b6a; }
 
 /* boot states (set by a tiny script in <head>; without JS everything is simply on) */
-html.booting .device img { filter: brightness(.1) saturate(.2); }
-html.booting .wake { opacity: 0; animation: none; }
+html.booting .render .poster { filter: brightness(.12) saturate(.2); }
 html.booting .pin { opacity: 0; }
 html.booting .readout li:not(.on) { opacity: .35; }
 html.booting .readout li:not(.on)::before { background: #2a303b; box-shadow: none; }
 html.booting .readout li:not(.on) b { opacity: 0; }
-html.lit .wake { animation: flare 1.6s var(--ease), breathe 5s ease-in-out 1.6s infinite; }
-@keyframes flare { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.4); } 35% { opacity: 1; transform: translate(-50%, -50%) scale(1.25); } 100% { opacity: .22; } }
 html.booting .hero-copy > * { opacity: 0; transform: translateY(12px); }
 .hero-copy > * { transition: opacity .7s var(--ease), transform .7s var(--ease); }
 html.booted .hero-copy > :nth-child(2) { transition-delay: .05s; }
@@ -309,11 +303,10 @@ html.agent-open, html.agent-open body { overflow: hidden; }
   .hero::after { -webkit-mask: radial-gradient(70% 35% at 50% 22%, #000, transparent 75%); mask: radial-gradient(70% 35% at 50% 22%, #000, transparent 75%); }
   .hero-grid { gap: 36px; }
   .unit { gap: 18px; }
-  .device { --ly: 52%; padding: 5px; border-radius: 20px; }
-  .device img { aspect-ratio: 1; object-position: 50% 60%; border-radius: 15px; }
-  .device::after { inset: 5px; border-radius: 15px; }
-  .pin { left: 14px; top: 14px; }
-  .console { width: calc(100% - 24px); margin-top: -34px; }
+  .render { width: 100%; aspect-ratio: 1.08; }
+  .pin { left: 0; top: 0; }
+  .turn-hint { display: none; }
+  .console { width: 100%; margin-top: -10px; }
   .readout li { padding: 8px 10px 9px 26px; }
   .readout li::before { left: 11px; top: 14px; }
   .readout span { font-size: 9px; letter-spacing: .1em; }
