@@ -25,13 +25,13 @@
 
   /* ======================= product page ======================= */
 
-  // the opening: the box powers up, its status lights come on one by one, then it speaks.
+  // the opening: the real box, dark, wakes up: its status lights come on one by one, the logo glows, then it speaks.
   // Full sequence on a first visit (about 2 s), a quick flicker afterwards; any tap, key or scroll skips.
   (async function heroBoot() {
     const H = document.documentElement;
     const done = () => { H.classList.remove("booting"); H.classList.add("lit", "booted"); };
     if (!H.classList.contains("booting")) { done(); return; }
-    const items = $$("#readout li"), ring = $("#core-ring");
+    const items = $$("#readout li");
     const fast = store.get("ig.hero", false);
     store.set("ig.hero", true); store.set("ig.booted", true);
     let skip = false;
@@ -42,7 +42,6 @@
     await pause(fast ? 80 : 420);
     for (let i = 0; i < items.length; i++) {
       items[i].classList.add("on");
-      if (ring) ring.style.setProperty("--p", String((i + 1) / items.length));
       await pause(fast ? 90 : 360);
     }
     H.classList.add("lit");
