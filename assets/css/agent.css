@@ -247,6 +247,7 @@ html.agent-open, html.agent-open body { overflow: hidden; }
 .rail .ph { padding: 14px 16px; border-bottom: 1px solid var(--hair); display: flex; justify-content: space-between; align-items: baseline; }
 .rail .ph span { font: 500 10.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--electric); }
 .rail .ph b { font: 600 18px var(--mono); }
+.rail .ph .x { display: none; margin-left: 12px; width: 32px; height: 32px; flex: none; border: 0; border-radius: 7px; background: var(--panel); box-shadow: var(--edge); color: var(--ink); font-size: 13px; cursor: pointer; }
 .rail ol { list-style: none; padding: 10px 16px 12px; display: grid; gap: 10px; max-height: 50vh; overflow: auto; }
 .rail li { border-left: 2px solid var(--led); padding: 2px 0 2px 10px; font-size: 14px; line-height: 1.4; animation: drop .4s var(--ease); }
 .rail li small { display: block; font: 500 9.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -288,6 +289,9 @@ html.agent-open, html.agent-open body { overflow: hidden; }
   .stage { grid-template-columns: 1fr; }
   .rail { position: fixed; top: 112px; right: 12px; left: 12px; z-index: 5; display: none; }
   .rail.open { display: block; }
+  .rail .ph { align-items: center; }
+  .rail .ph span { flex: 1; }
+  .rail .ph .x { display: inline-grid; place-items: center; }
   #mem-toggle { display: inline-flex; }
 }
 @media (max-width: 980px) {

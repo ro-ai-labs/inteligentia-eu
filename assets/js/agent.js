@@ -143,6 +143,7 @@
   }
   function closeAgent(toHash) {
     if (layer.hidden) return;
+    setRail(false);
     layer.hidden = true;
     document.documentElement.classList.remove("agent-open");
     if (toHash) { history.replaceState(null, "", toHash); $(toHash)?.scrollIntoView(); }
@@ -152,7 +153,7 @@
   $$("[data-open-agent]").forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); openAgent(b.dataset.moment || null); }));
   $("#agent-close").addEventListener("click", () => closeAgent());
   $$("#agent [data-nav]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); closeAgent(a.getAttribute("href")); }));
-  addEventListener("keydown", (e) => { if (e.key === "Escape" && !layer.hidden) closeAgent(); });
+  addEventListener("keydown", (e) => { if (e.key !== "Escape" || layer.hidden) return; if (railOpen()) setRail(false); else closeAgent(); });
   addEventListener("popstate", () => { if (location.hash === "#agent") openAgent(); else closeAgent(); });
 
   /* telemetry + memory */
@@ -178,10 +179,13 @@
     store.clear(); st.mem = []; st.name = null; renderMemory();
     if (!st.busy) { st.busy = true; await agent(S.forgot); st.busy = false; }
   });
-  $("#mem-toggle").addEventListener("click", () => {
-    const r = $("#rail"); const open = !r.classList.contains("open");
-    r.classList.toggle("open", open); $("#mem-toggle").setAttribute("aria-expanded", String(open));
-  });
+  /* on narrow screens the memory panel floats over the chat: tap outside, ✕, Esc, or any new message closes it */
+  const rail = $("#rail"), memToggle = $("#mem-toggle");
+  const railOpen = () => rail.classList.contains("open");
+  function setRail(open) { rail.classList.toggle("open", open); memToggle.setAttribute("aria-expanded", String(open)); }
+  memToggle.addEventListener("click", () => setRail(!railOpen()));
+  $("#mem-close").addEventListener("click", () => { setRail(false); memToggle.focus({ preventScroll: true }); });
+  layer.addEventListener("pointerdown", (e) => { if (railOpen() && !rail.contains(e.target) && !memToggle.contains(e.target)) setRail(false); });
   renderMemory();
 
   /* conversation primitives */
@@ -383,7 +387,7 @@
     async memory() {
       await me(S.chips.memory, { scripted: true });
       await agent(S.memory1(st.mem.length)); await agent(S.memory2);
-      if (matchMedia("(max-width: 1100px)").matches) { $("#rail").classList.add("open"); $("#mem-toggle").setAttribute("aria-expanded", "true"); }
+      if (matchMedia("(max-width: 1100px)").matches) setRail(true);
     },
   };
   function linkOut(hash, label, primary) {
