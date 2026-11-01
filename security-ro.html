@@ -1,824 +1,133 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inteligentia: Securitate &amp; Confidentialitate</title>
-	    <meta name="description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design offline, fara telemetrie, stocare criptata si actualizari prin USB.">
-    <meta name="theme-color" content="#0f1419">
-    <link rel="canonical" href="https://inteligentia.eu/security-ro.html">
-    <link rel="alternate" hreflang="en" href="https://inteligentia.eu/security.html">
-    <link rel="alternate" hreflang="ro" href="https://inteligentia.eu/security-ro.html">
-    <link rel="alternate" hreflang="x-default" href="https://inteligentia.eu/security.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="inteligentia">
-    <meta property="og:title" content="inteligentia - Securitate si Confidentialitate">
-	    <meta property="og:description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design offline, fara telemetrie, stocare criptata si actualizari prin USB.">
-    <meta property="og:url" content="https://inteligentia.eu/security-ro.html">
-    <meta property="og:image" content="https://inteligentia.eu/concept.jpg">
-    <meta property="og:image:alt" content="Dispozitivul AI offline inteligentia">
-    <meta property="og:locale" content="ro_RO">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="inteligentia - Securitate si Confidentialitate">
-	    <meta name="twitter:description" content="Securitate si confidentialitate pentru dispozitivul inteligentia: design offline, fara telemetrie, stocare criptata si actualizari prin USB.">
-    <meta name="twitter:image" content="https://inteligentia.eu/concept.jpg">
-    <link rel="icon" type="image/png" href="icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Dark Theme (Default) */
-        :root {
-            --bg-primary: #0f1419;
-            --bg-secondary: #1a2332;
-            --bg-card: #1e2a3a;
-            --text-primary: #e8edf3;
-            --text-secondary: #a8b5c4;
-            --text-muted: #7a8999;
-            --blue: #4a9eff;
-            --blue-dark: #3d8be6;
-            --blue-light: rgba(74, 158, 255, 0.15);
-            --blue-lighter: rgba(74, 158, 255, 0.08);
-            --accent: #4a9eff;
-            --green: #34d399;
-            --green-light: rgba(52, 211, 153, 0.15);
-            --red: #f87171;
-            --orange: #fbbf24;
-            --orange-light: rgba(251, 191, 36, 0.15);
-            --border: rgba(74, 158, 255, 0.15);
-            --border-strong: rgba(74, 158, 255, 0.25);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --nav-bg: rgba(15, 20, 25, 0.95);
-            --nav-offset: 88px;
-        }
-
-        /* Light Theme */
-        [data-theme="light"] {
-            --bg-primary: #f5f7fa;
-            --bg-secondary: #e8edf3;
-            --bg-card: #ffffff;
-            --text-primary: #1a1a2e;
-            --text-secondary: #374151;
-            --text-muted: #5a6578;
-            --blue: #1e5a99;
-            --blue-dark: #164573;
-            --blue-light: rgba(30, 90, 153, 0.08);
-            --blue-lighter: rgba(30, 90, 153, 0.04);
-            --accent: #1e5a99;
-            --green: #10b981;
-            --green-light: rgba(16, 185, 129, 0.1);
-            --red: #ef4444;
-            --orange: #f59e0b;
-            --orange-light: rgba(245, 158, 11, 0.1);
-            --border: rgba(30, 90, 153, 0.1);
-            --border-strong: rgba(30, 90, 153, 0.2);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
-            --nav-bg: rgba(255, 255, 255, 0.92);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: var(--nav-offset);
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        section {
-            scroll-margin-top: var(--nav-offset);
-        }
-
-        .skip-link {
-            position: absolute;
-            left: 1rem;
-            top: -40px;
-            padding: 0.5rem 0.75rem;
-            background: var(--bg-card);
-            color: var(--text-primary);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-            text-decoration: none;
-            font-size: 0.85rem;
-            z-index: 1100;
-        }
-
-        .skip-link:focus {
-            top: 1rem;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            background: var(--nav-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 0.875rem 2rem;
-            border-bottom: 1px solid var(--border);
-        }
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-            text-decoration: none;
-        }
-        nav .logo img {
-            height: 32px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            transition: filter 0.2s ease;
-        }
-        [data-theme="light"] nav .logo img { filter: none; }
-        nav .logo-text {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--blue);
-            letter-spacing: -0.5px;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--blue); }
-        .nav-cta {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-        }
-        .nav-toggle {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            border: 1px solid var(--border-strong);
-            background: var(--bg-card);
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-        .nav-toggle:hover {
-            border-color: var(--blue);
-            background: var(--blue-light);
-        }
-        .nav-toggle-icon,
-        .nav-toggle-icon::before,
-        .nav-toggle-icon::after {
-            content: '';
-            display: block;
-            width: 18px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            position: relative;
-            transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
-        }
-        .nav-toggle-icon::before {
-            position: absolute;
-            top: -6px;
-            left: 0;
-        }
-        .nav-toggle-icon::after {
-            position: absolute;
-            top: 6px;
-            left: 0;
-        }
-        nav.nav-open .nav-toggle-icon { background: transparent; }
-        nav.nav-open .nav-toggle-icon::before { transform: translateY(6px) rotate(45deg); }
-        nav.nav-open .nav-toggle-icon::after { transform: translateY(-6px) rotate(-45deg); }
-        .nav-mobile-only { display: none; }
-        .lang-switch {
-            padding: 0.375rem 0.75rem;
-            border: 1px solid var(--border-strong);
-            border-radius: var(--radius-sm);
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .lang-switch:hover {
-            border-color: var(--blue);
-            color: var(--blue);
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            border: 1px solid var(--border-strong);
-            background: var(--bg-card);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-        .theme-toggle:hover {
-            border-color: var(--blue);
-            background: var(--blue-light);
-        }
-        .theme-toggle .icon-light, .theme-toggle .icon-dark { display: none; }
-        :root .theme-toggle .icon-dark { display: block; }
-        [data-theme="light"] .theme-toggle .icon-light { display: block; }
-        [data-theme="light"] .theme-toggle .icon-dark { display: none; }
-
-        /* Buttons */
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-primary {
-            background: var(--blue);
-            color: white;
-        }
-        .btn-primary:hover {
-            background: var(--blue-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Hero */
-        .hero {
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-            text-align: center;
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .badge {
-            display: inline-block;
-            padding: 0.375rem 1rem;
-            background: var(--blue-light);
-            color: var(--blue);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.3px;
-        }
-        .badge-green {
-            background: var(--green-light);
-            color: var(--green);
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.75px;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        section h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-        }
-        section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem;
-            color: var(--text-primary);
-        }
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Full-width sections */
-        .full-width {
-            background: var(--bg-secondary);
-            padding: 5rem 0;
-            margin: 0;
-            max-width: none;
-        }
-        .full-width .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Security cards */
-        .security-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            margin: 1.5rem 0;
-            box-shadow: var(--shadow-sm);
-        }
-        .security-card h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--blue);
-        }
-        .security-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-        .security-card p:last-child {
-            margin-bottom: 0;
-        }
-        .security-card ul {
-            padding-left: 1.5rem;
-            color: var(--text-secondary);
-        }
-        .security-card li {
-            padding: 0.25rem 0;
-        }
-
-        /* Key point */
-        .key-point {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--blue);
-            text-align: center;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: var(--blue-light);
-            border-radius: var(--radius-lg);
-        }
-
-        /* Highlight box */
-        .highlight-box {
-            background: var(--blue-light);
-            border: 2px solid var(--blue);
-            border-radius: var(--radius-lg);
-            padding: 1.75rem;
-            margin: 1.5rem 0;
-        }
-        .highlight-box h4 {
-            color: var(--blue);
-            margin-top: 0;
-            margin-bottom: 0.75rem;
-        }
-        .highlight-box p {
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-
-        /* Disclaimer */
-        .disclaimer {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        .disclaimer strong {
-            color: var(--text-secondary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--blue);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        footer .footer-motto {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-        }
-        footer .footer-motto span {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        footer .contact-info {
-            margin: 1.5rem 0;
-        }
-        footer .contact-info p {
-            margin: 0.375rem 0;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        footer .contact-info a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        footer .contact-info a:hover {
-            border-bottom-color: white;
-        }
-        footer .footer-brand {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-        footer .footer-logo {
-            width: 32px;
-            height: 32px;
-            filter: brightness(0) invert(1);
-        }
-        footer .footer-brand-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after {
-                animation-duration: 0.001ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.001ms !important;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            :root { --nav-offset: 72px; }
-            nav { padding: 0.75rem 1rem; }
-            nav .container { position: relative; }
-            .nav-toggle { display: inline-flex; }
-            .nav-cta .btn { display: none; }
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                gap: 0.5rem;
-                background: var(--nav-bg);
-                padding: 0.75rem 1rem 1rem;
-                border-bottom: 1px solid var(--border);
-                box-shadow: var(--shadow-md);
-                display: none;
-            }
-            nav.nav-open .nav-links { display: flex; }
-            .nav-links li { padding: 0.25rem 0; }
-            .nav-mobile-only { display: block; }
-            .nav-mobile-only .btn { width: 100%; justify-content: center; }
-            .hero { padding: 6rem 1.25rem 3rem; }
-            .hero h1 { font-size: 1.75rem; }
-            section { padding: 2.5rem 1.25rem; }
-            section h2 { font-size: 1.5rem; }
-            .security-card { padding: 1.5rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ce iese din casă · inteligentia</title>
+<meta name="description" content="Exact ce rămâne pe cutia ta inteligentia, ce poate pleca și cum decide filtrul de expunere. Fără vorbe goale.">
+<link rel="canonical" href="https://inteligentia.eu/security-ro.html">
+<link rel="alternate" hreflang="en" href="https://inteligentia.eu/security.html">
+<link rel="alternate" hreflang="ro" href="https://inteligentia.eu/security-ro.html">
+<meta name="theme-color" content="#1a3cff">
+<link rel="icon" href="assets/img/icon-192.png">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
-    <a class="skip-link" href="#main">Sari la continut</a>
-    <nav>
-        <div class="container">
-            <a href="index-ro.html" class="logo">
-                <img src="icon.png" alt="Inteligentia">
-                <span class="logo-text">inteligentia</span>
-            </a>
-	            <ul id="primary-navigation" class="nav-links">
-	                <li><a href="index-ro.html#problema">Problema</a></li>
-	                <li><a href="index-ro.html#solutia">Solutia</a></li>
-	                <li><a href="index-ro.html#produs">Produs</a></li>
-	                <li><a href="security-ro.html" style="color: var(--blue);">Securitate</a></li>
-	                <li><a href="investors-ro.html">Investitori</a></li>
-	                <li class="nav-mobile-only"><a href="index-ro.html#aplicatie-pilot" class="btn btn-primary">Aplica pentru Pilot</a></li>
-	            </ul>
-            <div class="nav-cta">
-                <a href="security.html" class="lang-switch">EN</a>
-                <button class="theme-toggle" type="button" onclick="toggleTheme()" title="Schimba tema" aria-label="Schimba tema">
-                    <span class="icon-light">&#9790;</span>
-                    <span class="icon-dark">&#9788;</span>
-                </button>
-                <button class="nav-toggle" type="button" aria-label="Deschide meniul" aria-controls="primary-navigation" aria-expanded="false" data-label-open="Deschide meniul" data-label-close="Inchide meniul">
-                    <span class="nav-toggle-icon" aria-hidden="true"></span>
-                </button>
-                <a href="index-ro.html#aplicatie-pilot" class="btn btn-primary">Aplica pentru Pilot</a>
-            </div>
-        </div>
-    </nav>
+<body data-page="security">
+<a class="skip" href="#main">Treci la conținut</a>
+<header class="hud-top">
+  <a class="brand" href="index-ro.html" aria-label="inteligentia, pagina principală"><img src="assets/img/mark.png" alt=""><span>inteligentia</span></a>
+  <nav class="nav" aria-label="Principal">
+    <a class="link" href="security-ro.html" aria-current="page">Ce iese din casă</a>
+    <a class="link" href="proof-ro.html">Dovezi</a>
+    <a class="link" href="investors-ro.html">Investitori</a>
+    <a class="link lang" href="security.html" hreflang="en" lang="en">EN</a>
+    <a class="btn primary sm" href="index-ro.html">Rezervă</a>
+  </nav>
+</header>
 
-    <main id="main">
-	    <!-- Hero -->
-	    <section class="hero">
-	        <div class="hero-content">
-	            <span class="badge badge-green">Securitate &amp; Confidentialitate</span>
-	            <h1>Confidențialitate verificabilă</h1>
-	            <p>Gândit pentru lucru confidențial: rulează offline, fără upload-uri în fundal și îți păstrează controlul. Mai jos sunt verificări simple pe care le poți rula chiar tu.</p>
-	        </div>
-	    </section>
-
-	    <!-- Dovada -->
-	    <section id="dovada">
-	        <div class="section-header">
-	            <h2>Dovada pe care o poți rula</h2>
-	            <p class="section-subtitle">Două verificări rapide pentru profesioniști reglementați—fără „trust us”.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Testul „mod avion”</h3>
-	            <p>În pilot, acesta este primul demo. Dacă funcționează offline, datele au rămas pe biroul tău.</p>
-	            <ol style="padding-left: 1.5rem; color: var(--text-secondary);">
-	                <li style="padding: 0.25rem 0;">Pune laptopul în mod avion (și/sau scoate cablul Ethernet).</li>
-	                <li style="padding: 0.25rem 0;">Conectează Inteligentia via USB‑C și conectează adaptorul de alimentare.</li>
-	                <li style="padding: 0.25rem 0;">Deschide aplicația companion și încarcă un set de documente confidențiale.</li>
-	                <li style="padding: 0.25rem 0;">Pune o întrebare și verifică sursele prin citări click‑to‑verify.</li>
-	            </ol>
-	            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Scop: să demonstrăm lipsa dependenței de endpoint‑uri de inferență găzduite pe internet. Aceasta nu afirmă că laptopul gazdă este lipsit de malware.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Checklist „Card de Confidențialitate”</h3>
-	            <p>O listă scurtă pe care o poți rula, repeta și distribui intern.</p>
-	            <ol style="padding-left: 1.5rem; color: var(--text-secondary);">
-	                <li style="padding: 0.25rem 0;"><strong>Izolează host-ul:</strong> oprește Wi‑Fi și scoate cablul Ethernet.</li>
-	                <li style="padding: 0.25rem 0;"><strong>Verifică izolarea:</strong> confirmă lipsa accesului la internet.</li>
-	                <li style="padding: 0.25rem 0;"><strong>Conectează dispozitivul:</strong> USB‑C pentru date + alimentare separată.</li>
-	                <li style="padding: 0.25rem 0;"><strong>Rulează fluxul:</strong> ingestie → căutare → sumar → draft.</li>
-	                <li style="padding: 0.25rem 0;"><strong>Rezultat:</strong> flux end‑to‑end fără internet.</li>
-	            </ol>
-	        </div>
-	    </section>
-
-	    <!-- Core Security -->
-	    <section>
-	        <div class="section-header">
-	            <h2>Confidențialitate prin arhitectură</h2>
-	            <p class="section-subtitle">Cel mai sigur leak este cel care nu poate apărea. Reducem riscul eliminând căile de rețea.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Fără Wi‑Fi, fără Bluetooth, fără Ethernet</h3>
-	            <p>Dispozitivul este construit să funcționeze offline. Nu are hardware de rețea, deci nu poate încărca documente în fundal.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>USB‑C pentru date, alimentare separată</h3>
-	            <p>Singura cale de schimb de date este USB‑C, atunci când conectezi dispozitivul la computer.</p>
-	            <ul>
-	                <li>Deschiderea și căutarea documentelor</li>
-	                <li>Afișarea citărilor și a drafturilor</li>
-	                <li>Instalarea actualizărilor verificate</li>
-	            </ul>
-	            <p style="margin-top: 1rem;">Alimentarea vine printr-un adaptor separat, ca să fie clar ce cablu face ce.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Lanț de custodie</h3>
-	            <p>Dispozitivele sunt pregătite și sigilate în <strong>România</strong> sub control, înainte de distribuția pentru pilot.</p>
-	        </div>
+<main id="main" class="page">
+  <div class="wrap">
+    <section class="page-hero">
+      <span class="tag filter">Expunerea, explicată</span>
+      <h1 class="d d-xl" style="margin-top:14px">Ce iese<br>din casă.</h1>
+      <p class="voice">Pe scurt: cât mai puțin posibil, și niciodată lucrurile care te fac <em>tu</em>.</p>
+      <p class="lede">inteligentia este local-first, nu izolată de internet. Agentul tău trăiește pe cutie și își face acolo cea mai mare parte a muncii. Când o sarcină chiar are nevoie de un model de top, cutia trimite o cerere filtrată către furnizorul pe care l-ai ales. Iată fiecare pas.</p>
     </section>
 
-    <!-- Data Security -->
-    <section class="full-width">
-        <div class="container">
-	            <div class="section-header">
-	                <h2>Protecția datelor</h2>
-	                <p class="section-subtitle">Setări simple: lucrezi local, protejat prin criptare și parola dispozitivului.</p>
-	            </div>
-
-	            <div class="security-card">
-	                <h3>Stocare criptată</h3>
-	                <p>Datele de pe dispozitiv sunt criptate la repaus. Fără parola ta, sunt ilizibile chiar dacă cineva fură hardware-ul.</p>
-	            </div>
-
-	            <div class="security-card">
-	                <h3>Fără conturi</h3>
-	                <p>Nu există login în cloud, verificare pe email sau „abonament” ca să poți lucra. Setezi parola local și ești gata.</p>
-	            </div>
-
-	            <div class="security-card">
-	                <h3>Detalii pentru echipe de securitate</h3>
-	                <p>Dacă ai nevoie de detalii de implementare (criptare, handling la tamper, verificarea actualizărilor, build-uri reproductibile), vezi notele tehnice din pagina <a href="investors-ro.html#securitate" style="color: var(--blue);">Investitori</a>.</p>
-	            </div>
-        </div>
+    <section class="section">
+      <h2 class="d d-m">Drumul unei cereri</h2>
+      <div class="flow" style="margin-top:20px">
+        <div><span class="num">01</span><b>Întrebi</b><p>Îi scrii agentului tău pe Telegram. O preia cutia de la tine de acasă. Nu stăm la mijloc.</p></div>
+        <div><span class="num">02</span><b>Mai întâi acasă</b><p>Modelul de pe dispozitiv și indexul fișierelor tale încearcă să răspundă. Cele mai multe întrebări de zi cu zi se opresc aici.</p></div>
+        <div><span class="num">03</span><b>Filtrul</b><p>Dacă e nevoie de mai multă putere, filtrul maschează nume, numere, adrese și documente de identitate și scoate contextul de care sarcina nu are nevoie.</p></div>
+        <div><span class="num">04</span><b>Cloud-ul</b><p>Fragmentul subțire și mascat ajunge la furnizorul tău (OpenAI Codex sau OpenRouter), pe contul tău.</p></div>
+        <div><span class="num">05</span><b>Pus la loc</b><p>Răspunsul se întoarce, detaliile reale sunt puse la loc acasă, iar conversația se salvează pe cutie.</p></div>
+      </div>
     </section>
 
-    <!-- Zero Telemetry -->
-	    <section>
-	        <div class="section-header">
-	            <h2>Zero telemetrie</h2>
-	            <p class="section-subtitle">Nu colectăm date de utilizare. Designul minimizează riscul de transfer.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Fără upload-uri în fundal</h3>
-	            <p>Dispozitivul este gândit să ruleze offline și nu are hardware de rețea. Nu poate „suna acasă” și nu poate încărca documente în fundal.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Fără analize de utilizare</h3>
-	            <p>Nu urmărim documentele tale, întrebările tale sau pattern-urile de utilizare.</p>
-	            <p style="margin-top: 0.75rem; color: var(--text-muted);">Dacă poți rula fluxul în mod avion, ai o dovadă practică că nu depinde de servicii cloud.</p>
-	        </div>
-	    </section>
-
-    <!-- Updates -->
-    <section class="full-width">
-        <div class="container">
-	            <div class="section-header">
-	                <h2>Actualizări securizate</h2>
-	                <p class="section-subtitle">Actualizările se fac prin USB, fără ca dispozitivul să aibă nevoie de internet.</p>
-	            </div>
-
-	            <div class="security-card">
-	                <h3>Actualizări verificate prin USB</h3>
-	                <p>Când alegi să actualizezi:</p>
-	                <ul>
-	                    <li>Aplicația companion descarcă pachetul de update când ești online</li>
-	                    <li>Update-ul este verificat înainte de instalare</li>
-	                    <li>Dispozitivul instalează update-ul prin USB</li>
-	                </ul>
-	                <p style="margin-top: 1rem; color: var(--text-muted);">Dispozitivul în sine nu are nevoie de conexiune la internet.</p>
-	            </div>
-
-            <div class="highlight-box">
-                <h4>Fără kill switch</h4>
-                <p>Daca refuzi actualizarile, dispozitivul <strong>continua sa functioneze</strong> pe ultima versiune instalata. Nu exista server de activare, verificare de licenta sau blocare de la distanta.</p>
-                <p style="margin-top: 0.5rem;"><strong>Detii dispozitivul si inteligenta pe care o contine.</strong></p>
-            </div>
-        </div>
+    <section class="section grid2">
+      <div class="card">
+        <span class="tag local">Rămâne mereu acasă</span>
+        <h3>Pe cutie</h3>
+        <ul>
+          <li>Agentul tău și tot ce își amintește despre tine</li>
+          <li>Fiecare conversație, de ieri și de azi, inclusiv istoricul pe care îl imporți din ChatGPT sau Claude</li>
+          <li>Fișierele tale și indexul de căutare construit din ele</li>
+          <li>Numele, numerele și adresele reale pe care le-a mascat filtrul</li>
+          <li>Răspunsurile primite din cloud, odată ce ajung</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag cloud">Poate pleca, filtrat</span>
+        <h3>Către furnizorul tău</h3>
+        <ul>
+          <li>Textul mascat al unei cereri care are nevoie de un model de top</li>
+          <li>Doar contextul de care are nevoie sarcina (ratele creditului, nu istoricul tău bancar)</li>
+          <li>Nimic nu ajunge la inteligentia. Nu stăm la mijloc.</li>
+        </ul>
+        <p>Vrei zero expunere o vreme? Deconectează creierul din cloud. Agentul continuă să lucreze acasă, doar cu un creier mai mic.</p>
+      </div>
     </section>
 
-    <!-- Compliance -->
-	    <section>
-	        <div class="section-header">
-	            <h2>Postura de conformitate</h2>
-	            <p class="section-subtitle">Proiectat pentru a păstra procesarea confidențială local și a reduce transferul inutil de date.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Gândit pentru lucru confidențial</h3>
-	            <ul>
-	                <li>Documentele rămân local</li>
-	                <li>Nu ai nevoie de conturi în cloud</li>
-	                <li>Mai puțin „paperwork” cu furnizori doar ca să folosești AI</li>
-	            </ul>
-	            <p style="margin-top: 1rem;"><strong>Notă:</strong> Inteligentia susține conformitatea; obligațiile tale depind de cazul de utilizare și jurisdicție.</p>
-	        </div>
-
-	        <div class="security-card">
-	            <h3>Ai nevoie de o evaluare mai aprofundată?</h3>
-	            <p>Dacă evaluezi împreună cu o echipă internă de securitate, putem parcurge protocolul de dovadă offline și putem oferi detalii de implementare în timpul pilotului.</p>
-	            <p style="margin-top: 1rem; color: var(--text-muted);">Pentru note tehnice (detalii criptare, semnarea actualizărilor, build-uri reproductibile), vezi <a href="investors-ro.html#securitate" style="color: var(--blue);">Investitori → Securitate</a>.</p>
-	        </div>
-
-	        <div class="disclaimer">
-	            <strong>Disclaimer:</strong> Inteligentia este construit pentru a minimiza riscul transferului de date și a susține auditabilitatea. Clienții rămân responsabili pentru obligațiile lor profesionale și de reglementare. Acest dispozitiv este un instrument de cercetare și productivitate și nu oferă consultanță juridică, medicală sau profesională.
-	        </div>
-	    </section>
-
-    <!-- CTA -->
-    <section class="full-width">
-        <div class="container" style="text-align: center;">
-            <h2>Întrebări despre securitate?</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Suntem bucurosi sa discutam arhitectura noastra de securitate in detaliu cu clienti potentiali si echipele lor de securitate.</p>
-            <a href="mailto:info@inteligentia.eu?subject=Intrebare%20Securitate" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2rem;">Contactează echipa</a>
-        </div>
+    <section class="section">
+      <div class="honest">
+        <h3>Ce nu vom pretinde</h3>
+        <ul>
+          <li><strong>Nu este 100% privat.</strong> Când agentul cere ajutorul unui model din cloud, text filtrat iese din casa ta. Acesta este prețul răspunsurilor de top, și alegerea îți aparține.</li>
+          <li><strong>Filtrul este automat, nu magic.</strong> Prinde suspecții obișnuiți (nume, documente de identitate, numere de cont, numere de telefon, emailuri, adrese). Detaliile neobișnuite scrise în text liber pot trece, așa că păstrează tot ce e cu adevărat secret în conversații doar locale.</li>
+          <li><strong>După ce textul ajunge la un furnizor, se aplică politica lui.</strong> Verifică setările de date ale furnizorului tău. Cu OpenRouter, cererea este deservită de gazda modelului pe care o alegi.</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Footer -->
-    </main>
+    <section class="section grid2">
+      <div class="card">
+        <span class="tag">Nucleu deschis</span>
+        <h3>Construit pe open source</h3>
+        <p>Agentul din inima cutiei este construit pe <a href="https://github.com/NousResearch/hermes-agent" rel="noopener">Hermes Agent</a>, un proiect open-source (MIT) al Nous Research. Noi îl împachetăm, îl ajustăm și îl îngrijim, ca tu să nu atingi niciodată un terminal. Nucleul rămâne inspectabil, iar nici de noi nu rămâi legat.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Acest site</span>
+        <h3>Aplicăm principiul și aici</h3>
+        <p>Fără analytics, fără trackere, fără cookie-uri. Demo-urile de pe pagina principală rulează în browserul tău. Singurul lucru pe care îl trimite vreodată acest site este formularul de rezervare, iar el îți arată exact conținutul înainte să apeși butonul.</p>
+      </div>
+    </section>
 
-    <footer>
-        <p class="footer-motto"><span>Inteligenta pe care o detii,</span> nu o inchiriezi.</p>
-        <div class="contact-info">
-            <p><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
-            <p><a href="https://www.inteligentia.eu">www.inteligentia.eu</a></p>
-        </div>
-        <div class="footer-brand">
-            <img src="logo-white.png" alt="Inteligentia" class="footer-logo">
-            <span class="footer-brand-name">inteligentia</span>
-        </div>
-        <p class="footer-disclaimer" style="margin-top: 2rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-            Inteligentia este construit pentru a minimiza riscul transferului de date si a sustine auditabilitatea.
-            Clientii raman responsabili pentru obligatiile lor profesionale si de reglementare.
-            Acest produs este un instrument de cercetare si productivitate - nu inlocuieste judecata profesionala sau consultanta juridica.
-        </p>
-    </footer>
+    <section class="section" id="sources">
+      <h2 class="d d-m">Sursele comparației</h2>
+      <p class="lede" style="margin:10px 0 18px">Tabelul „Inteligență închiriată” de pe pagina principală rezumă paginile publice ale fiecărui producător, așa cum le-am citit la 1 noiembrie 2026. „Nedocumentat” înseamnă că nu am găsit nicio metodă publicată de a exporta memoria agentului sau de a-l rula pe modelul altui furnizor. Produsele se schimbă repede; dacă ceva de aici e depășit, scrie-ne la <a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a> și corectăm.</p>
+      <table class="spec">
+        <tr><th>OpenAI dots</th><td><a href="https://openai.com/index/introducing-dots/" rel="noopener">openai.com/index/introducing-dots</a> · <a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot" rel="noopener">help.openai.com</a></td></tr>
+        <tr><th>xAI Grok Bot</th><td><a href="https://x.ai/news/introducing-grok-bot" rel="noopener">x.ai/news/introducing-grok-bot</a> · <a href="https://x.ai/news/designing-grok-bot" rel="noopener">x.ai/news/designing-grok-bot</a></td></tr>
+        <tr><th>Anthropic Claude Duet</th><td><a href="https://claude.com/resources/articles/claude-duet" rel="noopener">claude.com/resources/articles/claude-duet</a></td></tr>
+        <tr><th>Meta Muse</th><td><a href="https://theneuron.ai/explainer-articles/how-to-get-started-with-meta-muse/" rel="noopener">theneuron.ai: How to get started with Meta Muse</a></td></tr>
+      </table>
+    </section>
+  </div>
+</main>
 
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                html.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const nav = document.querySelector('nav');
-        const navToggle = document.querySelector('.nav-toggle');
-
-        function setNavState(open) {
-            if (!nav || !navToggle) {
-                return;
-            }
-            nav.classList.toggle('nav-open', open);
-            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-            const labelOpen = navToggle.getAttribute('data-label-open');
-            const labelClose = navToggle.getAttribute('data-label-close');
-            navToggle.setAttribute('aria-label', open ? labelClose : labelOpen);
-        }
-
-        if (nav && navToggle) {
-            navToggle.addEventListener('click', () => {
-                const isOpen = nav.classList.contains('nav-open');
-                setNavState(!isOpen);
-            });
-
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', () => setNavState(false));
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    setNavState(false);
-                }
-            });
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (!target) {
-                    return;
-                }
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-    </script>
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <div class="brandline"><img src="assets/img/mark-white.png" alt=""> inteligentia</div>
+      <p style="margin-top:12px;max-width:44ch">Agentul tău. Casa ta. O cutie AI personală de la RO AI Labs, București.</p>
+      <p style="margin-top:12px"><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
+    </div>
+    <div>
+      <h4>Explorează</h4>
+      <a href="index-ro.html">Acasă</a>
+      <a href="proof-ro.html">Dovezi și specificații</a>
+      <a href="investors-ro.html">Investitori</a>
+      <a href="security.html" hreflang="en" lang="en">English</a>
+    </div>
+    <div>
+      <h4>Rezervă</h4>
+      <a href="index-ro.html">1 TB · 1.299 €</a>
+      <a href="index-ro.html">2 TB · 1.499 €</a>
+    </div>
+    <p class="legal">Agentul este construit pe Hermes Agent, un proiect open-source al Nous Research; inteligentia nu este afiliată cu Nous Research și nu este susținută de aceasta. NVIDIA și Jetson sunt mărci comerciale ale NVIDIA Corporation. Celelalte denumiri de produse aparțin proprietarilor lor și sunt folosite doar pentru compatibilitate sau comparație. © 2026 RO AI Labs.</p>
+  </div>
+</footer>
 </body>
 </html>
