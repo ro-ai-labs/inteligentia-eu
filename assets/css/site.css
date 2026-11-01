@@ -301,6 +301,8 @@ details.faq > div { padding: 0 20px 20px; color: var(--ink-2); }
   .nav .btn { order: 2; }
   .nav a.link { font-size: 14px; }
   .brand { font-size: 14px; }
+  .nav .nav-links { gap: 16px; }
+  @media (max-width: 380px) { .nav .nav-links { gap: 12px; } .nav a.link { font-size: 13px; } }
   .page { padding-top: 128px; }
   .card { padding: 22px; }
   .spec th, .spec td { padding: 12px 14px; font-size: 14px; }
@@ -326,3 +328,11 @@ details.faq > div { padding: 0 20px 20px; color: var(--ink-2); }
 .rec figcaption b { color: var(--ink); font-size: 16px; }
 @media (max-width: 980px) { .recs { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .rec-frame { aspect-ratio: 4 / 3; } }
+
+/* chrome lettering paints only inside its box: give descenders (g, y, p, ș, ț) room below the last line, without moving the layout */
+.d, .line.big .txt, .tier .price { padding-bottom: .3em; margin-bottom: -.3em; }
+.d em, .d .blue { padding-bottom: .3em; }
+.brand > span:last-child { padding-bottom: .15em; margin-bottom: -.15em; }
+
+/* long links in tables (security page sources) wrap instead of running off the screen */
+.spec td, .spec th { overflow-wrap: anywhere; }
