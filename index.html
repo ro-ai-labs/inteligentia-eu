@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-<title>inteligentia · Your own AI agent, at home</title>
-<meta name="description" content="A personal AI agent running on a small computer in your home. Your memory, chats and files stay with you; hard questions go to the cloud model you choose, with personal details masked first. From €1,299.">
+<title>inteligentia · Your own AI agent, on your desk</title>
+<meta name="description" content="A personal AI agent running on a small computer on your desk. Your memory, chats and work files stay with you; hard questions go to the cloud model you choose, with personal details masked first. From €1,299.">
 <link rel="canonical" href="https://inteligentia.eu/">
 <link rel="alternate" hreflang="en" href="https://inteligentia.eu/">
 <link rel="alternate" hreflang="ro" href="https://inteligentia.eu/index-ro.html">
-<meta property="og:title" content="inteligentia · Your own AI agent, at home">
-<meta property="og:description" content="A personal AI agent running on a small computer in your home. Memory, chats and files stay with you.">
-<meta property="og:image" content="https://inteligentia.eu/assets/img/box.jpg">
+<meta property="og:title" content="inteligentia · Your own AI agent, on your desk">
+<meta property="og:description" content="A personal AI agent running on a small computer on your desk. Memory, chats and work files stay with you.">
+<meta property="og:image" content="https://inteligentia.eu/assets/img/og-box.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#07090d">
 <script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){var d=document.documentElement;d.classList.add("booting");setTimeout(function(){if(d.classList.contains("booting")){d.classList.remove("booting");d.classList.add("lit","booted")}},5000)}}catch(e){}</script>
@@ -42,14 +42,14 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <figure class="unit">
-        <div class="device">
-          <img src="assets/img/box.jpg" alt="The inteligentia box held in one hand: an anodized blue aluminium case with hexagonal vents and a silver spiral logo." width="689" height="1000" fetchpriority="high">
-          <span class="wake" aria-hidden="true"></span>
-          <p class="pin"><span class="tag local">This is your agent</span><span class="tag plain">Fits in one hand · NVIDIA Jetson Orin</span></p>
+        <div class="render" id="box3d">
+          <img class="poster" src="assets/img/box-render.webp" alt="3D render of the inteligentia box: an anodized blue aluminium case with hexagonal vents and a chrome spiral logo on the front." width="1040" height="1040" fetchpriority="high">
+          <p class="pin"><span class="tag local">This is your agent</span><span class="tag plain">Sits on your desk · NVIDIA Jetson Orin</span></p>
+          <span class="turn-hint" aria-hidden="true">3D · drag to turn</span>
         </div>
         <figcaption class="console">
           <ul class="readout" id="readout" aria-label="How the box runs">
-            <li><span>memory</span><b>at home</b></li>
+            <li><span>memory</span><b>on the box</b></li>
             <li><span>agent</span><b>awake</b></li>
             <li><span>privacy filter</span><b>on</b></li>
             <li><span>sent to cloud</span><b>0 B</b></li>
@@ -60,8 +60,8 @@
       <div class="hero-copy">
         <p class="kicker">An AI agent you can hold · from €1,299</p>
         <h1 id="hero-title" class="d d-xl">Hi. I'm <em>your</em> agent.</h1>
-        <p class="category">Not an app. Not someone else's cloud. A small box in your home that runs your own AI agent.</p>
-        <p class="lede">You talk to it on Telegram. It remembers you, searches your files and keeps both at home. When a question needs a frontier model, it borrows one from the provider you choose, after masking your personal details.</p>
+        <p class="category">Not an app. Not someone else's cloud. A small box on your desk that runs your own AI agent.</p>
+        <p class="lede">You talk to it on Telegram. It remembers how you work, searches your contracts, notes and invoices, and keeps all of it on the box. When a question needs a frontier model, it borrows one from the provider you choose, after masking your personal details.</p>
         <div class="paths">
           <a class="btn glow" href="#agent" data-open-agent><span class="orb xs" aria-hidden="true"></span>Meet your agent</a>
           <a class="btn" href="#hardware">Show me the product <span class="arr">→</span></a>
@@ -82,10 +82,10 @@
           <span class="num">01</span>
           <h3>It remembers what matters to you</h3>
           <div class="mini">
-            <p class="me">Remember: I'm vegetarian, and nothing before 10 in the morning.</p>
+            <p class="me">Remember: I invoice in euros, 30-day terms, and no calls before 10 in the morning.</p>
             <p class="gap">three weeks later</p>
-            <p class="me">Plan dinner with Dan on Friday.</p>
-            <p class="ag">A vegetarian place at 19:30, and I've kept Saturday morning clear.</p>
+            <p class="me">Set up a kickoff call with Dan next week and get his invoice ready.</p>
+            <p class="ag">Tuesday at 11:00, and his invoice drafted in euros with 30-day terms.</p>
           </div>
           <p class="tele">used 2 memories · answered on the box · 0 B out</p>
           <button class="btn sm" type="button" data-open-agent data-moment="remember">Try it in the preview <span class="arr">→</span></button>
@@ -95,9 +95,9 @@
           <span class="num">02</span>
           <h3>It finds things in your documents</h3>
           <div class="mini">
-            <p class="me">When does my lease end, and how much notice do I give?</p>
+            <p class="me">When does my Acme contract end, and how much notice do I give?</p>
             <p class="ag">31 August 2027. Give 60 days' written notice, so by 2 July.</p>
-            <p class="src">Lease_Apartment_2024.pdf · page 3, §7</p>
+            <p class="src">Acme_Consulting_Agreement_2024.pdf · page 3, §7</p>
           </div>
           <p class="tele">found in your files · 0 B out</p>
           <button class="btn sm" type="button" data-open-agent data-moment="find">Try it in the preview <span class="arr">→</span></button>
@@ -107,11 +107,11 @@
           <span class="num">03</span>
           <h3>Switch models, keep the conversation</h3>
           <div class="mini">
-            <p class="me">What did I decide about the summer trip?</p>
-            <p class="ag">Lisbon, 12–19 July, budget capped at €2,400.</p>
+            <p class="me">What did I decide about the Northwind launch?</p>
+            <p class="ag">Launch week 12–19 July, budget capped at €2,400.</p>
             <p class="gap">OpenAI Codex → OpenRouter</p>
             <p class="me">How much of the budget is left?</p>
-            <p class="ag">€750. Flat and flights are €1,650.</p>
+            <p class="ag">€750. The designer and ads are €1,650.</p>
           </div>
           <p class="tele">same memory · new brain · nothing re-taught</p>
           <button class="btn sm" type="button" data-open-agent data-moment="continue">Try it in the preview <span class="arr">→</span></button>
@@ -130,12 +130,12 @@
   <section class="block night hex" id="privacy" aria-labelledby="privacy-title">
     <div class="wrap">
       <p class="kicker">Privacy</p>
-      <h2 id="privacy-title" class="d d-l">What leaves the house.</h2>
-      <p class="lede">Most answers come from the box itself. When a question needs a bigger model, only the question travels, with names, numbers and addresses masked. The real values stay home and are put back into the answer there.</p>
+      <h2 id="privacy-title" class="d d-l">What leaves your desk.</h2>
+      <p class="lede">Most answers come from the box itself. When a question needs a bigger model, only the question travels, with names, numbers and addresses masked. The real values stay on the box and are put back into the answer there.</p>
 
       <div class="lanes2 rv">
         <div class="lane">
-          <span class="tag local">Always stays home</span>
+          <span class="tag local">Always stays on the box</span>
           <ul>
             <li>Your memory: everything it learns about you</li>
             <li>Your chats, including imported history</li>
@@ -154,7 +154,7 @@
       </div>
       <p class="honest-line">Not 100% private, and we won't pretend otherwise. Minimum exposure, by design, and no lock-in.</p>
       <div class="paths">
-        <a class="btn on-dark" href="security.html">What leaves the house, in detail <span class="arr">→</span></a>
+        <a class="btn on-dark" href="security.html">What leaves your desk, in detail <span class="arr">→</span></a>
         <a class="btn ghost on-dark" href="proof.html">Don't trust us. Test it. <span class="arr">→</span></a>
       </div>
     </div>
@@ -258,12 +258,12 @@
   <div class="wrap">
     <div>
       <div class="brandline"><span class="orb" aria-hidden="true"></span> inteligentia</div>
-      <p style="margin-top:12px;max-width:44ch">Your agent, in your home. A personal AI box by RO AI Labs, Bucharest.</p>
+      <p style="margin-top:12px;max-width:44ch">Your agent, on your desk. A personal AI box by RO AI Labs, Bucharest.</p>
       <p style="margin-top:12px"><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
     </div>
     <div>
       <h4>Explore</h4>
-      <a href="security.html">What leaves the house</a>
+      <a href="security.html">What leaves your desk</a>
       <a href="proof.html">Don't trust us. Test it.</a>
       <a href="investors.html">Investors</a>
       <a href="index-ro.html" hreflang="ro" lang="ro">Română</a>
@@ -342,5 +342,6 @@
 <noscript><style>.rv { opacity: 1; transform: none; } [data-open-agent] { display: none; }</style></noscript>
 <script src="assets/js/strings.js" defer></script>
 <script src="assets/js/agent.js" defer></script>
+<script type="module" src="assets/js/box3d.js"></script>
 </body>
 </html>
