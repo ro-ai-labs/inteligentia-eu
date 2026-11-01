@@ -323,18 +323,31 @@ def project(point):
     p = world_to_camera_view(scene, cam, point)
     return [round(p.x, 4), round(1 - p.y, 4)]
 
-def render(idx, yaw):
+def render(idx, yaw, still=True):
     pivot.rotation_euler = (0, 0, math.radians(yaw))
     bpy.context.view_layer.update()
     r.filepath = os.path.join(OUT, idx + ".png" if isinstance(idx, str) else f"f{idx:02d}.png")
-    bpy.ops.render.render(write_still=True)
+    if still: bpy.ops.render.render(write_still=True)
     M = pivot.matrix_world
     return {"yaw": yaw,
             "logo": project(M @ Vector((0, -D / 2, ZC))),
             "dial": [project(M @ Vector((x * GLASS_R, GLASS_Y - 0.0004, z * GLASS_R + ZC))) for x, z in ((-1, 1), (1, 1), (1, -1), (-1, -1))],
             "leds": [project(M @ Vector((x, -D / 2, z))) for x, z in LEDS]}
 
-if MODE == "test":
+if MODE == "sweep":
+    # one eased half-turn for the hero video: yaw = -A cos(pi k / N), k = 0..N; played forward then
+    # backward it is a seamless sinusoidal loop. usage: box.py sweep [start end]
+    N, A = 96, 30.0
+    scene.cycles.samples = 40
+    os.makedirs(os.path.join(OUT, "sweep"), exist_ok=True)
+    a = int(sys.argv[2]) if len(sys.argv) > 2 else 0
+    b = int(sys.argv[3]) if len(sys.argv) > 3 else N + 1
+    pos = {}
+    only_pos = len(sys.argv) > 4 and sys.argv[4] == "positions"   # positions without rendering
+    for k in range(a, b):
+        pos[k] = render(os.path.join("sweep", f"s{k:03d}"), -A * math.cos(math.pi * k / N), still=not only_pos); print("frame", k, flush=True)
+    json.dump(pos, open(os.path.join(OUT, "sweep", f"positions_{a}_{b}.json"), "w"))
+elif MODE == "test":
     yaw = float(sys.argv[2]) if len(sys.argv) > 2 else 0
     info = render("test", yaw)
     json.dump(info, open(os.path.join(OUT, "test.json"), "w"))
