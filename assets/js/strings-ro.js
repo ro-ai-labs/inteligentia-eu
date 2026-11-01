@@ -45,7 +45,7 @@ window.IG_STRINGS.ro = (() => {
     reserve: "Rezervă unul",
     memory: "Ce ții minte?",
   },
-  topicNames: { remember: "memorie", find: "fișierele tale", continue: "schimbarea modelelor", telegram: "Telegram", import: "importul conversațiilor", trick: "filtrul", diff: "agenții din cloud", hardware: "cutia", reserve: "rezervarea" },
+  topicNames: { remember: "memorie", find: "fișierele tale", continue: "schimbarea modelelor", telegram: "aplicațiile de chat", import: "importul conversațiilor", trick: "filtrul", diff: "agenții din cloud", hardware: "cutia", reserve: "rezervarea" },
 
   // Same ids, same order as en. English keywords are matched too.
   intents: [
@@ -99,8 +99,8 @@ window.IG_STRINGS.ro = (() => {
     next: "Lansare Northwind, 12–19 iulie. Designer: confirmat. Review cu Dan: pe 15. Buget: maximum 2.400 €. Vrei să încep lista de lansare?",
   },
 
-  telegram1: "Pe Telegram.",
-  telegram2: "Fără aplicații noi de învățat. Sunt un contact în Telegramul pe care îl folosești deja, pe telefon și pe laptop. Mesajele tale ajung la cutia de pe biroul tău și acolo gândesc, țin minte și păstrez conversațiile noastre.",
+  telegram1: "Pe Telegram sau pe altă aplicație de chat preferată.",
+  telegram2: "Fără aplicații noi de învățat. Sunt un contact în aplicația de chat pe care o folosești deja, pe telefon și pe laptop. Mesajele tale ajung la cutia de pe biroul tău și acolo gândesc, țin minte și păstrez conversațiile noastre.",
 
   import1: "Da. Adu-ți trecutul cu tine.",
   import2: "Exportă-ți istoricul din ChatGPT sau Claude (ambele îți permit să-l descarci), dă-mi fișierul și citesc fiecare conversație. Ani de context, mutați de pe serverele lor pe cutie. Importul conversațiilor este în dezvoltare și vine odată cu primele unități.",

@@ -32,7 +32,7 @@ window.IG_STRINGS.en = {
     reserve: "Reserve one",
     memory: "What do you remember?",
   },
-  topicNames: { remember: "memory", find: "your files", continue: "switching models", telegram: "Telegram", import: "importing chats", trick: "the filter", diff: "cloud agents", hardware: "the box", reserve: "reserving" },
+  topicNames: { remember: "memory", find: "your files", continue: "switching models", telegram: "chat apps", import: "importing chats", trick: "the filter", diff: "cloud agents", hardware: "the box", reserve: "reserving" },
 
   intents: [
     ["memoryq", /\b(what do you (remember|know)|my memory|forget me)\b/i],
@@ -85,8 +85,8 @@ window.IG_STRINGS.en = {
     next: "Northwind launch, 12–19 July. Designer: booked. Review with Dan: the 15th. Budget: €2,400 max. Want me to start the launch checklist?",
   },
 
-  telegram1: "On Telegram.",
-  telegram2: "No new app to learn. I'm a contact in the Telegram you already use, on your phone and your laptop. Your messages go to the box on your desk, and that's where I think, remember and keep our chats.",
+  telegram1: "On Telegram, or another chat app you prefer.",
+  telegram2: "No new app to learn. I'm a contact in the chat app you already use, on your phone and your laptop. Your messages go to the box on your desk, and that's where I think, remember and keep our chats.",
 
   import1: "Yes. Bring your past with you.",
   import2: "Export your history from ChatGPT or Claude (both let you download it), hand me the file, and I'll read every conversation. Years of context, moved off their servers and onto the box. Chat import is in development; it ships with the first units.",
