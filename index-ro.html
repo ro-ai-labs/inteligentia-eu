@@ -12,7 +12,8 @@
 <meta property="og:description" content="Un agent AI personal care rulează pe un computer mic, la tine acasă. Memoria, conversațiile și fișierele rămân la tine.">
 <meta property="og:image" content="https://inteligentia.eu/assets/img/box.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#f5f2ec">
+<meta name="theme-color" content="#07090d">
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){var d=document.documentElement;d.classList.add("booting");setTimeout(function(){if(d.classList.contains("booting")){d.classList.remove("booting");d.classList.add("lit","booted")}},5000)}}catch(e){}</script>
 <link rel="icon" href="assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 <link rel="stylesheet" href="assets/css/fonts.css">
@@ -40,8 +41,24 @@
   <!-- ============ opening ============ -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
+      <div class="unit">
+        <div class="core" aria-hidden="true">
+          <span class="bezel"></span>
+          <span class="ring" id="core-ring"></span>
+          <span class="orb core-orb"></span>
+        </div>
+        <div class="console">
+          <ul class="readout" id="readout" aria-label="Cum funcționează cutia">
+            <li><span>memorie</span><b>acasă</b></li>
+            <li><span>agent</span><b>treaz</b></li>
+            <li><span>filtru</span><b>activ</b></li>
+            <li><span>trimis în cloud</span><b>0 B</b></li>
+          </ul>
+          <p class="console-note">Ilustrație · nu e un dispozitiv real</p>
+        </div>
+      </div>
       <div class="hero-copy">
-        <div class="greet"><span class="orb lg" aria-hidden="true"></span><span class="kicker">Agent AI personal · de la 1.299&nbsp;€</span></div>
+        <p class="kicker">Agent AI personal · de la 1.299&nbsp;€</p>
         <h1 id="hero-title" class="d d-xl">Salut. Sunt agentul <em>tău</em>.</h1>
         <p class="category">Un agent AI personal care rulează pe un computer mic, la tine acasă.</p>
         <p class="lede">Vorbești cu el pe Telegram. Își amintește de tine, caută în fișierele tale și ține totul acasă. Când o întrebare are nevoie de un model de top, împrumută unul de la furnizorul pe care îl alegi, după ce îți maschează detaliile personale.</p>
@@ -51,13 +68,6 @@
         </div>
         <p class="fine-note">„Cunoaște-ți agentul” deschide o previzualizare interactivă care rulează în browserul tău, neconectată la un dispozitiv inteligentia real.</p>
       </div>
-      <figure class="hero-box">
-        <div class="photo"><img src="assets/img/box.jpg" alt="Cutia inteligentia ținută într-o mână: o carcasă albastră din aluminiu anodizat, cu ventilații hexagonale și o siglă argintie în spirală." width="689" height="1000" fetchpriority="high"></div>
-        <figcaption>
-          <span class="tag local">Memoria și fișierele rămân aici</span>
-          <span class="tag plain">NVIDIA Jetson Orin · 1 sau 2 TB</span>
-        </figcaption>
-      </figure>
     </div>
   </section>
 
@@ -202,10 +212,10 @@
         <div class="buy-info">
           <div class="tiers" role="radiogroup" aria-label="Alege spațiul de stocare">
             <button class="tier" type="button" role="radio" data-tier="1tb" aria-checked="false">
-              <span class="cap">1 TB</span><span class="price">1.299&nbsp;€</span><span class="sub">Ani de conversații, memorie și documente</span>
+              <span class="cap">1 TB</span><span class="price">1.299&nbsp;<i>€</i></span><span class="sub">Ani de conversații, memorie și documente</span>
             </button>
             <button class="tier" type="button" role="radio" data-tier="2tb" aria-checked="true">
-              <span class="cap">2 TB</span><span class="price">1.499&nbsp;€</span><span class="sub">Loc și pentru arhive mari, și pentru fotografii</span>
+              <span class="cap">2 TB</span><span class="price">1.499&nbsp;<i>€</i></span><span class="sub">Loc și pentru arhive mari, și pentru fotografii</span>
             </button>
           </div>
 
@@ -323,7 +333,7 @@
     <img src="assets/img/box.jpg" alt="" width="689" height="1000">
     <div>
       <p class="kicker">inteligentia</p>
-      <p class="hw-p"><b>1 TB</b> 1.299&nbsp;€ <span>·</span> <b>2 TB</b> 1.499&nbsp;€</p>
+      <p class="hw-p"><b>1 TB</b> 1.299&nbsp;<i>€</i> <span>·</span> <b>2 TB</b> 1.499&nbsp;<i>€</i></p>
       <p>NVIDIA Jetson Orin într-o carcasă din aluminiu anodizat, cam cât o palmă. Agentul vine instalat. Rezervarea este gratuită.</p>
     </div>
   </div>

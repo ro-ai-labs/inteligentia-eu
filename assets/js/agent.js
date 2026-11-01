@@ -25,6 +25,32 @@
 
   /* ======================= product page ======================= */
 
+  // the opening: the box powers up, its status lights come on one by one, then it speaks.
+  // Full sequence on a first visit (about 2 s), a quick flicker afterwards; any tap, key or scroll skips.
+  (async function heroBoot() {
+    const H = document.documentElement;
+    const done = () => { H.classList.remove("booting"); H.classList.add("lit", "booted"); };
+    if (!H.classList.contains("booting")) { done(); return; }
+    const items = $$("#readout li"), ring = $("#core-ring");
+    const fast = store.get("ig.hero", false);
+    store.set("ig.hero", true); store.set("ig.booted", true);
+    let skip = false;
+    const sk = () => { skip = true; };
+    const evs = ["pointerdown", "keydown", "wheel", "touchstart"];
+    evs.forEach((e) => addEventListener(e, sk, { passive: true, once: true }));
+    const pause = (ms) => (skip ? Promise.resolve() : wait(ms));
+    await pause(fast ? 80 : 420);
+    for (let i = 0; i < items.length; i++) {
+      items[i].classList.add("on");
+      if (ring) ring.style.setProperty("--p", String((i + 1) / items.length));
+      await pause(fast ? 90 : 360);
+    }
+    H.classList.add("lit");
+    await pause(fast ? 120 : 420);
+    done();
+    evs.forEach((e) => removeEventListener(e, sk));
+  })();
+
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
   $$(".rv").forEach((n) => io.observe(n));
 
