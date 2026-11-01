@@ -3,77 +3,333 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-<title>inteligentia · Hi. I'm your agent.</title>
-<meta name="description" content="A personal AI agent that lives in a small blue box on your desk. Your memory, chats and files stay home; hard questions go to the cloud model you choose, filtered first. From €1,299.">
+<title>inteligentia · Your own AI agent, at home</title>
+<meta name="description" content="A personal AI agent running on a small computer in your home. Your memory, chats and files stay with you; hard questions go to the cloud model you choose, with personal details masked first. From €1,299.">
 <link rel="canonical" href="https://inteligentia.eu/">
 <link rel="alternate" hreflang="en" href="https://inteligentia.eu/">
 <link rel="alternate" hreflang="ro" href="https://inteligentia.eu/index-ro.html">
-<meta property="og:title" content="inteligentia · Hi. I'm your agent.">
-<meta property="og:description" content="Own your AI agent. Memory, chats and files stay on your desk. The cloud only sees what it must.">
-<meta property="og:image" content="https://inteligentia.eu/assets/film/ig-hero.jpg">
+<meta property="og:title" content="inteligentia · Your own AI agent, at home">
+<meta property="og:description" content="A personal AI agent running on a small computer in your home. Memory, chats and files stay with you.">
+<meta property="og:image" content="https://inteligentia.eu/assets/img/box.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0b0f">
+<meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/icon-192.png">
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/agent.css">
 </head>
-<body data-page="agent">
-<a class="skip" href="#say">Skip to the conversation</a>
-
-<div class="boot" id="boot" aria-hidden="true">
-  <pre id="boot-log"></pre>
-  <p class="skip-hint">tap to skip</p>
-</div>
+<body data-page="home">
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="hud-top">
-  <a class="brand" href="index.html" aria-label="inteligentia"><img src="assets/img/mark.png" alt=""><span>inteligentia</span></a>
-  <div class="bar-meta">
-    <span class="chip hide-s" aria-label="Local time"><b id="clock">--:--</b></span>
-    <span class="chip" id="exp-chip" role="status" aria-live="polite"><span class="hide-s">Sent to cloud</span><b id="exp-bytes">0 B</b></span>
-    <button class="chip" id="mem-toggle" type="button" aria-controls="rail" aria-expanded="false">Memory <b>0</b></button>
-    <a class="chip" href="index-ro.html" hreflang="ro" lang="ro">RO</a>
-  </div>
+  <a class="brand" href="index.html" aria-label="inteligentia home"><span class="orb" aria-hidden="true"></span><span>inteligentia</span></a>
+  <nav class="nav" aria-label="Main">
+    <div class="nav-links">
+      <a class="link" href="#how">How it works</a>
+      <a class="link" href="#privacy">Privacy</a>
+      <a class="link" href="#hardware">Hardware &amp; price</a>
+    </div>
+    <a class="link lang" href="index-ro.html" hreflang="ro" lang="ro">RO</a>
+    <a class="btn primary sm" href="#reserve">Reserve</a>
+  </nav>
 </header>
 
-<main class="stage" id="main">
-  <div class="convo" id="log" role="log" aria-live="polite" aria-label="Conversation with your agent"></div>
+<main id="main">
 
-  <aside class="rail" id="rail" aria-label="What your agent remembers">
-    <div class="panel">
-      <div class="ph"><span>Memory · this device only</span><b id="mem-count">0</b></div>
-      <ol id="mem-list"></ol>
-      <div class="pf">Stored in your browser's local storage. We never receive it.<br><button type="button" id="mem-forget">Forget everything</button></div>
+  <!-- ============ opening ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="greet"><span class="orb lg" aria-hidden="true"></span><span class="kicker">Personal AI agent · from €1,299</span></div>
+        <h1 id="hero-title" class="d d-xl">Hi. I'm <em>your</em> agent.</h1>
+        <p class="category">A personal AI agent running on a small computer in your home.</p>
+        <p class="lede">You talk to it on Telegram. It remembers you, searches your files and keeps both at home. When a question needs a frontier model, it borrows one from the provider you choose, after masking your personal details.</p>
+        <div class="paths">
+          <a class="btn glow" href="#agent" data-open-agent><span class="orb xs" aria-hidden="true"></span>Meet your agent</a>
+          <a class="btn" href="#hardware">Show me the product <span class="arr">→</span></a>
+        </div>
+        <p class="fine-note">“Meet your agent” opens an interactive preview that runs in your browser. It is not connected to a live inteligentia device.</p>
+      </div>
+      <figure class="hero-box">
+        <div class="photo"><img src="assets/img/box.jpg" alt="The inteligentia box held in one hand: an anodized blue aluminium case with hexagonal vents and a silver spiral logo." width="689" height="1000" fetchpriority="high"></div>
+        <figcaption>
+          <span class="tag local">Memory &amp; files stay here</span>
+          <span class="tag plain">NVIDIA Jetson Orin · 1 or 2 TB</span>
+        </figcaption>
+      </figure>
     </div>
-    <nav class="fine-links" aria-label="The fine print">
-      <a href="security.html">What leaves the house <span>→</span></a>
-      <a href="proof.html">Proof &amp; specs <span>→</span></a>
-      <a href="investors.html">Investors <span>→</span></a>
-      <a href="mailto:info@inteligentia.eu">info@inteligentia.eu <span>✉</span></a>
-    </nav>
-  </aside>
+  </section>
 
-  <noscript>
-    <div class="fallback">
-      <h1 class="d d-xl">Hi. I'm your agent.</h1>
-      <p class="lede">inteligentia is a small blue box (NVIDIA Jetson Orin, 1 or 2 TB) that runs your own AI agent. Its memory, your chats and your files stay on your desk. When a question needs a bigger brain, it asks the cloud model you choose (OpenAI Codex or OpenRouter), after masking names, numbers and addresses. Not 100% private: minimum exposure, by design. From €1,299 (1 TB) or €1,499 (2 TB).</p>
-      <p>This page is a live conversation and needs JavaScript. Read <a href="security.html">what leaves the house</a>, the <a href="proof.html">proof &amp; specs</a>, or reserve by email at <a href="mailto:info@inteligentia.eu?subject=Reservation">info@inteligentia.eu</a>.</p>
+  <!-- ============ how it works: three moments ============ -->
+  <section class="block" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2 id="how-title" class="d d-l">Three moments with an agent that's <em>yours</em>.</h2>
+
+      <div class="moments">
+        <article class="moment rv">
+          <span class="num">01</span>
+          <h3>It remembers what matters to you</h3>
+          <div class="mini">
+            <p class="me">Remember: I'm vegetarian, and nothing before 10 in the morning.</p>
+            <p class="gap">three weeks later</p>
+            <p class="me">Plan dinner with Dan on Friday.</p>
+            <p class="ag">A vegetarian place at 19:30, and I've kept Saturday morning clear.</p>
+          </div>
+          <p class="tele">used 2 memories · answered on the box · 0 B out</p>
+          <button class="btn sm" type="button" data-open-agent data-moment="remember">Try it in the preview <span class="arr">→</span></button>
+        </article>
+
+        <article class="moment rv">
+          <span class="num">02</span>
+          <h3>It finds things in your documents</h3>
+          <div class="mini">
+            <p class="me">When does my lease end, and how much notice do I give?</p>
+            <p class="ag">31 August 2027. Give 60 days' written notice, so by 2 July.</p>
+            <p class="src">Lease_Apartment_2024.pdf · page 3, §7</p>
+          </div>
+          <p class="tele">found in your files · 0 B out</p>
+          <button class="btn sm" type="button" data-open-agent data-moment="find">Try it in the preview <span class="arr">→</span></button>
+        </article>
+
+        <article class="moment rv">
+          <span class="num">03</span>
+          <h3>Switch models, keep the conversation</h3>
+          <div class="mini">
+            <p class="me">What did I decide about the summer trip?</p>
+            <p class="ag">Lisbon, 12–19 July, budget capped at €2,400.</p>
+            <p class="gap">OpenAI Codex → OpenRouter</p>
+            <p class="me">How much of the budget is left?</p>
+            <p class="ag">€750. Flat and flights are €1,650.</p>
+          </div>
+          <p class="tele">same memory · new brain · nothing re-taught</p>
+          <button class="btn sm" type="button" data-open-agent data-moment="continue">Try it in the preview <span class="arr">→</span></button>
+        </article>
+      </div>
+
+      <div class="facts rv">
+        <div><b>Talk on Telegram</b><p>No new app. It's a contact in the Telegram you already use, on phone and laptop.</p></div>
+        <div><b>Bring your history</b><p>Import your conversations from ChatGPT and Claude, so it starts out knowing you.</p></div>
+        <div><b>Choose the brain</b><p>Connect OpenAI Codex or OpenRouter with your own account. Switch whenever you like.</p></div>
+      </div>
     </div>
-  </noscript>
+  </section>
+
+  <!-- ============ privacy ============ -->
+  <section class="block night hex" id="privacy" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <p class="kicker">Privacy</p>
+      <h2 id="privacy-title" class="d d-l">What leaves the house.</h2>
+      <p class="lede">Most answers come from the box itself. When a question needs a bigger model, only the question travels, with names, numbers and addresses masked. The real values stay home and are put back into the answer there.</p>
+
+      <div class="lanes2 rv">
+        <div class="lane">
+          <span class="tag local">Always stays home</span>
+          <ul>
+            <li>Your memory: everything it learns about you</li>
+            <li>Your chats, including imported history</li>
+            <li>Your files and their index</li>
+            <li>The real names, numbers and addresses</li>
+          </ul>
+        </div>
+        <div class="lane">
+          <span class="tag filter">Can leave, filtered</span>
+          <ul>
+            <li>A single question that needs a frontier model</li>
+            <li>Sent to the provider you picked, nobody else</li>
+            <li>Personal details replaced with placeholders, like <code>[PERSON_1]</code></li>
+          </ul>
+        </div>
+      </div>
+      <p class="honest-line">Not 100% private, and we won't pretend otherwise. Minimum exposure, by design, and no lock-in.</p>
+      <div class="paths">
+        <a class="btn on-dark" href="security.html">What leaves the house, in detail <span class="arr">→</span></a>
+        <a class="btn ghost on-dark" href="proof.html">Don't trust us. Test it. <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ where things stand ============ -->
+  <section class="block" id="status" aria-labelledby="status-title">
+    <div class="wrap">
+      <p class="kicker">Where things stand</p>
+      <h2 id="status-title" class="d d-l">Exactly where we are.</h2>
+      <p class="lede">We'd rather show you a clear map than a glossy promise. This list changes as we build, and we update it here.</p>
+      <div class="status rv">
+        <div class="col now">
+          <h3><span class="dot"></span>Ready today</h3>
+          <ul>
+            <li>Reservations, free and without payment</li>
+            <li>The interactive preview on this page</li>
+            <li>The open-source agent core (Hermes Agent, MIT licence): read the code today</li>
+            <li>The case and hardware, as a prototype. That's it in the photo.</li>
+          </ul>
+        </div>
+        <div class="col dev">
+          <h3><span class="dot"></span>In development</h3>
+          <ul>
+            <li>Turnkey setup: plug in, pair with Telegram, done</li>
+            <li>The filter that masks personal details</li>
+            <li>Chat import from OpenAI and Anthropic</li>
+            <li>Search across your own documents, on the box</li>
+          </ul>
+        </div>
+        <div class="col ship">
+          <h3><span class="dot"></span>Intended at shipping</h3>
+          <ul>
+            <li>All of the above, working out of the box</li>
+            <li>1 TB and 2 TB models</li>
+            <li>OpenAI Codex or OpenRouter, switchable any time</li>
+            <li>A one-time purchase: you pay your cloud provider directly, not us</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ hardware, price, reservation ============ -->
+  <section class="block product" id="hardware" aria-labelledby="hw-title">
+    <div class="wrap">
+      <p class="kicker">Hardware &amp; price</p>
+      <h2 id="hw-title" class="d d-l">The box.</h2>
+
+      <div class="buy">
+        <figure class="buy-photo">
+          <img src="assets/img/box.jpg" alt="The inteligentia box: anodized blue aluminium, hexagonal vents, silver spiral logo, about the size of a hand." width="689" height="1000" loading="lazy">
+        </figure>
+
+        <div class="buy-info">
+          <div class="tiers" role="radiogroup" aria-label="Choose storage">
+            <button class="tier" type="button" role="radio" data-tier="1tb" aria-checked="false">
+              <span class="cap">1 TB</span><span class="price">€1,299</span><span class="sub">Years of chats, memory and documents</span>
+            </button>
+            <button class="tier" type="button" role="radio" data-tier="2tb" aria-checked="true">
+              <span class="cap">2 TB</span><span class="price">€1,499</span><span class="sub">Room for large archives and photos too</span>
+            </button>
+          </div>
+
+          <dl class="facts-list">
+            <div><dt>What's included</dt><dd>The inteligentia box (NVIDIA Jetson Orin, anodized aluminium case), with the agent installed and set up. Telegram access, chat import, and connections to OpenAI Codex or OpenRouter.</dd></div>
+            <div><dt>What you bring</dt><dd>A Telegram account, and an account with the cloud provider you choose. You pay them directly, only for what you use.</dd></div>
+            <div><dt>Availability</dt><dd>No shipping date yet. People with a reservation hear first, before orders open.</dd></div>
+            <div><dt>Reservation terms</dt><dd>Free. No payment, no card. It holds your place for the tier you pick. You pay only if you place an order later, after seeing the full terms, VAT and delivery. To cancel, reply to any of our emails.</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="reserve-card" id="reserve">
+        <form id="reserve-form" class="reserve-form" novalidate
+          data-need="Please add your name, a valid email, and tick the box."
+          data-sending="Sending…"
+          data-done-title="You're on the list."
+          data-ok="Thank you, {n}. We'll email you before orders open."
+          data-dup="{n}, you were already on the list. Nothing changed, nothing duplicated."
+          data-err="That didn't go through. Please try again, or email info@inteligentia.eu.">
+          <h3 class="d d-m">Reserve yours</h3>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+          <label class="check"><input id="f-consent" type="checkbox" required> <span>Store my name, email and chosen tier so inteligentia (RO AI Labs) can contact me about this reservation. Nothing else, never shared.</span></label>
+          <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" tabindex="-1" autocomplete="off"></div>
+          <button class="btn glow" id="f-submit" type="submit">Reserve, free <span class="arr">→</span></button>
+          <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        </form>
+        <aside class="ledger" aria-label="Exactly what this form sends">
+          <p class="kicker">Exactly what we receive</p>
+          <pre id="payload"></pre>
+          <p class="dest">Sent once, to our database in the EU (Frankfurt). This site has no analytics, trackers or cookies.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
 </main>
 
-<form class="composer" id="composer" autocomplete="off">
-  <div class="inner">
-    <div class="preview" id="preview" aria-live="polite"></div>
-    <div class="chips" id="chips" aria-label="Suggestions"></div>
-    <div class="row">
-      <label for="say" class="sr">Talk to your agent</label>
-      <input id="say" name="say" type="text" maxlength="400" enterkeyhint="send" placeholder="Say anything…">
-      <button class="btn primary send" type="submit">Send ↵</button>
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <div class="brandline"><span class="orb" aria-hidden="true"></span> inteligentia</div>
+      <p style="margin-top:12px;max-width:44ch">Your agent, in your home. A personal AI box by RO AI Labs, Bucharest.</p>
+      <p style="margin-top:12px"><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="security.html">What leaves the house</a>
+      <a href="proof.html">Don't trust us. Test it.</a>
+      <a href="investors.html">Investors</a>
+      <a href="index-ro.html" hreflang="ro" lang="ro">Română</a>
+    </div>
+    <div>
+      <h4>Reserve</h4>
+      <a href="#reserve">1 TB · €1,299</a>
+      <a href="#reserve">2 TB · €1,499</a>
+    </div>
+    <p class="legal">The agent is built on Hermes Agent, an open-source project by Nous Research; inteligentia is not affiliated with or endorsed by Nous Research. NVIDIA and Jetson are trademarks of NVIDIA Corporation. Other product names belong to their owners and are used only for compatibility or comparison. © 2026 RO AI Labs.</p>
+  </div>
+</footer>
+
+<!-- ============ the interactive preview ============ -->
+<div class="agent-layer" id="agent" role="dialog" aria-modal="true" aria-labelledby="agent-title" hidden>
+  <div class="boot" id="boot" hidden><div class="boot-inner"><span class="orb xl think" aria-hidden="true"></span><pre id="boot-log"></pre></div><p class="skip-hint">Tap to skip</p></div>
+
+  <header class="agent-bar">
+    <div class="who">
+      <span class="orb" id="agent-orb" aria-hidden="true"></span>
+      <div><b id="agent-title">Your agent</b><small>Preview · not a live device</small></div>
+    </div>
+    <div class="bar-meta">
+      <button class="chip" id="mem-toggle" type="button" aria-controls="rail" aria-expanded="false">Memory <b>0</b></button>
+      <button class="close" id="agent-close" type="button" aria-label="Close the preview">✕</button>
+    </div>
+    <nav class="agent-nav" aria-label="Leave the preview">
+      <a href="#how" data-nav>How it works</a>
+      <a href="#privacy" data-nav>Privacy</a>
+      <a href="#hardware" data-nav>Hardware &amp; price</a>
+      <a href="#reserve" data-nav class="go">Reserve</a>
+    </nav>
+  </header>
+
+  <div class="agent-scroll" id="agent-scroll">
+    <div class="stage">
+      <div class="convo" id="log" role="log" aria-live="polite" aria-label="Conversation with the preview agent"></div>
+      <aside class="rail" id="rail" aria-label="What the preview remembers">
+        <div class="panel">
+          <div class="ph"><span>Memory · this browser only</span><b id="mem-count">0</b></div>
+          <ol id="mem-list"></ol>
+          <div class="pf">Kept in your browser's local storage. We never receive it.<br><button type="button" id="mem-forget">Forget everything</button></div>
+        </div>
+      </aside>
     </div>
   </div>
-</form>
 
+  <form class="composer" id="composer" autocomplete="off">
+    <div class="inner">
+      <div class="preview" id="preview" aria-live="polite"></div>
+      <div class="chips" id="chips" aria-label="Suggested topics"></div>
+      <div class="row">
+        <label for="say" class="sr">Message the preview agent</label>
+        <input id="say" name="say" type="text" maxlength="400" enterkeyhint="send" placeholder="Ask about inteligentia, or type anything…">
+        <button class="send" type="submit" aria-label="Send">↑</button>
+      </div>
+      <div class="foot-row">
+        <p class="how-note">Scripted preview: pick a topic, or type anything to see how a real box would route it.</p>
+        <span class="tele-chip" id="exp-chip" role="status" title="Demo telemetry: how much this preview would have sent to a cloud model">Demo telemetry · sent to cloud <b id="exp-bytes">0 B</b></span>
+      </div>
+    </div>
+  </form>
+</div>
+
+<template id="tpl-hardware">
+  <div class="hw-mini">
+    <img src="assets/img/box.jpg" alt="" width="689" height="1000">
+    <div>
+      <p class="kicker">inteligentia</p>
+      <p class="hw-p"><b>1 TB</b> €1,299 <span>·</span> <b>2 TB</b> €1,499</p>
+      <p>NVIDIA Jetson Orin in an anodized aluminium case, about the size of a hand. The agent comes installed. Reserving is free.</p>
+    </div>
+  </div>
+</template>
+
+<noscript><style>.rv { opacity: 1; transform: none; } [data-open-agent] { display: none; }</style></noscript>
 <script src="assets/js/strings.js" defer></script>
 <script src="assets/js/agent.js" defer></script>
 </body>

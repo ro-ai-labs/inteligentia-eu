@@ -3,77 +3,333 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-<title>inteligentia · Salut. Sunt agentul tău.</title>
-<meta name="description" content="Un agent AI personal care trăiește într-o cutie albastră, mică, de pe biroul tău. Memoria, conversațiile și fișierele tale rămân acasă; întrebările grele merg la modelul din cloud pe care îl alegi tu, filtrate în prealabil. De la 1.299 €.">
+<title>inteligentia · Propriul tău agent AI, acasă</title>
+<meta name="description" content="Un agent AI personal care rulează pe un computer mic, la tine acasă. Memoria, conversațiile și fișierele tale rămân la tine; întrebările grele merg la modelul din cloud pe care îl alegi, după ce detaliile personale sunt mascate. De la 1.299&nbsp;€.">
 <link rel="canonical" href="https://inteligentia.eu/index-ro.html">
 <link rel="alternate" hreflang="en" href="https://inteligentia.eu/">
 <link rel="alternate" hreflang="ro" href="https://inteligentia.eu/index-ro.html">
-<meta property="og:title" content="inteligentia · Salut. Sunt agentul tău.">
-<meta property="og:description" content="Deții agentul tău AI. Memoria, conversațiile și fișierele rămân pe biroul tău. Cloud-ul vede doar ce trebuie.">
-<meta property="og:image" content="https://inteligentia.eu/assets/film/ig-hero.jpg">
+<meta property="og:title" content="inteligentia · Propriul tău agent AI, acasă">
+<meta property="og:description" content="Un agent AI personal care rulează pe un computer mic, la tine acasă. Memoria, conversațiile și fișierele rămân la tine.">
+<meta property="og:image" content="https://inteligentia.eu/assets/img/box.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0b0f">
+<meta name="theme-color" content="#f5f2ec">
 <link rel="icon" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/icon-192.png">
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/agent.css">
 </head>
-<body data-page="agent">
-<a class="skip" href="#say">Treci la conversație</a>
-
-<div class="boot" id="boot" aria-hidden="true">
-  <pre id="boot-log"></pre>
-  <p class="skip-hint">atinge pentru a sări peste</p>
-</div>
+<body data-page="home">
+<a class="skip" href="#main">Treci la conținut</a>
 
 <header class="hud-top">
-  <a class="brand" href="index-ro.html" aria-label="inteligentia"><img src="assets/img/mark.png" alt=""><span>inteligentia</span></a>
-  <div class="bar-meta">
-    <span class="chip hide-s" aria-label="Ora locală"><b id="clock">--:--</b></span>
-    <span class="chip" id="exp-chip" role="status" aria-live="polite"><span class="hide-s">Trimis în cloud</span><b id="exp-bytes">0 B</b></span>
-    <button class="chip" id="mem-toggle" type="button" aria-controls="rail" aria-expanded="false">Memorie <b>0</b></button>
-    <a class="chip" href="index.html" hreflang="en" lang="en">EN</a>
-  </div>
+  <a class="brand" href="index-ro.html" aria-label="inteligentia, pagina principală"><span class="orb" aria-hidden="true"></span><span>inteligentia</span></a>
+  <nav class="nav" aria-label="Principal">
+    <div class="nav-links">
+      <a class="link" href="#how">Cum funcționează</a>
+      <a class="link" href="#privacy">Confidențialitate</a>
+      <a class="link" href="#hardware">Hardware &amp; preț</a>
+    </div>
+    <a class="link lang" href="index.html" hreflang="en" lang="en">EN</a>
+    <a class="btn primary sm" href="#reserve">Rezervă</a>
+  </nav>
 </header>
 
-<main class="stage" id="main">
-  <div class="convo" id="log" role="log" aria-live="polite" aria-label="Conversație cu agentul tău"></div>
+<main id="main">
 
-  <aside class="rail" id="rail" aria-label="Ce își amintește agentul tău">
-    <div class="panel">
-      <div class="ph"><span>Memorie · doar pe acest dispozitiv</span><b id="mem-count">0</b></div>
-      <ol id="mem-list"></ol>
-      <div class="pf">Stocată în memoria locală a browserului tău. Noi nu o primim niciodată.<br><button type="button" id="mem-forget">Uită tot</button></div>
+  <!-- ============ opening ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="greet"><span class="orb lg" aria-hidden="true"></span><span class="kicker">Agent AI personal · de la 1.299&nbsp;€</span></div>
+        <h1 id="hero-title" class="d d-xl">Salut. Sunt agentul <em>tău</em>.</h1>
+        <p class="category">Un agent AI personal care rulează pe un computer mic, la tine acasă.</p>
+        <p class="lede">Vorbești cu el pe Telegram. Își amintește de tine, caută în fișierele tale și ține totul acasă. Când o întrebare are nevoie de un model de top, împrumută unul de la furnizorul pe care îl alegi, după ce îți maschează detaliile personale.</p>
+        <div class="paths">
+          <a class="btn glow" href="#agent" data-open-agent><span class="orb xs" aria-hidden="true"></span>Cunoaște-ți agentul</a>
+          <a class="btn" href="#hardware">Arată-mi produsul <span class="arr">→</span></a>
+        </div>
+        <p class="fine-note">„Cunoaște-ți agentul” deschide o previzualizare interactivă care rulează în browserul tău, neconectată la un dispozitiv inteligentia real.</p>
+      </div>
+      <figure class="hero-box">
+        <div class="photo"><img src="assets/img/box.jpg" alt="Cutia inteligentia ținută într-o mână: o carcasă albastră din aluminiu anodizat, cu ventilații hexagonale și o siglă argintie în spirală." width="689" height="1000" fetchpriority="high"></div>
+        <figcaption>
+          <span class="tag local">Memoria și fișierele rămân aici</span>
+          <span class="tag plain">NVIDIA Jetson Orin · 1 sau 2 TB</span>
+        </figcaption>
+      </figure>
     </div>
-    <nav class="fine-links" aria-label="Literele mici">
-      <a href="security-ro.html">Ce iese din casă <span>→</span></a>
-      <a href="proof-ro.html">Dovezi și specificații <span>→</span></a>
-      <a href="investors-ro.html">Investitori <span>→</span></a>
-      <a href="mailto:info@inteligentia.eu">info@inteligentia.eu <span>✉</span></a>
-    </nav>
-  </aside>
+  </section>
 
-  <noscript>
-    <div class="fallback">
-      <h1 class="d d-xl">Salut. Sunt agentul tău.</h1>
-      <p class="lede">inteligentia este o cutie albastră, mică (NVIDIA Jetson Orin, 1 sau 2 TB), care rulează propriul tău agent AI. Memoria lui, conversațiile și fișierele tale rămân pe biroul tău. Când o întrebare cere un creier mai mare, apelează modelul din cloud pe care îl alegi tu (OpenAI Codex sau OpenRouter), după ce maschează numele, numerele și adresele. Nu e 100% privat: expunere minimă, prin design. De la 1.299 € (1 TB) sau 1.499 € (2 TB).</p>
-      <p>Pagina aceasta este o conversație live și are nevoie de JavaScript. Citește <a href="security-ro.html">ce iese din casă</a>, <a href="proof-ro.html">dovezile și specificațiile</a> sau rezervă prin email la <a href="mailto:info@inteligentia.eu?subject=Rezervare">info@inteligentia.eu</a>.</p>
+  <!-- ============ how it works: three moments ============ -->
+  <section class="block" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <p class="kicker">Cum funcționează</p>
+      <h2 id="how-title" class="d d-l">Trei momente cu un agent care e <em>al tău</em>.</h2>
+
+      <div class="moments">
+        <article class="moment rv">
+          <span class="num">01</span>
+          <h3>Își amintește ce contează pentru tine</h3>
+          <div class="mini">
+            <p class="me">Ține minte: sunt vegetarian și nimic înainte de 10 dimineața.</p>
+            <p class="gap">trei săptămâni mai târziu</p>
+            <p class="me">Planifică o cină cu Dan vineri.</p>
+            <p class="ag">Un loc vegetarian la 19:30, iar dimineața de sâmbătă am lăsat-o liberă.</p>
+          </div>
+          <p class="tele">2 amintiri folosite · răspuns pe cutie · 0 B trimiși</p>
+          <button class="btn sm" type="button" data-open-agent data-moment="remember">Încearcă în previzualizare <span class="arr">→</span></button>
+        </article>
+
+        <article class="moment rv">
+          <span class="num">02</span>
+          <h3>Găsește lucruri în documentele tale</h3>
+          <div class="mini">
+            <p class="me">Când expiră contractul meu de chirie și cât preaviz trebuie să dau?</p>
+            <p class="ag">31 august 2027. Dă un preaviz scris de 60 de zile, deci până pe 2 iulie.</p>
+            <p class="src">Contract_Chirie_Apartament_2024.pdf · pagina 3, §7</p>
+          </div>
+          <p class="tele">găsit în fișierele tale · 0 B trimiși</p>
+          <button class="btn sm" type="button" data-open-agent data-moment="find">Încearcă în previzualizare <span class="arr">→</span></button>
+        </article>
+
+        <article class="moment rv">
+          <span class="num">03</span>
+          <h3>Schimbi modelul, păstrezi conversația</h3>
+          <div class="mini">
+            <p class="me">Ce am hotărât despre vacanța de vară?</p>
+            <p class="ag">Lisabona, 12–19 iulie, buget plafonat la 2.400&nbsp;€.</p>
+            <p class="gap">OpenAI Codex → OpenRouter</p>
+            <p class="me">Cât din buget a mai rămas?</p>
+            <p class="ag">750 €. Apartamentul și zborurile fac 1.650&nbsp;€.</p>
+          </div>
+          <p class="tele">aceeași memorie · alt creier · nimic reînvățat</p>
+          <button class="btn sm" type="button" data-open-agent data-moment="continue">Încearcă în previzualizare <span class="arr">→</span></button>
+        </article>
+      </div>
+
+      <div class="facts rv">
+        <div><b>Vorbești pe Telegram</b><p>Nicio aplicație nouă. E un contact în Telegramul pe care îl folosești deja, pe telefon și pe laptop.</p></div>
+        <div><b>Adu-ți istoricul</b><p>Importă-ți conversațiile din ChatGPT și Claude, ca să te cunoască încă de la început.</p></div>
+        <div><b>Alege creierul</b><p>Conectează OpenAI Codex sau OpenRouter cu propriul cont. Schimbi oricând vrei.</p></div>
+      </div>
     </div>
-  </noscript>
+  </section>
+
+  <!-- ============ privacy ============ -->
+  <section class="block night hex" id="privacy" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <p class="kicker">Confidențialitate</p>
+      <h2 id="privacy-title" class="d d-l">Ce iese din casă.</h2>
+      <p class="lede">Cele mai multe răspunsuri vin chiar de pe cutie. Când o întrebare are nevoie de un model mai mare, călătorește doar întrebarea, cu numele, numerele și adresele mascate. Valorile reale rămân acasă și sunt puse la loc în răspuns tot acolo.</p>
+
+      <div class="lanes2 rv">
+        <div class="lane">
+          <span class="tag local">Rămâne mereu acasă</span>
+          <ul>
+            <li>Memoria ta: tot ce învață despre tine</li>
+            <li>Conversațiile tale, inclusiv istoricul importat</li>
+            <li>Fișierele tale și indexul lor</li>
+            <li>Numele, numerele și adresele reale</li>
+          </ul>
+        </div>
+        <div class="lane">
+          <span class="tag filter">Poate pleca, filtrat</span>
+          <ul>
+            <li>O singură întrebare care are nevoie de un model de top</li>
+            <li>Trimisă furnizorului ales de tine, nimănui altcuiva</li>
+            <li>Detaliile personale sunt înlocuite cu marcaje, de exemplu <code>[PERSON_1]</code></li>
+          </ul>
+        </div>
+      </div>
+      <p class="honest-line">Nu e 100% privat și nu vom pretinde altceva. Expunere minimă, prin design, și fără dependență de un singur furnizor.</p>
+      <div class="paths">
+        <a class="btn on-dark" href="security-ro.html">Ce iese din casă, în detaliu <span class="arr">→</span></a>
+        <a class="btn ghost on-dark" href="proof-ro.html">Nu ne crede pe cuvânt. Testează. <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ where things stand ============ -->
+  <section class="block" id="status" aria-labelledby="status-title">
+    <div class="wrap">
+      <p class="kicker">Unde ne aflăm</p>
+      <h2 id="status-title" class="d d-l">Exact unde suntem.</h2>
+      <p class="lede">Preferăm să-ți arătăm o hartă clară decât o promisiune strălucitoare. Lista se schimbă pe măsură ce construim, iar noi o actualizăm aici.</p>
+      <div class="status rv">
+        <div class="col now">
+          <h3><span class="dot"></span>Gata astăzi</h3>
+          <ul>
+            <li>Rezervările, gratuite și fără plată</li>
+            <li>Previzualizarea interactivă de pe această pagină</li>
+            <li>Nucleul open-source al agentului (Hermes Agent, licență MIT): citește codul chiar azi</li>
+            <li>Carcasa și hardware-ul, ca prototip. Este cel din fotografie.</li>
+          </ul>
+        </div>
+        <div class="col dev">
+          <h3><span class="dot"></span>În dezvoltare</h3>
+          <ul>
+            <li>Configurare la cheie: conectezi, asociezi cu Telegram, gata</li>
+            <li>Filtrul care maschează detaliile personale</li>
+            <li>Importul conversațiilor din OpenAI și Anthropic</li>
+            <li>Căutare în propriile documente, pe cutie</li>
+          </ul>
+        </div>
+        <div class="col ship">
+          <h3><span class="dot"></span>Prevăzut la livrare</h3>
+          <ul>
+            <li>Tot ce e mai sus, funcționând din prima</li>
+            <li>Modele de 1 TB și 2 TB</li>
+            <li>OpenAI Codex sau OpenRouter, cu schimbare oricând</li>
+            <li>O achiziție unică: plătești direct furnizorului tău de cloud, nu nouă</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ hardware, price, reservation ============ -->
+  <section class="block product" id="hardware" aria-labelledby="hw-title">
+    <div class="wrap">
+      <p class="kicker">Hardware &amp; preț</p>
+      <h2 id="hw-title" class="d d-l">Cutia.</h2>
+
+      <div class="buy">
+        <figure class="buy-photo">
+          <img src="assets/img/box.jpg" alt="Cutia inteligentia: aluminiu anodizat albastru, ventilații hexagonale, siglă argintie în spirală, cam cât o palmă." width="689" height="1000" loading="lazy">
+        </figure>
+
+        <div class="buy-info">
+          <div class="tiers" role="radiogroup" aria-label="Alege spațiul de stocare">
+            <button class="tier" type="button" role="radio" data-tier="1tb" aria-checked="false">
+              <span class="cap">1 TB</span><span class="price">1.299&nbsp;€</span><span class="sub">Ani de conversații, memorie și documente</span>
+            </button>
+            <button class="tier" type="button" role="radio" data-tier="2tb" aria-checked="true">
+              <span class="cap">2 TB</span><span class="price">1.499&nbsp;€</span><span class="sub">Loc și pentru arhive mari, și pentru fotografii</span>
+            </button>
+          </div>
+
+          <dl class="facts-list">
+            <div><dt>Ce include</dt><dd>Cutia inteligentia (NVIDIA Jetson Orin, carcasă din aluminiu anodizat), cu agentul instalat și configurat. Acces prin Telegram, import de conversații și conexiuni la OpenAI Codex sau OpenRouter.</dd></div>
+            <div><dt>Ce aduci tu</dt><dd>Un cont de Telegram și un cont la furnizorul de cloud pe care îl alegi. Îl plătești direct, doar pentru cât folosești.</dd></div>
+            <div><dt>Disponibilitate</dt><dd>Încă nu avem o dată de livrare. Cei cu rezervare află primii, înainte să se deschidă comenzile.</dd></div>
+            <div><dt>Condițiile rezervării</dt><dd>Gratuită. Fără plată, fără card. Îți ține locul pentru varianta pe care o alegi. Plătești doar dacă plasezi o comandă mai târziu, după ce vezi condițiile complete, TVA-ul și livrarea. Ca să anulezi, răspunde la oricare dintre emailurile noastre.</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="reserve-card" id="reserve">
+        <form id="reserve-form" class="reserve-form" novalidate
+          data-need="Adaugă-ți numele și un email valid, apoi bifează căsuța."
+          data-sending="Se trimite…"
+          data-done-title="Ești pe listă."
+          data-ok="Mulțumim, {n}. Îți scriem pe email înainte să se deschidă comenzile."
+          data-dup="{n}, erai deja pe listă. Nimic nu s-a schimbat, nimic nu s-a dublat."
+          data-err="Nu a mers. Încearcă din nou sau scrie-ne la info@inteligentia.eu.">
+          <h3 class="d d-m">Rezervă-l pe al tău</h3>
+          <div class="field"><label for="f-name">Nume</label><input id="f-name" name="name" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+          <label class="check"><input id="f-consent" type="checkbox" required> <span>Păstrează-mi numele, emailul și varianta aleasă, ca inteligentia (RO AI Labs) să mă poată contacta în legătură cu această rezervare. Nimic altceva, și nu le dăm niciodată mai departe.</span></label>
+          <div class="hp" aria-hidden="true"><label for="f-web">Site web</label><input id="f-web" tabindex="-1" autocomplete="off"></div>
+          <button class="btn glow" id="f-submit" type="submit">Rezervă, gratuit <span class="arr">→</span></button>
+          <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        </form>
+        <aside class="ledger" aria-label="Exact ce trimite acest formular">
+          <p class="kicker">Exact ce primim</p>
+          <pre id="payload"></pre>
+          <p class="dest">Trimis o singură dată, către baza noastră de date din UE (Frankfurt). Acest site nu are analytics, trackere sau cookie-uri.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
 </main>
 
-<form class="composer" id="composer" autocomplete="off">
-  <div class="inner">
-    <div class="preview" id="preview" aria-live="polite"></div>
-    <div class="chips" id="chips" aria-label="Sugestii"></div>
-    <div class="row">
-      <label for="say" class="sr">Vorbește cu agentul tău</label>
-      <input id="say" name="say" type="text" maxlength="400" enterkeyhint="send" placeholder="Spune orice…">
-      <button class="btn primary send" type="submit">Trimite ↵</button>
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <div class="brandline"><span class="orb" aria-hidden="true"></span> inteligentia</div>
+      <p style="margin-top:12px;max-width:44ch">Agentul tău, în casa ta. O cutie AI personală de la RO AI Labs, București.</p>
+      <p style="margin-top:12px"><a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a></p>
+    </div>
+    <div>
+      <h4>Explorează</h4>
+      <a href="security-ro.html">Ce iese din casă</a>
+      <a href="proof-ro.html">Nu ne crede pe cuvânt. Testează.</a>
+      <a href="investors-ro.html">Investitori</a>
+      <a href="index.html" hreflang="en" lang="en">English</a>
+    </div>
+    <div>
+      <h4>Rezervă</h4>
+      <a href="#reserve">1 TB · 1.299&nbsp;€</a>
+      <a href="#reserve">2 TB · 1.499&nbsp;€</a>
+    </div>
+    <p class="legal">Agentul este construit pe Hermes Agent, un proiect open-source al Nous Research; inteligentia nu este afiliată cu Nous Research și nu este susținută de aceasta. NVIDIA și Jetson sunt mărci comerciale ale NVIDIA Corporation. Celelalte nume de produse aparțin proprietarilor lor și sunt folosite doar pentru compatibilitate sau comparație. © 2026 RO AI Labs.</p>
+  </div>
+</footer>
+
+<!-- ============ the interactive preview ============ -->
+<div class="agent-layer" id="agent" role="dialog" aria-modal="true" aria-labelledby="agent-title" hidden>
+  <div class="boot" id="boot" hidden><div class="boot-inner"><span class="orb xl think" aria-hidden="true"></span><pre id="boot-log"></pre></div><p class="skip-hint">Atinge pentru a sări peste</p></div>
+
+  <header class="agent-bar">
+    <div class="who">
+      <span class="orb" id="agent-orb" aria-hidden="true"></span>
+      <div><b id="agent-title">Agentul tău</b><small>Previzualizare · nu e un dispozitiv real</small></div>
+    </div>
+    <div class="bar-meta">
+      <button class="chip" id="mem-toggle" type="button" aria-controls="rail" aria-expanded="false">Memorie <b>0</b></button>
+      <button class="close" id="agent-close" type="button" aria-label="Închide previzualizarea">✕</button>
+    </div>
+    <nav class="agent-nav" aria-label="Ieși din previzualizare">
+      <a href="#how" data-nav>Cum funcționează</a>
+      <a href="#privacy" data-nav>Confidențialitate</a>
+      <a href="#hardware" data-nav>Hardware &amp; preț</a>
+      <a href="#reserve" data-nav class="go">Rezervă</a>
+    </nav>
+  </header>
+
+  <div class="agent-scroll" id="agent-scroll">
+    <div class="stage">
+      <div class="convo" id="log" role="log" aria-live="polite" aria-label="Conversație cu agentul din previzualizare"></div>
+      <aside class="rail" id="rail" aria-label="Ce își amintește previzualizarea">
+        <div class="panel">
+          <div class="ph"><span>Memorie · doar în acest browser</span><b id="mem-count">0</b></div>
+          <ol id="mem-list"></ol>
+          <div class="pf">Păstrată în stocarea locală a browserului tău. Noi nu o primim niciodată.<br><button type="button" id="mem-forget">Uită tot</button></div>
+        </div>
+      </aside>
     </div>
   </div>
-</form>
 
+  <form class="composer" id="composer" autocomplete="off">
+    <div class="inner">
+      <div class="preview" id="preview" aria-live="polite"></div>
+      <div class="chips" id="chips" aria-label="Subiecte sugerate"></div>
+      <div class="row">
+        <label for="say" class="sr">Scrie-i agentului din previzualizare</label>
+        <input id="say" name="say" type="text" maxlength="400" enterkeyhint="send" placeholder="Întreabă despre inteligentia sau scrie orice…">
+        <button class="send" type="submit" aria-label="Trimite">↑</button>
+      </div>
+      <div class="foot-row">
+        <p class="how-note">Previzualizare cu scenariu: alege un subiect sau scrie orice și vezi încotro l-ar trimite o cutie reală.</p>
+        <span class="tele-chip" id="exp-chip" role="status" title="Telemetrie demo: cât ar fi trimis această previzualizare către un model din cloud">Telemetrie demo · trimis în cloud <b id="exp-bytes">0 B</b></span>
+      </div>
+    </div>
+  </form>
+</div>
+
+<template id="tpl-hardware">
+  <div class="hw-mini">
+    <img src="assets/img/box.jpg" alt="" width="689" height="1000">
+    <div>
+      <p class="kicker">inteligentia</p>
+      <p class="hw-p"><b>1 TB</b> 1.299&nbsp;€ <span>·</span> <b>2 TB</b> 1.499&nbsp;€</p>
+      <p>NVIDIA Jetson Orin într-o carcasă din aluminiu anodizat, cam cât o palmă. Agentul vine instalat. Rezervarea este gratuită.</p>
+    </div>
+  </div>
+</template>
+
+<noscript><style>.rv { opacity: 1; transform: none; } [data-open-agent] { display: none; }</style></noscript>
 <script src="assets/js/strings.js" defer></script>
 <script src="assets/js/strings-ro.js" defer></script>
 <script src="assets/js/agent.js" defer></script>
