@@ -43,9 +43,9 @@
     <div class="wrap hero-grid">
       <figure class="unit">
         <div class="render" id="box3d">
-          <img class="poster" src="assets/render/f12.webp" alt="Randare a cutiei inteligentia: carcasă albastră din aluminiu cu ventilații hexagonale, prin care se văd placa, radiatorul și ventilatorul, și un cadran rotund din sticlă cu sigla în spirală pe față." width="800" height="800" fetchpriority="high">
+          <img class="poster" src="assets/render/box-poster.jpg" alt="Randare a cutiei inteligentia: carcasă albastră din aluminiu cu ventilații hexagonale, prin care se văd placa, radiatorul și ventilatorul, și un cadran rotund din sticlă cu sigla în spirală pe față." width="864" height="864" fetchpriority="high">
+          <video class="loop" src="assets/render/box.mp4" poster="assets/render/box-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
           <p class="pin"><span class="tag local">Acesta e agentul tău</span><span class="tag plain">Stă pe biroul tău · NVIDIA Jetson Orin</span></p>
-          <span class="turn-hint" aria-hidden="true">Trage ca s-o rotești</span>
         </div>
         <figcaption class="console">
           <ul class="readout" id="readout" aria-label="Cum funcționează cutia">
@@ -343,6 +343,11 @@
 <script src="assets/js/strings.js" defer></script>
 <script src="assets/js/strings-ro.js" defer></script>
 <script src="assets/js/agent.js" defer></script>
-<script src="assets/js/box-seq.js" defer></script>
+<script>/* hero loop: the still shows until the video is actually playing; reduced motion keeps the still */
+document.querySelectorAll("video.loop").forEach((v) => {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); v.hidden = true; return; }
+  const on = () => v.parentElement.classList.add("playing");
+  if (!v.paused && v.readyState > 2) on(); else v.addEventListener("playing", on, { once: true });
+});</script>
 </body>
 </html>
