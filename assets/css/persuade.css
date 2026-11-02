@@ -164,3 +164,8 @@ html.agent-open .sticky-cta { display: none !important; }
   .jobs-hint { display: block; }
 }
 .jobs-hint { display: none; margin-top: 10px; font: 500 10.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* app logos in the "works with" chips */
+.apps dd span { display: inline-flex; align-items: center; gap: 8px; }
+.apps .ai { width: 16px; height: 16px; flex: none; fill: currentColor; }
+.apps .ai.g { color: var(--muted); }
