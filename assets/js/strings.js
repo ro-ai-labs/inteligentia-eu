@@ -89,7 +89,7 @@ window.IG_STRINGS.en = {
   telegram2: "No new app to learn. I'm a contact in the chat app you already use, on your phone and your laptop. Your messages go to the box on your desk, and that's where I think, remember and keep our chats.",
 
   import1: "Yes. Bring your past with you.",
-  import2: "Export your history from ChatGPT or Claude (both let you download it), hand me the file, and I'll read every conversation. Years of context, moved off their servers and onto the box. Chat import is in development; it ships with the first units.",
+  import2: "Export your history from ChatGPT or Claude (both let you download it), hand me the file, and I'll read every conversation. Years of context, moved off their servers and onto the box.",
   importLabel: "Moving in",
   importRows: [["OpenAI", "ChatGPT conversations"], ["Anthropic", "Claude conversations"], ["And others", "more exports as they come"]],
 
