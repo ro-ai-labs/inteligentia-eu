@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/agent.css">
+<link rel="stylesheet" href="assets/css/persuade.css">
 </head>
 <body data-page="home">
 <a class="skip" href="#main">Skip to content</a>
@@ -58,15 +59,99 @@
         </figcaption>
       </figure>
       <div class="hero-copy">
-        <p class="kicker">An AI agent you can hold · from €1,299</p>
-        <h1 id="hero-title" class="d d-xl">Hi. I'm <em>your</em> agent.</h1>
-        <p class="category">Not an app. Not someone else's cloud. A small box on your desk that runs your own AI agent.</p>
-        <p class="lede">You talk to it on Telegram, or another chat app you prefer. It remembers how you work, searches your contracts, notes and invoices, and keeps all of it on the box. When a question needs a frontier model, it borrows one from the provider you choose, after masking your personal details.</p>
+        <p class="kicker">Your own AI agent · one price, from €1,299</p>
+        <h1 id="hero-title" class="d d-xl">Hand off the busywork. <em>Keep</em> your data.</h1>
+        <p class="category">A small box on your desk that runs your own AI assistant. You message it like a colleague. It handles the inbox, invoices, research and follow-ups.</p>
+        <p class="lede">It learns how you work and keeps that on the box, not on someone else's servers. When a job needs a frontier model, it borrows one from the provider you choose, with your personal details masked first.</p>
         <div class="paths">
+          <a class="btn primary" href="#reserve">Reserve yours, free <span class="arr">→</span></a>
           <a class="btn glow" href="#agent" data-open-agent><span class="orb xs" aria-hidden="true"></span>Meet your agent</a>
-          <a class="btn" href="#hardware">Show me the product <span class="arr">→</span></a>
         </div>
+        <ul class="proofbar" aria-label="At a glance">
+          <li><b>250,000+</b><span>GitHub stars for the open-source agent inside</span></li>
+          <li><b>0 B</b><span>of your agent's memory kept in anyone's cloud</span></li>
+          <li><b>1 price</b><span>No subscription to us, ever</span></li>
+        </ul>
         <p class="fine-note">“Meet your agent” opens an interactive preview that runs in your browser. It is not connected to a live inteligentia device.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ a day with your agent ============ -->
+  <section class="block day" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="day-grid">
+        <div class="day-copy">
+          <p class="kicker">A day with your agent</p>
+          <h2 id="how-title" class="d d-l">Your Tuesday, <em>handled</em>.</h2>
+          <p class="lede">This is a normal workday once the busywork goes to your agent. It all happens in the chat app you already use. Tap a time to jump.</p>
+          <ol class="day-times" aria-label="Moments in the day">
+            <li><button type="button" data-step="0" aria-pressed="true"><b>08:00</b><span>Your day, in one message</span></button></li>
+            <li><button type="button" data-step="1" aria-pressed="false"><b>09:45</b><span>Briefed before the call</span></button></li>
+            <li><button type="button" data-step="2" aria-pressed="false"><b>11:10</b><span>A voice note becomes a follow-up</span></button></li>
+            <li><button type="button" data-step="3" aria-pressed="false"><b>14:00</b><span>Research, with sources</span></button></li>
+            <li><button type="button" data-step="4" aria-pressed="false"><b>16:30</b><span>It spotted something</span></button></li>
+            <li><button type="button" data-step="5" aria-pressed="false"><b>18:30</b><span>Tomorrow, already prepared</span></button></li>
+          </ol>
+        </div>
+
+        <div class="phone" aria-label="Example chat with your agent">
+          <div class="phone-top">
+            <span class="orb xs" aria-hidden="true"></span>
+            <div><b>Your agent</b><small>on your desk · online</small></div>
+            <span class="phone-clock" id="day-clock">08:00</span>
+          </div>
+          <div class="phone-log" id="day-log">
+            <div class="scene" data-t="08:00">
+              <p class="ag">Good morning. Three meetings today, the first at 10:00 with Northwind.</p>
+              <p class="ag">Two emails need you: Dan asks about the contract, and Acme's invoice is 12 days late (€2,400).</p>
+              <p class="me">Send Acme a reminder. Polite but firm.</p>
+              <p class="ag">Drafted in your usual tone. <span class="act">Review and send</span></p>
+              <p class="tl">read your inbox and calendar · answered on the box · 0 B out</p>
+            </div>
+            <div class="scene" data-t="09:45">
+              <p class="ag">Northwind in 15 minutes. Last time you agreed on launch week 12–19 July, budget €2,400.</p>
+              <p class="ag">News since then: they're hiring a head of marketing. Might be worth asking who'll own the launch.</p>
+              <p class="me">Good catch. Anything unpaid?</p>
+              <p class="ag">No, they're all paid up.</p>
+              <p class="tl">used 3 memories · checked their site · 0 B of your data out</p>
+            </div>
+            <div class="scene" data-t="11:10">
+              <p class="me voice"><span class="wave" aria-hidden="true"></span> Voice note · 0:48</p>
+              <p class="ag">Got it. Notes saved under Northwind. Three to-dos:<br>1. Revised quote by Thursday<br>2. Intro them to your designer<br>3. Follow-up call next week</p>
+              <p class="ag">The follow-up email is drafted, and I held Wednesday 11:00 for the call. <span class="act">Review</span></p>
+              <p class="tl">transcribed on the box · 0 B out</p>
+            </div>
+            <div class="scene" data-t="14:00">
+              <p class="me">Find 10 boutique hotels in Cluj whose booking pages look outdated.</p>
+              <p class="ag">Here are 10, each with a link, what looks dated and who to contact. Added to your Leads sheet.</p>
+              <p class="src">Leads · 10 new rows · 23 sources</p>
+              <p class="tl">used your cloud model · names masked · 1.4 KB out</p>
+            </div>
+            <div class="scene" data-t="16:30">
+              <p class="ag">Heads-up: the public tender you're watching for digital marketing services just published a new lot. Deadline 14 November.</p>
+              <p class="me">Summarise what they want.</p>
+              <p class="ag">Social media and ads for 12 months, budget €38,000, small agencies welcome. Want a go/no-go list?</p>
+              <p class="tl">checked every hour on the box · only pinged you when it changed</p>
+            </div>
+            <div class="scene" data-t="18:30">
+              <p class="ag">Wrapping up. Tomorrow: one call at 10:00, and Dan's invoice is due.</p>
+              <p class="ag">It's drafted in euros with 30-day terms, like always, and no meetings before 10 as you prefer. <span class="act">Approve</span></p>
+              <p class="me">Perfect. Thanks!</p>
+              <p class="tl">used 2 memories · answered on the box · 0 B out</p>
+            </div>
+          </div>
+          <div class="phone-input" aria-hidden="true"><span>Message</span><i></i></div>
+        </div>
+      </div>
+
+      <div class="facts rv">
+        <div><b>Talk in your chat app</b><p>No new app. It's a contact in Telegram, WhatsApp, Signal or Slack, on your phone and your laptop.</p></div>
+        <div><b>Bring your history</b><p>Import your conversations from ChatGPT and Claude, so it starts out knowing you.</p></div>
+        <div><b>Choose the brain</b><p>Connect OpenAI Codex or OpenRouter with your own account. Switch whenever you like, and keep everything it learned.</p></div>
+      </div>
+      <div class="paths center">
+        <button class="btn glow" type="button" data-open-agent><span class="orb xs" aria-hidden="true"></span>Chat with the preview yourself</button>
       </div>
     </div>
   </section>
@@ -120,6 +205,7 @@
           <p>Walk it through your month-end once. It saves the steps, and next time “do the month-end” is enough.</p>
         </article>
       </div>
+      <p class="jobs-hint" aria-hidden="true">Swipe for more →</p>
 
       <div class="apps rv">
         <div class="apps-head">
@@ -137,89 +223,6 @@
         <p class="apps-more">Plus hundreds of skills and connectors from the open-source community, from web research to building spreadsheets and decks.</p>
       </div>
 
-      <div class="stories rv">
-        <div class="apps-head">
-          <h3>What people already do with the agent inside</h3>
-          <p>The agent on the box is built on Hermes Agent, an open-source project with a large community. A few of their write-ups, in their own setups and words. They are not inteligentia customers.</p>
-        </div>
-        <div class="story-grid">
-          <a class="story" href="https://www.doctorswhocode.blog/blog/ai-operations-partner-hermes-agent-physician-workflows" rel="noopener" target="_blank">
-            <p class="who">A physician</p>
-            <p>Records a voice memo after each case and gets back the hand-over notes, the referral letter and the plan. Estimates it saves 30 to 45 minutes per case.</p>
-            <span class="src">doctorswhocode.blog ↗</span>
-          </a>
-          <a class="story" href="https://halfbitstudio.com/en/how-we-run-our-company-with-hermes-agent/" rel="noopener" target="_blank">
-            <p class="who">A three-person software studio</p>
-            <p>Got a 45-page competitor analysis in hours and background research on 24 leads. “A partner, not an oracle”: it drafts, they decide.</p>
-            <span class="src">halfbitstudio.com ↗</span>
-          </a>
-          <a class="story" href="https://rumjahn.substack.com/p/complete-guide-to-mastering-hermes" rel="noopener" target="_blank">
-            <p class="who">An app maker</p>
-            <p>Gmail and calendar connected, and the weekly sales report lands in Telegram every Monday morning without being asked.</p>
-            <span class="src">rumjahn.substack.com ↗</span>
-          </a>
-          <a class="story" href="https://charliehills.substack.com/p/hermes-agent-beginner-advanced" rel="noopener" target="_blank">
-            <p class="who">A marketing consultant</p>
-            <p>Runs daily team check-ins and answers on WhatsApp through it. “Two weeks in, Hermes is the best hire I have made all year.”</p>
-            <span class="src">charliehills.substack.com ↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ how it works: three moments ============ -->
-  <section class="block" id="how" aria-labelledby="how-title">
-    <div class="wrap">
-      <p class="kicker">How it works</p>
-      <h2 id="how-title" class="d d-l">Three moments with an agent that's <em>yours</em>.</h2>
-
-      <div class="moments">
-        <article class="moment rv">
-          <span class="num">01</span>
-          <h3>It remembers what matters to you</h3>
-          <div class="mini">
-            <p class="me">Remember: I invoice in euros, 30-day terms, and no calls before 10 in the morning.</p>
-            <p class="gap">three weeks later</p>
-            <p class="me">Set up a kickoff call with Dan next week and get his invoice ready.</p>
-            <p class="ag">Tuesday at 11:00, and his invoice drafted in euros with 30-day terms.</p>
-          </div>
-          <p class="tele">used 2 memories · answered on the box · 0 B out</p>
-          <button class="btn sm" type="button" data-open-agent data-moment="remember">Try it in the preview <span class="arr">→</span></button>
-        </article>
-
-        <article class="moment rv">
-          <span class="num">02</span>
-          <h3>It finds things in your documents</h3>
-          <div class="mini">
-            <p class="me">When does my Acme contract end, and how much notice do I give?</p>
-            <p class="ag">31 August 2027. Give 60 days' written notice, so by 2 July.</p>
-            <p class="src">Acme_Consulting_Agreement_2024.pdf · page 3, §7</p>
-          </div>
-          <p class="tele">found in your files · 0 B out</p>
-          <button class="btn sm" type="button" data-open-agent data-moment="find">Try it in the preview <span class="arr">→</span></button>
-        </article>
-
-        <article class="moment rv">
-          <span class="num">03</span>
-          <h3>Switch models, keep the conversation</h3>
-          <div class="mini">
-            <p class="me">What did I decide about the Northwind launch?</p>
-            <p class="ag">Launch week 12–19 July, budget capped at €2,400.</p>
-            <p class="gap">OpenAI Codex → OpenRouter</p>
-            <p class="me">How much of the budget is left?</p>
-            <p class="ag">€750. The designer and ads are €1,650.</p>
-          </div>
-          <p class="tele">same memory · new brain · nothing re-taught</p>
-          <button class="btn sm" type="button" data-open-agent data-moment="continue">Try it in the preview <span class="arr">→</span></button>
-        </article>
-      </div>
-
-      <div class="facts rv">
-        <div><b>Talk in your chat app</b><p>No new app. It's a contact in Telegram, or another chat app you prefer, on phone and laptop.</p></div>
-        <div><b>Bring your history</b><p>Import your conversations from ChatGPT and Claude, so it starts out knowing you.</p></div>
-        <div><b>Choose the brain</b><p>Connect OpenAI Codex or OpenRouter with your own account. Switch whenever you like.</p></div>
-      </div>
     </div>
   </section>
 
@@ -230,6 +233,23 @@
       <h2 id="privacy-title" class="d d-l">What leaves your desk.</h2>
       <p class="lede">Most answers come from the box itself. When a question needs a bigger model, only the question travels, with names, numbers and addresses masked. The real values stay on the box and are put back into the answer there.</p>
 
+      <div class="wire rv" id="wire" aria-label="Example of how a question is masked before it leaves the box">
+        <div class="wire-step">
+          <span class="tag local">1 · You ask, on your desk</span>
+          <p class="msg">Draft a reply to <mark data-ph="[PERSON_1]">Maria Popescu</mark>: she can pay invoice <mark data-ph="[INVOICE_1]">RO-2024-117</mark> for <mark data-ph="[AMOUNT_1]">€4,800</mark> in two parts, by <mark data-ph="[DATE_1]">15 December</mark>.</p>
+        </div>
+        <div class="wire-pipe" aria-hidden="true"><i></i></div>
+        <div class="wire-step out">
+          <span class="tag filter">2 · What your cloud provider sees</span>
+          <p class="msg">Draft a reply to <mark>[PERSON_1]</mark>: she can pay invoice <mark>[INVOICE_1]</mark> for <mark>[AMOUNT_1]</mark> in two parts, by <mark>[DATE_1]</mark>.</p>
+        </div>
+        <div class="wire-pipe back" aria-hidden="true"><i></i></div>
+        <div class="wire-step">
+          <span class="tag local">3 · What you get back</span>
+          <p class="msg">Dear <mark class="real">Maria Popescu</mark>, thank you for your message. Paying <mark class="real">€4,800</mark> in two parts by <mark class="real">15 December</mark> works for me…</p>
+        </div>
+      </div>
+      <p class="wire-note rv">The names, numbers and dates are swapped for placeholders before anything leaves, and put back on the box when the answer returns. The provider never sees who you're writing to.</p>
       <div class="lanes2 rv">
         <div class="lane">
           <span class="tag local">Always stays on the box</span>
@@ -253,6 +273,101 @@
       <div class="paths">
         <a class="btn on-dark" href="security.html">What leaves your desk, in detail <span class="arr">→</span></a>
         <a class="btn ghost on-dark" href="proof.html">Don't trust us. Test it. <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ compare ============ -->
+  <section class="block" id="compare" aria-labelledby="compare-title">
+    <div class="wrap">
+      <p class="kicker">Why a box</p>
+      <h2 id="compare-title" class="d d-l">An assistant that's <em>yours</em>, not rented.</h2>
+      <p class="lede">You could rent an AI chatbot, or build an agent yourself on a server. Here's what changes when it lives on your desk.</p>
+
+      <div class="cmp rv" role="table" aria-label="inteligentia compared with an AI chat subscription and a do-it-yourself setup">
+        <div class="cmp-row cmp-head" role="row">
+          <span role="columnheader"><span class="sr">Feature</span></span>
+          <span role="columnheader" class="us"><span class="orb xs" aria-hidden="true"></span>inteligentia</span>
+          <span role="columnheader">AI chat subscription</span>
+          <span role="columnheader">Do it yourself</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span role="rowheader">Where your memory and files live</span>
+          <span role="cell" class="us yes">On your desk</span>
+          <span role="cell" class="no">On their servers</span>
+          <span role="cell" class="mid">On a server you rent</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span role="rowheader">Personal details masked before the cloud</span>
+          <span role="cell" class="us yes">Automatically</span>
+          <span role="cell" class="no">No</span>
+          <span role="cell" class="mid">If you build it</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span role="rowheader">Switch AI provider, keep what it learned</span>
+          <span role="cell" class="us yes">Any time</span>
+          <span role="cell" class="no">Start over</span>
+          <span role="cell" class="yes">Yes</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span role="rowheader">Works in your chat app, on its own schedule</span>
+          <span role="cell" class="us yes">Yes</span>
+          <span role="cell" class="mid">In their app</span>
+          <span role="cell" class="yes">Yes</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span role="rowheader">Your email, calendar and files, connected</span>
+          <span role="cell" class="us yes">Set up for you</span>
+          <span role="cell" class="mid">Some, via their cloud</span>
+          <span role="cell" class="mid">You wire it up</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span role="rowheader">Setup and upkeep</span>
+          <span role="cell" class="us yes">Done for you</span>
+          <span role="cell" class="yes">None</span>
+          <span role="cell" class="no">You, in a terminal</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span role="rowheader">What you pay</span>
+          <span role="cell" class="us">€1,299 once, plus your provider's usage</span>
+          <span role="cell">€20 to €200 a month, every month</span>
+          <span role="cell">A server, plus usage, plus your evenings</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ stories ============ -->
+  <section class="block" id="stories" aria-labelledby="stories-title">
+    <div class="wrap">
+      <p class="kicker">Already in use</p>
+      <h2 id="stories-title" class="d d-l">People run their days on this agent <em>today</em>.</h2>
+      <div class="stories rv">
+        <div class="apps-head">
+                    <p>The agent on the box is built on Hermes Agent, an open-source project with a large community. A few of their write-ups, in their own setups and words. They are not inteligentia customers.</p>
+        </div>
+        <div class="story-grid">
+          <a class="story" href="https://www.doctorswhocode.blog/blog/ai-operations-partner-hermes-agent-physician-workflows" rel="noopener" target="_blank">
+            <p class="who">A physician</p>
+            <p>Records a voice memo after each case and gets back the hand-over notes, the referral letter and the plan. Estimates it saves 30 to 45 minutes per case.</p>
+            <span class="src">doctorswhocode.blog ↗</span>
+          </a>
+          <a class="story" href="https://halfbitstudio.com/en/how-we-run-our-company-with-hermes-agent/" rel="noopener" target="_blank">
+            <p class="who">A three-person software studio</p>
+            <p>Got a 45-page competitor analysis in hours and background research on 24 leads. “A partner, not an oracle”: it drafts, they decide.</p>
+            <span class="src">halfbitstudio.com ↗</span>
+          </a>
+          <a class="story" href="https://rumjahn.substack.com/p/complete-guide-to-mastering-hermes" rel="noopener" target="_blank">
+            <p class="who">An app maker</p>
+            <p>Gmail and calendar connected, and the weekly sales report lands in Telegram every Monday morning without being asked.</p>
+            <span class="src">rumjahn.substack.com ↗</span>
+          </a>
+          <a class="story" href="https://charliehills.substack.com/p/hermes-agent-beginner-advanced" rel="noopener" target="_blank">
+            <p class="who">A marketing consultant</p>
+            <p>Runs daily team check-ins and answers on WhatsApp through it. “Two weeks in, Hermes is the best hire I have made all year.”</p>
+            <span class="src">charliehills.substack.com ↗</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -351,7 +466,61 @@
       </div>
     </div>
   </section>
+  <!-- ============ faq ============ -->
+  <section class="block" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div>
+        <p class="kicker">Questions</p>
+        <h2 id="faq-title" class="d d-l">Before you <em>reserve</em>.</h2>
+        <p class="lede">Something missing? Write to <a href="mailto:info@inteligentia.eu">info@inteligentia.eu</a>. A person answers.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Do I need to be technical?</summary>
+          <p>No. The box comes set up. You pair it with your chat app and start talking to it. Connecting your email, calendar and apps is something we do with you, not something you configure in a terminal.</p>
+        </details>
+        <details>
+          <summary>What does it cost to run?</summary>
+          <p>The box is a one-time purchase. Everyday work runs on the box itself. For the questions that need a frontier model, you pay your chosen provider directly, and only for what you use. You can set a spending cap with your provider, so there are no surprises.</p>
+        </details>
+        <details>
+          <summary>Is it really private?</summary>
+          <p>Your memory, chats and files stay on the box. When a question needs the cloud, only that question leaves, with names, numbers and addresses masked. It's not 100% private and we won't pretend it is, but it's the least exposure we know how to build. <a href="security.html">Read exactly what leaves</a>, or <a href="proof.html">test it yourself</a>.</p>
+        </details>
+        <details>
+          <summary>Can it send emails or spend money on its own?</summary>
+          <p>Not unless you let it. By default it drafts and you approve: emails, invoices and anything that leaves your name on it wait for your tap.</p>
+        </details>
+        <details>
+          <summary>Which chat apps does it work with?</summary>
+          <p>Telegram, WhatsApp, Signal, Slack, Microsoft Teams, Discord, email and SMS. Most people start with Telegram, because it's the quickest to pair.</p>
+        </details>
+        <details>
+          <summary>What if inteligentia disappears?</summary>
+          <p>Your box keeps working. The agent at its core is open source, your memory and files are on your desk, and you hold the accounts with your chat app and AI provider. Nothing depends on us staying around.</p>
+        </details>
+        <details>
+          <summary>What does reserving commit me to?</summary>
+          <p>Nothing. It's free, with no card. It holds your place for the tier you pick, and you hear from us before orders open. You pay only if you decide to order, after seeing the full terms.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ final call ============ -->
+  <section class="block finale" aria-labelledby="finale-title">
+    <div class="wrap">
+      <span class="orb finale-orb" aria-hidden="true"></span>
+      <h2 id="finale-title" class="d d-l">Give the busywork <em>to your agent</em>.</h2>
+      <p class="lede">The first boxes go to people on the list. Reserving is free and takes ten seconds.</p>
+      <div class="paths center">
+        <a class="btn primary" href="#reserve">Reserve yours, free <span class="arr">→</span></a>
+        <button class="btn ghost" type="button" data-open-agent>Try the preview first</button>
+      </div>
+    </div>
+  </section>
 </main>
+<a class="sticky-cta" id="sticky-cta" href="#reserve" hidden><span>Reserve free</span><b>from €1,299</b></a>
 
 <footer class="foot">
   <div class="wrap">
@@ -441,6 +610,7 @@
 <noscript><style>.rv { opacity: 1; transform: none; } [data-open-agent] { display: none; }</style></noscript>
 <script src="assets/js/strings.js" defer></script>
 <script src="assets/js/agent.js" defer></script>
+<script src="assets/js/persuade.js" defer></script>
 <script>/* hero loop: the still shows until the video is actually playing; reduced motion keeps the still */
 document.querySelectorAll("video.loop").forEach((v) => {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); v.hidden = true; return; }
