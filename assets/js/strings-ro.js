@@ -103,7 +103,7 @@ window.IG_STRINGS.ro = (() => {
   telegram2: "Fără aplicații noi de învățat. Sunt un contact în aplicația de chat pe care o folosești deja, pe telefon și pe laptop. Mesajele tale ajung la cutia de pe biroul tău și acolo gândesc, țin minte și păstrez conversațiile noastre.",
 
   import1: "Da. Adu-ți trecutul cu tine.",
-  import2: "Exportă-ți istoricul din ChatGPT sau Claude (ambele îți permit să-l descarci), dă-mi fișierul și citesc fiecare conversație. Ani de context, mutați de pe serverele lor pe cutie. Importul conversațiilor este în dezvoltare și vine odată cu primele unități.",
+  import2: "Exportă-ți istoricul din ChatGPT sau Claude (ambele îți permit să-l descarci), dă-mi fișierul și citesc fiecare conversație. Ani de context, mutați de pe serverele lor pe cutie.",
   importLabel: "Mutare la tine",
   importRows: [["OpenAI", "conversațiile ChatGPT"], ["Anthropic", "conversațiile Claude"], ["Și alții", "mai multe exporturi, pe măsură ce apar"]],
 
